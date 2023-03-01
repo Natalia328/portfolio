@@ -1,10 +1,10 @@
 {
-  "name": "wordpress_starter",
-  "description": "Wordpress starter pack",
+  "name": "natalia_swierczek_portfolio",
+  "description": "Natalia Świerczek Portfolio",
   "version": "1.8.0",
-  "author": "Mateusz Feć",
+  "author": "Natalia Świerczek",
   "license": "MIT",
-  "homepage": "https://github.com/mateuszfec/Wordpress-Starter",
+  "homepage": "https://github.com/Natalia328/portfolio",
   "scripts": {
     "watch": "npm run gulp watch",
     "build": "npm run gulp build --prod",
@@ -12,10 +12,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mateuszfec/Wordpress-Starter"
+    "url": "https://github.com/Natalia328/portfolio"
   },
   "bugs": {
-    "url": "https://github.com/mateuszfec/Wordpress-Starter/issues"
+    "url": "https://github.com/Natalia328/portfolio/issues"
   },
   "devDependencies": {
     "@babel/core": "^7.15.5",
