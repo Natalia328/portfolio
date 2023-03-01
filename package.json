@@ -6,8 +6,8 @@
   "license": "MIT",
   "homepage": "https://github.com/Natalia328/portfolio",
   "scripts": {
-    "watch": "npm run gulp watch",
-    "build": "npm run gulp build --prod",
+    "watch": "gulp watch",
+    "build": "gulp build --prod",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

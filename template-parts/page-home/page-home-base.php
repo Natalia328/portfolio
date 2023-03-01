@@ -8,7 +8,7 @@
  */
 ?>
 
-<h1>My First Heading</h1>
+<h1>Hello World</h1>
 <p>My first paragraph. 2</p>
 
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/project.min.js" type="module"></script>
