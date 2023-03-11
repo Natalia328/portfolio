@@ -4,4 +4,67 @@
 // Common WS elements
 @import "common/common";
 
+$grayColor: #D8D9D7;
+$greenColor: #025928;
+$lightGreenColor: #9BBF9D;
+$yellowGreenColor: #CED9B8;
+$blackColor: #0D0D0D;
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: 'Aboreto', cursive;
+  background: $blackColor;
+}
+
+
+.homePage {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    padding: 2em 2em;
+    color: $lightGreenColor;
+    .shortInfo {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+    .line {
+        height: 1px;
+        width: 10%;
+        background-color: $greenColor;
+    }
+    h1 {
+        font-size: 10rem;
+    }
+    h2 {
+        font-size: 5rem;
+    }
+}
+
+.homePageAboutMe {
+    .descriptions {
+        align-self: flex-end;
+        width: 60vw;
+        text-align: justify;
+    }
+}
+.homePageWork {
+    .descriptions {
+        align-self: flex-end;
+        justify-content: flex-end;
+    }
+}
