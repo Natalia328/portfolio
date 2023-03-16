@@ -16,8 +16,8 @@ const DASHBOARD_LOGO_ANCHOR = 'project-author-url';
 function load_assets_in_header()
 {
     if (!is_admin()) {
+        // wp_enqueue_style('fonts', 'https://fonts.googleapis.com/css2?family=Aboreto&family=Raleway:wght@100;400;700&display=swap');
         wp_enqueue_style('sample-css', get_template_directory_uri() . '/assets/css/sample.css');
-        // wp_enqueue_style('nsportfolio-css', get_template_directory_uri() . '/assets/css/project.css');
     }
 }
 add_action('init', 'load_assets_in_header', 1);
@@ -49,3 +49,9 @@ function remove_jQuery_from_site()
     }
 }
 add_action('init', 'remove_jQuery_from_site');
+
+function reg_mymenu()
+{
+    register_nav_menu("header-menu", __("Menu główne"));
+}
+add_action("init", "reg_mymenu");

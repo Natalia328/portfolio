@@ -7,8 +7,8 @@
  * Copyright Natalia Świerczek Portfolio © All Rights Reserved
  */
 ?>
-
-<section class="homePage homePageOpening">
+<?php wp_nav_menu(array("theme_location" => "header-menu")); ?>
+<section id="homePageOpening" class="homePage homePageOpening">
     <h1 class="mainTitle"><?php the_field('homePageOpening_mainTitle'); ?></h1>
     <div class="shortInfo">
         <p><?php the_field('homePageOpening_extraDescription1'); ?></p>
@@ -38,7 +38,7 @@
     </div>
 </section>
 
-<section class="homePage homePageContact">
+<section id="homePageContact" class="homePage homePageContact">
     <h2><?php the_field('homePageContact_mainTitle'); ?></h2>
     <div class="shortInfo">
         <p><?php the_field('homePageContact_mail'); ?></p>
