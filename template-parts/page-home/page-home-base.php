@@ -9,7 +9,7 @@
 ?>
 
 <section class="homePage homePageOpening">
-    <h1><?php the_field('homePageOpening_mainTitle'); ?></h1>
+    <h1 class="mainTitle"><?php the_field('homePageOpening_mainTitle'); ?></h1>
     <div class="shortInfo">
         <p><?php the_field('homePageOpening_extraDescription1'); ?></p>
         <p class="line">
@@ -46,6 +46,3 @@
         <p><?php the_field('homePageContact_linkedin'); ?></p>
     </div>
 </section>
-
-<script src="<?php echo get_template_directory_uri(); ?>/assets/js/project.min.js" type="module"></script>
-
