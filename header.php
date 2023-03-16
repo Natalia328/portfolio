@@ -12,7 +12,11 @@
 <html>
 
 <head>
-    <title>Page Title</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Raleway:wght@100;400;700&display=swap" rel="stylesheet">
+<!-- Raleway font not used yet -->
+    <title><?php the_title() ?></title>
 </head>
 
 <body>
