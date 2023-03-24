@@ -7,9 +7,15 @@
  * Copyright Natalia Świerczek Portfolio © All Rights Reserved
  */
 ?>
+<nav class="navigation">
 <?php wp_nav_menu(array("theme_location" => "header-menu")); ?>
+</nav>
+
 <section id="homePageOpening" class="homePage homePageOpening">
-    <h1 class="mainTitle"><?php the_field('homePageOpening_mainTitle'); ?></h1>
+    <div>
+        <h1 class="mainTitle mainTitleName"><?php the_field('homePageOpening_mainTitleName'); ?></h1>
+        <h1 class="mainTitle mainTitleLastName"><?php the_field('homePageOpening_mainTitleLastName'); ?></h1>
+    </div>
     <div class="shortInfo">
         <p><?php the_field('homePageOpening_extraDescription1'); ?></p>
         <p class="line">
@@ -19,7 +25,7 @@
     </div>
 </section>
 
-<section class="homePage homePageAboutMe">
+<section id = "homePageAboutMe" class="homePage homePageAboutMe">
     <h2><?php the_field('homePageAboutMe_mainTitle'); ?></h2>
     <div class="descriptions">
         <p><?php the_field('homePageAboutMe_description1'); ?></p>
@@ -29,7 +35,7 @@
     </div>
 </section>
 
-<section class="homePage homePageWork">
+<section id = "homePageWork" class="homePage homePageWork">
     <h2><?php the_field('homePageWork_mainTitle'); ?></h2>
     <div class="descriptions">
         <p><?php the_field('homePageWork_description1'); ?></p>

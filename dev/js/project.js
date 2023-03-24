@@ -5,10 +5,10 @@
 (function () {
     console.log('Animations start');
 
-    anime({
-        targets: '.homePageOpening .mainTitle',
-        translateX: 250,
-    });
+    // anime({
+    //     targets: '.homePageOpening .mainTitle',
+    //     translateX: 250,
+    // });
 
     // anime({
     //     targets: '.homePageOpening .mainTitle',
