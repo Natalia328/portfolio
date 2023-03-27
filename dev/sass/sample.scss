@@ -110,7 +110,8 @@ body {
     font-size: 15rem;
   }
   h2 {
-    font-size: 5rem;
+    font-size: 10rem;
+    letter-spacing: -10px;
   }
 }
 
@@ -126,4 +127,34 @@ body {
     align-self: flex-end;
     justify-content: flex-end;
   }
+}
+
+.homePageContact {
+  transition: 0.8s;
+  .mail {
+    font-size: 5rem;
+    transition: 0.5s;
+    align-self: center;
+  }
+  .link {
+    text-decoration: none;
+    color: $lightGreenColor;
+  }
+  .contactTitle {
+    transition: 0.5s;
+  }
+  .contactTitleEffect {
+    letter-spacing: 0;
+    font-weight: bold;
+  }
+}
+.homePageContact {
+  .reverseColors {
+    color: $greenColor;
+    font-weight: bold;
+  }
+}
+.reverseColors {
+  background-color: $yellowGreenColor;
+  color: $greenColor;
 }
