@@ -7,9 +7,26 @@
  * Copyright Natalia Świerczek Portfolio © All Rights Reserved
  */
 ?>
+<nav class="navigation">
+    <?php
+    wp_nav_menu(
+        array(
+            "theme_location" => "header-menu",
+            "after" => '<i class="las la-long-arrow-alt-right"></i>'
+        )
+    ); ?>
+    <button class="burger">
+        <i class="fas fa-times hide"></i>
+        <p class="menuBtn">MENU</p>
+    </button>
+</nav>
 
-<section class="homePage homePageOpening">
-    <h1><?php the_field('homePageOpening_mainTitle'); ?></h1>
+<section id="homePageOpening" class="homePage homePageOpening">
+    <div class="mainTitle">
+        <h1 class="mainTitleName"><?php the_field('homePageOpening_mainTitleName'); ?></h1>
+        <h1 class="mainTitleLastName"><?php the_field('homePageOpening_mainTitleLastName'); ?></h1>
+    </div>
+
     <div class="shortInfo">
         <p><?php the_field('homePageOpening_extraDescription1'); ?></p>
         <p class="line">
@@ -19,7 +36,7 @@
     </div>
 </section>
 
-<section class="homePage homePageAboutMe">
+<section id="homePageAboutMe" class="homePage homePageAboutMe">
     <h2><?php the_field('homePageAboutMe_mainTitle'); ?></h2>
     <div class="descriptions">
         <p><?php the_field('homePageAboutMe_description1'); ?></p>
@@ -29,7 +46,7 @@
     </div>
 </section>
 
-<section class="homePage homePageWork">
+<section id="homePageWork" class="homePage homePageWork">
     <h2><?php the_field('homePageWork_mainTitle'); ?></h2>
     <div class="descriptions">
         <p><?php the_field('homePageWork_description1'); ?></p>
@@ -38,7 +55,7 @@
     </div>
 </section>
 
-<section class="homePage homePageContact">
+<section id="homePageContact" class="homePage homePageContact">
     <h2><?php the_field('homePageContact_mainTitle'); ?></h2>
     <div class="shortInfo">
         <p><?php the_field('homePageContact_mail'); ?></p>
@@ -46,6 +63,3 @@
         <p><?php the_field('homePageContact_linkedin'); ?></p>
     </div>
 </section>
-
-<script src="<?php echo get_template_directory_uri(); ?>/assets/js/project.min.js" type="module"></script>
-

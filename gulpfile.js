@@ -15,8 +15,8 @@ const enableStylus = false;
 // JS libraries to build by Gulp
 const jsLibraries = [
     '!./dev/js/*.js',
-    './dev/js/common/bootstrap/bootstrap.bundle.min.js',
-    //'./dev/js/common/foundation/foundation.min.js'
+    './dev/js/common/animejs/anime.min.js',
+    './dev/js/common/bootstrap/bootstrap.bundle.min.js'
 ];
 
 // Libraries
@@ -39,37 +39,37 @@ const stripDebug = require('gulp-strip-debug');
 const gulpCleanCss = require('gulp-clean-css');
 const gulpSourcemaps = require('gulp-sourcemaps');
 const autoPrefixer = require("gulp-autoprefixer");
-const lessAutoPrefixer = require('less-plugin-autoprefix'), lessAutoPrefix = new lessAutoPrefixer({browsers: ['last 5 versions']});
+const lessAutoPrefixer = require('less-plugin-autoprefix'), lessAutoPrefix = new lessAutoPrefixer({ browsers: ['last 5 versions'] });
 // const gulpHtmlMin = require('gulp-htmlmin');
 
 // Globals
 let themeVariants = {};
 const isProduction = process.argv.indexOf("--prod") >= 0,
-      cleanOldFiles = process.argv.indexOf("--save") < 0,
-      disableStrictMode = process.argv.indexOf("--nostrict") >= 0,
-      runProxy = process.argv.findIndex(value => /^--sync/.test(value)) >=0 ? process.argv.find(value => /^--sync/.test(value)) : null,
-      proxyValue = runProxy !== null && runProxy.split('=')[1] ? runProxy.split('=')[1] : 'http://localhost/',
-      host = proxyValue.replace(/(http:\/\/)|(https:\/\/)/gm, '').split('/')[0] || 'localhost',
-      portParameter = process.argv.findIndex(value => /^--port/.test(value)) >=0 ? process.argv.find(value => /^--port/.test(value)) : null,
-      portValue = portParameter !== null && portParameter.split('=')[1] ? portParameter.split('=')[1] : 3000,
-      logs = process.argv.indexOf("--log2") > 0 ? 2 : process.argv.indexOf("--log1") > 0 ? 1 : 0,
-      browserSyncOptions = {
-          watch: true,
-          watchOptions: {
-              ignoreInitial: true
-          },
-          files: ['assets/**/*', '**/*.php', '**/*.html'],
-          open: false,
-          https: true
-      };
+    cleanOldFiles = process.argv.indexOf("--save") < 0,
+    disableStrictMode = process.argv.indexOf("--nostrict") >= 0,
+    runProxy = process.argv.findIndex(value => /^--sync/.test(value)) >= 0 ? process.argv.find(value => /^--sync/.test(value)) : null,
+    proxyValue = runProxy !== null && runProxy.split('=')[1] ? runProxy.split('=')[1] : 'http://localhost/',
+    host = proxyValue.replace(/(http:\/\/)|(https:\/\/)/gm, '').split('/')[0] || 'localhost',
+    portParameter = process.argv.findIndex(value => /^--port/.test(value)) >= 0 ? process.argv.find(value => /^--port/.test(value)) : null,
+    portValue = portParameter !== null && portParameter.split('=')[1] ? portParameter.split('=')[1] : 3000,
+    logs = process.argv.indexOf("--log2") > 0 ? 2 : process.argv.indexOf("--log1") > 0 ? 1 : 0,
+    browserSyncOptions = {
+        watch: true,
+        watchOptions: {
+            ignoreInitial: true
+        },
+        files: ['assets/**/*', '**/*.php', '**/*.html'],
+        open: false,
+        https: true
+    };
 
-if (runProxy){
+if (runProxy) {
     browserSyncOptions.host = host;
     browserSyncOptions.proxy = proxyValue;
     browserSyncOptions.port = portValue || 3000;
 }
 
-function watch(){
+function watch() {
     const stylesWatcher = chokidar.watch([
         `./dev/less/**/*.less`, `./dev/sass/**/*.scss`, `./dev/stylus/**/*.styl`, `./dev/css/**/*.css`
     ]);
@@ -98,7 +98,7 @@ function watch(){
         log.info("Finished - Waiting for changes...");
     });
 
-    jsWatcher.on('change', async ()=>{
+    jsWatcher.on('change', async () => {
         log.info("Starting - JS compiler...");
         await cleanJavaScript();
         await javaScript();
@@ -107,7 +107,7 @@ function watch(){
         log.info("Finished - Waiting for changes...");
     });
 
-    assetsWatcher.on('change', async ()=>{
+    assetsWatcher.on('change', async () => {
         log.info("Starting - ASSETS (images + fonts) compiler...");
         await fonts();
         await images();
@@ -128,7 +128,7 @@ async function stylesCompiler() {
     await runFunctionOnVariant(concatVariantStyles);
     if (logs >= 1) log("Finished - All variants are concatenated successfully");
 
-    if (cleanOldFiles){
+    if (cleanOldFiles) {
         await del([`./assets/styles`]);
         if (logs >= 2) log("Finished - All temporary files are deleted successfully");
     }
@@ -136,13 +136,13 @@ async function stylesCompiler() {
     if (logs >= 1) log("Finished - All CSS files are created successfully");
 }
 
-async function runBrowserSync(){
-    if (runProxy){
+async function runBrowserSync() {
+    if (runProxy) {
         return await new Promise((resolve, reject) => {
             gulp.src('*')
                 .pipe(browserSync.stream())
                 .on("error", (err) => { reject(err) })
-                .on("finish", ()=>{
+                .on("finish", () => {
                     if (logs >= 2) log(`Finished - Browsersync finished`);
                     resolve(true);
                 });
@@ -150,25 +150,25 @@ async function runBrowserSync(){
     } else return Promise.resolve();
 }
 
-async function concatVariantStyles (type, variant) {
+async function concatVariantStyles(type, variant) {
     let finalSource = [`./dev/css/**/*.css`];
 
     finalSource = await concatIfExist(`./assets/styles/${variant}/${variant}-wscss-styl.css`, finalSource);
     finalSource = await concatIfExist(`./assets/styles/${variant}/${variant}-wscss-less.css`, finalSource);
     finalSource = await concatIfExist(`./assets/styles/${variant}/${variant}-wscss-sass.css`, finalSource);
 
-    if (finalSource.length > 0){
+    if (finalSource.length > 0) {
         return await new Promise((resolve, reject) => {
             gulp.src(finalSource)
-                .pipe(gulpIf(!isProduction, gulpSourcemaps.init({loadMaps: true})))
-                    //.pipe(gulpIf(isProduction, mergeMediaQueries())) TODO: Merge all media-queries
-                    .pipe(concat(`${variant.split("-wscss-")[0]}.css`))
-                    .pipe(gulpIf(!isProduction, gulpCleanCss()))
-                    .pipe(gulpIf(isProduction, gulpCleanCss({level: {1: {specialComments: 0}}})))
+                .pipe(gulpIf(!isProduction, gulpSourcemaps.init({ loadMaps: true })))
+                //.pipe(gulpIf(isProduction, mergeMediaQueries())) TODO: Merge all media-queries
+                .pipe(concat(`${variant.split("-wscss-")[0]}.css`))
+                .pipe(gulpIf(!isProduction, gulpCleanCss()))
+                .pipe(gulpIf(isProduction, gulpCleanCss({ level: { 1: { specialComments: 0 } } })))
                 .pipe(gulpIf(!isProduction, gulpSourcemaps.write('.')))
                 .pipe(gulp.dest(`./assets/css/`))
                 .on("error", (err) => { reject(err) })
-                .on("finish", ()=>{
+                .on("finish", () => {
                     if (logs >= 2) log(`Finished - All CSS for ${variant} are concatenated`);
                     resolve(true);
                 });
@@ -176,26 +176,26 @@ async function concatVariantStyles (type, variant) {
     } else return Promise.resolve();
 }
 
-function sassCompiler(type, variant){
-    if (!type || !variant){
+function sassCompiler(type, variant) {
+    if (!type || !variant) {
         if (logs >= 1) log.error(`ERROR - SASS compiler - type: [${type}] | variant: [${variant}]`);
         return Promise.resolve();
     } else if (logs >= 2) log.info(` INFO - SASS compiler - variant: [${variant}]`);
 
-    if (type === 'sass'){
+    if (type === 'sass') {
         return new Promise((resolve, reject) => {
             gulp.src(`./dev/sass/${variant}.scss`)
-                .pipe(gulpIf(!isProduction, gulpSourcemaps.init({loadMaps: true})))
-                    .pipe(gulpSass().on('error', gulpSass.logError))
-                    .pipe(autoPrefixer({
-                        cascade: false,
-                        remove: false
-                    }))
-                    .pipe(concat(`${variant}-wscss-sass.css`))
+                .pipe(gulpIf(!isProduction, gulpSourcemaps.init({ loadMaps: true })))
+                .pipe(gulpSass().on('error', gulpSass.logError))
+                .pipe(autoPrefixer({
+                    cascade: false,
+                    remove: false
+                }))
+                .pipe(concat(`${variant}-wscss-sass.css`))
                 .pipe(gulpIf(!isProduction, gulpSourcemaps.write('.')))
                 .pipe(gulp.dest(`./assets/styles/${variant}`))
                 .on("error", (err) => { reject(err) })
-                .on("finish", ()=>{
+                .on("finish", () => {
                     if (logs >= 2 && variant) {
                         log(`Finished - SASS > [${variant}] variant compiled successfully`);
                     } else if (logs >= 2) {
@@ -207,24 +207,24 @@ function sassCompiler(type, variant){
     } else return Promise.resolve();
 }
 
-function lessCompiler(type, variant){
-    if (!type || !variant){
+function lessCompiler(type, variant) {
+    if (!type || !variant) {
         if (logs >= 1) log.error(`ERROR - LESS compiler - type: [${type}] | variant: [${variant}]`);
         return Promise.resolve();
     } else if (logs >= 2) log.info(` INFO - LESS compiler - variant: [${variant}]`);
 
-    if (type === 'less'){
+    if (type === 'less') {
         return new Promise((resolve, reject) => {
             gulp.src(`./dev/less/${variant}.less`)
-                .pipe(gulpIf(!isProduction, gulpSourcemaps.init({loadMaps: true})))
-                    .pipe(gulpLess({
-                        plugins: [lessAutoPrefix]
-                    }))
-                    .pipe(concat(`${variant}-wscss-less.css`))
+                .pipe(gulpIf(!isProduction, gulpSourcemaps.init({ loadMaps: true })))
+                .pipe(gulpLess({
+                    plugins: [lessAutoPrefix]
+                }))
+                .pipe(concat(`${variant}-wscss-less.css`))
                 .pipe(gulpIf(!isProduction, gulpSourcemaps.write('.')))
                 .pipe(gulp.dest(`./assets/styles/${variant}`))
                 .on("error", (err) => { reject(err) })
-                .on("finish", ()=>{
+                .on("finish", () => {
                     if (logs >= 2 && variant) {
                         log(`Finished - LESS > [${variant}] variant compiled successfully`);
                     } else if (logs >= 2) {
@@ -236,22 +236,22 @@ function lessCompiler(type, variant){
     } else return Promise.resolve();
 }
 
-function stylusCompiler(type, variant){
-    if (!type || !variant){
+function stylusCompiler(type, variant) {
+    if (!type || !variant) {
         if (logs >= 1) log.error(`ERROR - STYLUS compiler - type: [${type}] | variant: [${variant}]`);
         return Promise.resolve();
     } else if (logs >= 2) log.info(` INFO - STYLUS compiler - variant: [${variant}]`);
 
-    if (type === 'stylus'){
+    if (type === 'stylus') {
         return new Promise((resolve, reject) => {
             gulp.src(`./dev/stylus/${variant}.styl`)
-                .pipe(gulpIf(!isProduction, gulpSourcemaps.init({loadMaps: true})))
-                    .pipe(gulpStylus())
-                    .pipe(concat(`${variant}-wscss-styl.css`))
+                .pipe(gulpIf(!isProduction, gulpSourcemaps.init({ loadMaps: true })))
+                .pipe(gulpStylus())
+                .pipe(concat(`${variant}-wscss-styl.css`))
                 .pipe(gulpIf(!isProduction, gulpSourcemaps.write('.')))
                 .pipe(gulp.dest(`./assets/styles/${variant}`))
                 .on("error", (err) => { reject(err) })
-                .on("finish", ()=>{
+                .on("finish", () => {
                     if (logs >= 2 && variant) {
                         log(`Finished - STYLUS > [${variant}] variant compiled successfully`);
                     } else if (logs >= 2) {
@@ -269,7 +269,7 @@ function prepareVariants(type) {
         return false;
     }
 
-    if (themeVariants.constructor === Object && !themeVariants[type]){
+    if (themeVariants.constructor === Object && !themeVariants[type]) {
         let typeVariants = [];
 
         return fs.readdirSync(`./dev/${type}/`).forEach(file => {
@@ -281,9 +281,9 @@ function prepareVariants(type) {
 }
 
 async function runFunctionOnVariant(functionName, options) {
-    for(let i = 0; i < Object.keys(themeVariants).length; i++){
+    for (let i = 0; i < Object.keys(themeVariants).length; i++) {
         const singleVariant = Object.keys(themeVariants)[i];
-        for(let j = 0; j < themeVariants[Object.keys(themeVariants)[i]].length; j++){
+        for (let j = 0; j < themeVariants[Object.keys(themeVariants)[i]].length; j++) {
             const singleTypeVariant = themeVariants[Object.keys(themeVariants)[i]][j];
             await functionName(singleVariant, singleTypeVariant, options);
         }
@@ -301,17 +301,17 @@ async function concatIfExist(directory, source) {
 function javaScript() {
     return new Promise((resolve, reject) => {
         gulp.src(['./dev/js/*.js', '!./dev/js/**/*.min.js'])
-            .pipe(gulpIf(!isProduction, gulpSourcemaps.init({loadMaps: true})))
-                // .pipe(gulpIf(isProduction, stripDebug()))
-                // .pipe(gulpIf(!disableStrictMode, babel()))
-                .pipe(minify({
-                    noSource: true,
-                    ext: {min: '.min.js'}
-                }))
+            .pipe(gulpIf(!isProduction, gulpSourcemaps.init({ loadMaps: true })))
+            // .pipe(gulpIf(isProduction, stripDebug()))
+            // .pipe(gulpIf(!disableStrictMode, babel()))
+            .pipe(minify({
+                noSource: true,
+                ext: { min: '.min.js' }
+            }))
             .pipe(gulpIf(!isProduction, gulpSourcemaps.write('.')))
             .pipe(gulp.dest('./assets/js'))
             .on("error", (err) => { reject(err) })
-            .on("finish", ()=>{
+            .on("finish", () => {
                 if (logs >= 1) log("Finished - All JS files are compiled successfully");
                 resolve(true);
             });
@@ -319,14 +319,14 @@ function javaScript() {
 }
 
 function javaScriptLibraries() {
-    if (jsLibraries && jsLibraries.length > 0){
+    if (jsLibraries && jsLibraries.length > 0) {
         return new Promise((resolve, reject) => {
-            gulp.src(jsLibraries, {base: './dev/js/'})
-                .pipe(gulpIf(!isProduction, gulpSourcemaps.init({loadMaps: true})))
+            gulp.src(jsLibraries, { base: './dev/js/' })
+                .pipe(gulpIf(!isProduction, gulpSourcemaps.init({ loadMaps: true })))
                 .pipe(gulpIf(!isProduction, gulpSourcemaps.write('.')))
                 .pipe(gulp.dest('./assets/js'))
                 .on("error", (err) => { reject(err) })
-                .on("finish", ()=>{
+                .on("finish", () => {
                     if (logs >= 1) log("Finished - All JS libraries files are copied successfully");
                     resolve(true);
                 });
@@ -343,24 +343,24 @@ function javaScriptLibraries() {
 //         .pipe(gulp.dest('./assets'));
 // }
 
-function fonts(){
+function fonts() {
     return new Promise((resolve, reject) => {
         gulp.src(`./dev/fonts/**/*`)
             .pipe(gulp.dest(`./assets/fonts`))
             .on("error", (err) => { reject(err) })
-            .on("finish", ()=>{
+            .on("finish", () => {
                 if (logs >= 1) log("Finished - All FONTS are copied successfully");
                 resolve(true);
             });
     });
 }
 
-function images(){
+function images() {
     return new Promise((resolve, reject) => {
         gulp.src(`./dev/images/**/*`)
             .pipe(gulp.dest(`./assets/images`))
             .on("error", (err) => { reject(err) })
-            .on("finish", ()=>{
+            .on("finish", () => {
                 if (logs >= 1) log("Finished - All IMAGES are copied successfully");
                 resolve(true);
             });
@@ -368,7 +368,7 @@ function images(){
 }
 
 function cleanAll() {
-    if (cleanOldFiles){
+    if (cleanOldFiles) {
         return del([`./assets`]);
     } else {
         return Promise.resolve();
@@ -376,15 +376,15 @@ function cleanAll() {
 }
 
 function cleanStyles() {
-    if (cleanOldFiles){
+    if (cleanOldFiles) {
         return del([`./assets/styles`, `./assets/css`]);
     } else {
         return Promise.resolve();
     }
 }
 
-function cleanJavaScript(){
-    if (cleanOldFiles){
+function cleanJavaScript() {
+    if (cleanOldFiles) {
         return del([`./assets/js`]);
     } else {
         return Promise.resolve();
