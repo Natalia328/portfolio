@@ -12,7 +12,7 @@
     wp_nav_menu(
         array(
             "theme_location" => "header-menu",
-            "after" => '<i class="las la-long-arrow-alt-right"></i>'
+            "after" => '<i class="fa-regular fa-arrow-right"></i>'
         )
     ); ?>
     <button class="burger">
