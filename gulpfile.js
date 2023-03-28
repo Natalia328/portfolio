@@ -1,29 +1,29 @@
 'use strict';
-​
+
 // GULP OPTIONS:
 // --prod      | minify and clean all code
 // --save      | save all temporary (build) files in assets directory
 // --nostrict  | no-strict mode for JavaScript code
 // --sync      | sync browser by Browsersync | Optional: --sync=http://your-proxy-to-domain.dev/
 // --port      | custom port for Browsersync | Default: 3000
-​
+
 // CSS preprocessors to use by Gulp
 const enableSASS = true;
-​
+
 // JS libraries to build by Gulp
 const jsLibraries = [
     '!./dev/js/*.js',
     './dev/js/common/animejs/anime.min.js',
     './dev/js/common/bootstrap/bootstrap.bundle.min.js'
 ];
-​
+
 // Libraries
 const fs = require('fs');
 const del = require('del');
 const log = require('fancy-log');
 const chokidar = require('chokidar');
 const browserSync = require('browser-sync').create();
-​
+
 // Gulp libraries
 const gulp = require('gulp');
 const gulpIf = require('gulp-if');
@@ -36,7 +36,7 @@ const gulpCleanCss = require('gulp-clean-css');
 const gulpSourcemaps = require('gulp-sourcemaps');
 const autoPrefixer = require("gulp-autoprefixer");
 // const gulpHtmlMin = require('gulp-htmlmin');
-​
+
 // Globals
 let themeVariants = {};
 const isProduction = process.argv.indexOf("--prod") >= 0,
@@ -57,22 +57,22 @@ const isProduction = process.argv.indexOf("--prod") >= 0,
         open: false,
         https: true
     };
-​
+
 if (runProxy) {
     browserSyncOptions.host = host;
     browserSyncOptions.proxy = proxyValue;
     browserSyncOptions.port = portValue || 3000;
 }
-​
+
 function watch() {
     const stylesWatcher = chokidar.watch([
         `./dev/sass/**/*.scss`, `./dev/css/**/*.css`
     ]);
     const jsWatcher = chokidar.watch([`./dev/js/**/*.js`]);
     const assetsWatcher = chokidar.watch([`./dev/images/**/*`, `./dev/fonts/**/*`]);
-​
+
     if (runProxy) browserSync.init(browserSyncOptions);
-​
+
     stylesWatcher.on('ready', async () => {
         log.info("Starting - Initial build...");
         await cleanAll();
@@ -84,7 +84,7 @@ function watch() {
         await runBrowserSync();
         log.info("Finished - Waiting for changes...");
     });
-​
+
     stylesWatcher.on('change', async () => {
         log.info("Starting - Styles compiler...");
         await cleanStyles();
@@ -92,7 +92,7 @@ function watch() {
         await runBrowserSync();
         log.info("Finished - Waiting for changes...");
     });
-​
+
     jsWatcher.on('change', async () => {
         log.info("Starting - JS compiler...");
         await cleanJavaScript();
@@ -101,7 +101,7 @@ function watch() {
         await runBrowserSync();
         log.info("Finished - Waiting for changes...");
     });
-​
+
     assetsWatcher.on('change', async () => {
         log.info("Starting - ASSETS (images + fonts) compiler...");
         await fonts();
@@ -110,22 +110,22 @@ function watch() {
         log.info("Finished - Waiting for changes...");
     });
 }
-​
+
 async function stylesCompiler() {
     if (enableSASS) prepareVariants('sass');
     if (enableSASS) await runFunctionOnVariant(sassCompiler);
-​
+
     await runFunctionOnVariant(concatVariantStyles);
     if (logs >= 1) log("Finished - All variants are concatenated successfully");
-​
+
     if (cleanOldFiles) {
         await del([`./assets/styles`]);
         if (logs >= 2) log("Finished - All temporary files are deleted successfully");
     }
-​
+
     if (logs >= 1) log("Finished - All CSS files are created successfully");
 }
-​
+
 async function runBrowserSync() {
     if (runProxy) {
         return await new Promise((resolve, reject) => {
@@ -139,12 +139,12 @@ async function runBrowserSync() {
         });
     } else return Promise.resolve();
 }
-​
+
 async function concatVariantStyles(type, variant) {
     let finalSource = [`./dev/css/**/*.css`];
-​
+
     finalSource = await concatIfExist(`./assets/styles/${variant}/${variant}-wscss-sass.css`, finalSource);
-​
+
     if (finalSource.length > 0) {
         return await new Promise((resolve, reject) => {
             gulp.src(finalSource)
@@ -163,13 +163,13 @@ async function concatVariantStyles(type, variant) {
         });
     } else return Promise.resolve();
 }
-​
+
 function sassCompiler(type, variant) {
     if (!type || !variant) {
         if (logs >= 1) log.error(`ERROR - SASS compiler - type: [${type}] | variant: [${variant}]`);
         return Promise.resolve();
     } else if (logs >= 2) log.info(` INFO - SASS compiler - variant: [${variant}]`);
-​
+
     if (type === 'sass') {
         return new Promise((resolve, reject) => {
             gulp.src(`./dev/sass/${variant}.scss`)
@@ -194,16 +194,16 @@ function sassCompiler(type, variant) {
         });
     } else return Promise.resolve();
 }
-​
+
 function prepareVariants(type) {
     if (type && !(type === 'sass')) {
         if (logs >= 1) log.error(`ERROR - Schema [${type}] is not supported by Websites starter`);
         return false;
     }
-​
+
     if (themeVariants.constructor === Object && !themeVariants[type]) {
         let typeVariants = [];
-​
+
         return fs.readdirSync(`./dev/${type}/`).forEach(file => {
             const variantName = file.substring(0, file.indexOf('.'));
             if (variantName) typeVariants.push(variantName);
@@ -211,7 +211,7 @@ function prepareVariants(type) {
         });
     }
 }
-​
+
 async function runFunctionOnVariant(functionName, options) {
     for (let i = 0; i < Object.keys(themeVariants).length; i++) {
         const singleVariant = Object.keys(themeVariants)[i];
@@ -221,7 +221,7 @@ async function runFunctionOnVariant(functionName, options) {
         }
     }
 }
-​
+
 async function concatIfExist(directory, source) {
     if (await fs.existsSync(directory)) {
         return source.concat(directory);
@@ -229,7 +229,7 @@ async function concatIfExist(directory, source) {
         return await source;
     }
 }
-​
+
 function javaScript() {
     return new Promise((resolve, reject) => {
         gulp.src(['./dev/js/*.js', '!./dev/js/**/*.min.js'])
@@ -249,7 +249,7 @@ function javaScript() {
             });
     });
 }
-​
+
 function javaScriptLibraries() {
     if (jsLibraries && jsLibraries.length > 0) {
         return new Promise((resolve, reject) => {
@@ -265,7 +265,7 @@ function javaScriptLibraries() {
         });
     } else return Promise.resolve();
 }
-​
+
 // function html() {
 //     return gulp.src(['./*.html','./*.php'])
 //         .pipe(htmlMIN({
@@ -274,7 +274,7 @@ function javaScriptLibraries() {
 //         }))
 //         .pipe(gulp.dest('./assets'));
 // }
-​
+
 function fonts() {
     return new Promise((resolve, reject) => {
         gulp.src(`./dev/fonts/**/*`)
@@ -286,7 +286,7 @@ function fonts() {
             });
     });
 }
-​
+
 function images() {
     return new Promise((resolve, reject) => {
         gulp.src(`./dev/images/**/*`)
@@ -298,7 +298,7 @@ function images() {
             });
     });
 }
-​
+
 function cleanAll() {
     if (cleanOldFiles) {
         return del([`./assets`]);
@@ -306,7 +306,7 @@ function cleanAll() {
         return Promise.resolve();
     }
 }
-​
+
 function cleanStyles() {
     if (cleanOldFiles) {
         return del([`./assets/styles`, `./assets/css`]);
@@ -314,7 +314,7 @@ function cleanStyles() {
         return Promise.resolve();
     }
 }
-​
+
 function cleanJavaScript() {
     if (cleanOldFiles) {
         return del([`./assets/js`]);
@@ -322,11 +322,12 @@ function cleanJavaScript() {
         return Promise.resolve();
     }
 }
-​
+
 exports.watch = watch;
 exports.build = gulp.series(cleanAll, images, fonts, stylesCompiler, javaScript, javaScriptLibraries);
 exports.clean = cleanAll;
 exports.assets = gulp.series(images, fonts);
 exports.styles = gulp.series(cleanStyles, stylesCompiler);
 exports.js = gulp.series(cleanJavaScript, javaScript, javaScriptLibraries);
-​
+
+// exports.html = html
