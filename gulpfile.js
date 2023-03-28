@@ -9,8 +9,6 @@
 
 // CSS preprocessors to use by Gulp
 const enableSASS = true;
-const enableLESS = false;
-const enableStylus = false;
 
 // JS libraries to build by Gulp
 const jsLibraries = [
@@ -33,13 +31,10 @@ const babel = require('gulp-babel');
 const minify = require('gulp-minify');
 const concat = require('gulp-concat');
 const gulpSass = require('gulp-sass')(require('sass'));
-const gulpLess = require('gulp-less');
-const gulpStylus = require('gulp-stylus');
 const stripDebug = require('gulp-strip-debug');
 const gulpCleanCss = require('gulp-clean-css');
 const gulpSourcemaps = require('gulp-sourcemaps');
 const autoPrefixer = require("gulp-autoprefixer");
-const lessAutoPrefixer = require('less-plugin-autoprefix'), lessAutoPrefix = new lessAutoPrefixer({ browsers: ['last 5 versions'] });
 // const gulpHtmlMin = require('gulp-htmlmin');
 
 // Globals
@@ -71,7 +66,7 @@ if (runProxy) {
 
 function watch() {
     const stylesWatcher = chokidar.watch([
-        `./dev/less/**/*.less`, `./dev/sass/**/*.scss`, `./dev/stylus/**/*.styl`, `./dev/css/**/*.css`
+        `./dev/sass/**/*.scss`, `./dev/css/**/*.css`
     ]);
     const jsWatcher = chokidar.watch([`./dev/js/**/*.js`]);
     const assetsWatcher = chokidar.watch([`./dev/images/**/*`, `./dev/fonts/**/*`]);
@@ -118,12 +113,7 @@ function watch() {
 
 async function stylesCompiler() {
     if (enableSASS) prepareVariants('sass');
-    if (enableLESS) prepareVariants('less');
-    if (enableStylus) prepareVariants('stylus');
-
     if (enableSASS) await runFunctionOnVariant(sassCompiler);
-    if (enableLESS) await runFunctionOnVariant(lessCompiler);
-    if (enableStylus) await runFunctionOnVariant(stylusCompiler);
 
     await runFunctionOnVariant(concatVariantStyles);
     if (logs >= 1) log("Finished - All variants are concatenated successfully");
@@ -153,8 +143,6 @@ async function runBrowserSync() {
 async function concatVariantStyles(type, variant) {
     let finalSource = [`./dev/css/**/*.css`];
 
-    finalSource = await concatIfExist(`./assets/styles/${variant}/${variant}-wscss-styl.css`, finalSource);
-    finalSource = await concatIfExist(`./assets/styles/${variant}/${variant}-wscss-less.css`, finalSource);
     finalSource = await concatIfExist(`./assets/styles/${variant}/${variant}-wscss-sass.css`, finalSource);
 
     if (finalSource.length > 0) {
@@ -207,64 +195,8 @@ function sassCompiler(type, variant) {
     } else return Promise.resolve();
 }
 
-function lessCompiler(type, variant) {
-    if (!type || !variant) {
-        if (logs >= 1) log.error(`ERROR - LESS compiler - type: [${type}] | variant: [${variant}]`);
-        return Promise.resolve();
-    } else if (logs >= 2) log.info(` INFO - LESS compiler - variant: [${variant}]`);
-
-    if (type === 'less') {
-        return new Promise((resolve, reject) => {
-            gulp.src(`./dev/less/${variant}.less`)
-                .pipe(gulpIf(!isProduction, gulpSourcemaps.init({ loadMaps: true })))
-                .pipe(gulpLess({
-                    plugins: [lessAutoPrefix]
-                }))
-                .pipe(concat(`${variant}-wscss-less.css`))
-                .pipe(gulpIf(!isProduction, gulpSourcemaps.write('.')))
-                .pipe(gulp.dest(`./assets/styles/${variant}`))
-                .on("error", (err) => { reject(err) })
-                .on("finish", () => {
-                    if (logs >= 2 && variant) {
-                        log(`Finished - LESS > [${variant}] variant compiled successfully`);
-                    } else if (logs >= 2) {
-                        log(`Finished - LESS files are compiled successfully`);
-                    }
-                    resolve(true);
-                });
-        });
-    } else return Promise.resolve();
-}
-
-function stylusCompiler(type, variant) {
-    if (!type || !variant) {
-        if (logs >= 1) log.error(`ERROR - STYLUS compiler - type: [${type}] | variant: [${variant}]`);
-        return Promise.resolve();
-    } else if (logs >= 2) log.info(` INFO - STYLUS compiler - variant: [${variant}]`);
-
-    if (type === 'stylus') {
-        return new Promise((resolve, reject) => {
-            gulp.src(`./dev/stylus/${variant}.styl`)
-                .pipe(gulpIf(!isProduction, gulpSourcemaps.init({ loadMaps: true })))
-                .pipe(gulpStylus())
-                .pipe(concat(`${variant}-wscss-styl.css`))
-                .pipe(gulpIf(!isProduction, gulpSourcemaps.write('.')))
-                .pipe(gulp.dest(`./assets/styles/${variant}`))
-                .on("error", (err) => { reject(err) })
-                .on("finish", () => {
-                    if (logs >= 2 && variant) {
-                        log(`Finished - STYLUS > [${variant}] variant compiled successfully`);
-                    } else if (logs >= 2) {
-                        log(`Finished - STYLUS files are compiled successfully`);
-                    }
-                    resolve(true);
-                });
-        });
-    } else return Promise.resolve();
-}
-
 function prepareVariants(type) {
-    if (type && !(type === 'sass' || type === 'less' || type === 'stylus')) {
+    if (type && !(type === 'sass')) {
         if (logs >= 1) log.error(`ERROR - Schema [${type}] is not supported by Websites starter`);
         return false;
     }
