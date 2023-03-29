@@ -12,11 +12,11 @@
     wp_nav_menu(
         array(
             "theme_location" => "header-menu",
-            "after" => '<i class="fa-regular fa-arrow-right"></i>'
+            // "after" => '<i class="fa-regular fa-arrow-right"></i>'
         )
     ); ?>
     <button class="burger">
-        <i class="fas fa-times hide"></i>
+        <!-- <i class="fas fa-times hide"></i> -->
         <p class="menuBtn">MENU</p>
     </button>
 </nav>
@@ -56,11 +56,11 @@
 </section>
 
 <section id="homePageContact" class="homePage homePageContact">
-    <h2 class= "contactTitle"><?php the_field('homePageContact_mainTitle'); ?></h2>
+    <h2 class="contactTitle"><?php the_field('homePageContact_mainTitle'); ?></h2>
     <a class="mail link reverseColors" href="mailto:<?php the_field('homePageContact_mail'); ?>"> <?php the_field('homePageContact_mail'); ?></a>
     <div class="shortInfo">
         <!-- <p class="line"> -->
-        <a class= "link reverseColors" href="<?php the_field('homePageContact_linkedinURL'); ?>">
-        <?php the_field('homePageContact_linkedin'); ?> </a>
+        <a class="link reverseColors" href="<?php the_field('homePageContact_linkedinURL'); ?>">
+            <?php the_field('homePageContact_linkedin'); ?> </a>
     </div>
 </section>
