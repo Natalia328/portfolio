@@ -56,11 +56,11 @@
 </section>
 
 <section id="homePageContact" class="homePage homePageContact">
+
     <h2 class="contactTitle"><?php the_field('homePageContact_mainTitle'); ?></h2>
-    <a class="mail link reverseColors" href="mailto:<?php the_field('homePageContact_mail'); ?>"> <?php the_field('homePageContact_mail'); ?></a>
-    <div class="shortInfo">
-        <!-- <p class="line"> -->
-        <a class="link reverseColors" href="<?php the_field('homePageContact_linkedinURL'); ?>">
-            <?php the_field('homePageContact_linkedin'); ?> </a>
+    <div class="marquee">
+    <a class="link mail" href="mailto:<?php the_field('homePageContact_mail'); ?>"> <?php the_field('homePageContact_mail'); ?></a>
     </div>
+    <a class ="link linkedIn" href="<?php the_field('homePageContact_linkedin'); ?>" target="_blank">LinkedIn</a>
+
 </section>

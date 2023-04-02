@@ -88,7 +88,6 @@ body::-webkit-scrollbar-thumb:hover {
       a:hover {
         color: $mainMediumColor;
         letter-spacing: 0;
-
       }
     }
 
@@ -121,7 +120,7 @@ body::-webkit-scrollbar-thumb:hover {
   &.active {
     position: absolute;
     z-index: 5;
-    .menu{
+    .menu {
       left: 0;
     }
   }
@@ -172,30 +171,38 @@ body::-webkit-scrollbar-thumb:hover {
 
 .homePageContact {
   transition: 0.8s;
-  .mail {
-    font-size: 5rem;
-    transition: 0.5s;
+  overflow: hidden;
+  .marquee {
+    display: flex;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    gap: 1rem;
+  }
+  .marquee .mail {
+    font-size: 10rem;
+    white-space: nowrap;
     align-self: center;
   }
+  
   .link {
     text-decoration: none;
-    color: $mediumLightColor;
-  }
-  .contactTitle {
-    transition: 0.5s;
-  }
-  .contactTitleEffect {
-    letter-spacing: 0;
+    color: $darkColor;
     font-weight: bold;
   }
+  
+  .link:hover {
+    text-decoration: underline;
+    font-weight: bold;
+  }
+  .linkedIn {
+    font-size: 2.5rem;
+    letter-spacing: 5px;
+    align-self: center;
 }
-.homePageContact {
-  .reverseColors {
-    color: $mainMediumColor;
-    font-weight: bold;
-  }
 }
 .reverseColors {
-  background-color: $mainLightColor;
-  color: $mainMediumColor;
+  color: $darkColor;
+  background-color: $mainMediumColor;
 }
+
