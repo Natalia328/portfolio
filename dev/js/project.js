@@ -14,24 +14,41 @@
 })();
 
 const burgerBtn = document.querySelector('.burger');
-const menuBtn = document.querySelector('.menuBtn');
-const closeBtn = document.querySelector('.fa-times');
-const nav = document.querySelector('.menu');
+const nav = document.querySelector('.navigation');
 const liList = document.querySelectorAll("li");
+const contactSection = document.querySelector(".homePageContact");
+const html = document.querySelector('html');
+const contactTitle = document.querySelector(".contactTitle")
 
+// Navigation slide
 const handleNav = () => {
     nav.classList.toggle('active');
-    menuBtn.classList.toggle('hide');
-    closeBtn.classList.toggle('hide'); 
+    html.classList.toggle('hideScrollBar');
+    // burgerBtn.classList.toggle('burgerFeature');
     liList.forEach((item) => {
         item.addEventListener("click", () => {
             nav.classList.remove("active");
-            menuBtn.classList.toggle('hide');
-            closeBtn.classList.toggle('hide'); 
-        }); 
+            html.classList.remove('hideScrollBar');
+            // if(burgerBtn.classList.contains('burgerFeature')){
+            //     burgerBtn.classList.remove('burgerFeature')
+            // }
+        });
     });
 }
 
 burgerBtn.addEventListener('click', handleNav)
 
 
+// Contact section
+
+const contactTitleEffect = () => {
+    if (window.scrollY > 2500) {
+        contactTitle.classList.add("contactTitleEffect");
+        contactSection.classList.add("reverseColors");
+    } else {
+        contactTitle.classList.remove("contactTitleEffect");
+        contactSection.classList.remove("reverseColors");
+    }
+};
+
+window.addEventListener("scroll", contactTitleEffect)

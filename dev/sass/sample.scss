@@ -4,12 +4,6 @@
 // Common WS elements
 @import "common/common";
 
-$grayColor: #d8d9d7;
-$greenColor: #025928;
-$lightGreenColor: #9bbf9d;
-$yellowGreenColor: #ced9b8;
-$blackColor: #0d0d0d;
-
 *,
 *::before,
 *::after {
@@ -21,70 +15,115 @@ $blackColor: #0d0d0d;
 html {
   font-size: 62.5%;
 }
+.hideScrollBar {
+  overflow: hidden;
+}
 
 body {
   font-size: 1.6rem;
-  font-family: "Aboreto", cursive;
-  background: $blackColor;
+  text-transform: uppercase;
+  //Font to consider
+
+  // font-family: "Aboreto", cursive;
+  // font-family: "Montserrat Alternates", sans-serif;
+  font-family: "Poiret One", cursive;
+  // font-family: "Raleway", sans-serif;
+  // font-family: "Righteous", cursive;
+
+  background: $darkColor;
 }
+
+body::-webkit-scrollbar {
+  width: 6px;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: $darkColor;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: $mainMediumColor;
+  border-radius: 5px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: $mainLightColor;
+}
+
 // Nav
+
 .navigation {
+  .menu-menu-container {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: -5;
+  }
   .menu {
     position: absolute;
-    height: 100vh;
-    width: 100%;
+    bottom: 0;
     left: -100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-end;
-    background: $blackColor;
-    list-style: none;
+    height: 100vh;
+    width: 100vw;
     padding-bottom: 3em;
-    li {
+    background-color: $darkColor;
+    list-style: none;
+
+    .menu-item {
       transition: 0.5s;
+
       a {
         font-size: 12rem;
         line-height: 80%;
-        letter-spacing: -16px;
+        letter-spacing: -10px;
         text-decoration: none;
-        color: $lightGreenColor;
+        color: $mediumLightColor;
         transition: 0.5s;
       }
+
       a:hover {
-        color: $greenColor;
+        color: $mainMediumColor;
         letter-spacing: 0;
+
       }
     }
-    li:hover {
+
+    .menu-item:hover {
       transform: translateX(10vw);
     }
-    .las {
-      color: $lightGreenColor;
-      font-size: 10rem;
-      // opacity: 0;
-      transition: 0.5s;
-    }
-    li ~ .las:hover {
-      color: $greenColor;
-      // opacity: 1;
-    }
   }
+
   .burger {
-    background: none;
-    color: $lightGreenColor;
+    background: transparent;
+    color: $mediumLightColor;
     border: none;
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     padding: 0.5em 1em;
-    font-size: 3rem;
+    font-size: 5rem;
+    transition: 0.2s;
+    letter-spacing: 20px;
   }
-  .active {
-    left: 0;
+
+  // .burgerFeature {
+  //   letter-spacing: 0px;
+  // }
+
+  .burger:hover {
+    color: $mainMediumColor;
   }
-  .hide {
-    display: none;
+
+  &.active {
+    position: absolute;
+    z-index: 5;
+    .menu{
+      left: 0;
+    }
   }
 }
 
@@ -95,22 +134,25 @@ body {
   height: 100vh;
   width: 100%;
   padding: 2em 2em;
-  color: $lightGreenColor;
+  color: $mediumLightColor;
+  font-weight: bold;
   .shortInfo {
     display: flex;
     align-items: center;
     justify-content: space-around;
+    letter-spacing: 5px;
   }
   .line {
     height: 1px;
     width: 10%;
-    background-color: $greenColor;
+    background-color: $mainMediumColor;
   }
   h1 {
     font-size: 15rem;
   }
   h2 {
-    font-size: 5rem;
+    font-size: 10rem;
+    letter-spacing: -10px;
   }
 }
 
@@ -126,4 +168,34 @@ body {
     align-self: flex-end;
     justify-content: flex-end;
   }
+}
+
+.homePageContact {
+  transition: 0.8s;
+  .mail {
+    font-size: 5rem;
+    transition: 0.5s;
+    align-self: center;
+  }
+  .link {
+    text-decoration: none;
+    color: $mediumLightColor;
+  }
+  .contactTitle {
+    transition: 0.5s;
+  }
+  .contactTitleEffect {
+    letter-spacing: 0;
+    font-weight: bold;
+  }
+}
+.homePageContact {
+  .reverseColors {
+    color: $mainMediumColor;
+    font-weight: bold;
+  }
+}
+.reverseColors {
+  background-color: $mainLightColor;
+  color: $mainMediumColor;
 }
