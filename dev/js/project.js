@@ -14,7 +14,7 @@
 })();
 
 const burgerBtn = document.querySelector('.burger');
-const nav = document.querySelector('.menu');
+const nav = document.querySelector('.navigation');
 const liList = document.querySelectorAll("li");
 const contactSection = document.querySelector(".homePageContact");
 const html = document.querySelector('html');
@@ -24,14 +24,14 @@ const contactTitle = document.querySelector(".contactTitle")
 const handleNav = () => {
     nav.classList.toggle('active');
     html.classList.toggle('hideScrollBar');
-    burgerBtn.classList.toggle('burgerFeature');
+    // burgerBtn.classList.toggle('burgerFeature');
     liList.forEach((item) => {
         item.addEventListener("click", () => {
             nav.classList.remove("active");
             html.classList.remove('hideScrollBar');
-            if(burgerBtn.classList.contains('burgerFeature')){
-                burgerBtn.classList.remove('burgerFeature')
-            }
+            // if(burgerBtn.classList.contains('burgerFeature')){
+            //     burgerBtn.classList.remove('burgerFeature')
+            // }
         });
     });
 }
