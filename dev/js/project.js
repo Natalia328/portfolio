@@ -10,6 +10,39 @@
     //     translateX: 250,
     // });
 
+    // var colorsExamples = anime.timeline({
+    //     endDelay: 1000,
+    //     easing: 'easeOutExpo',
+    //     direction: 'alternate',
+    //     loop: true
+    //   })
+    //   .add({ targets: '.firstToTransition',  background: '$mainMediumColor' }, 0)
+    //   .add({ targets: '.secondToTransition',  background: '$mediumLightColor' }, 0)
+    //   .add({ targets: '.toTransition' }, 0);
+
+    anime({
+        targets: '.firstToTransition',
+
+        width: '100%', // -> from '28px' to '100%',
+        easing: 'easeInOutQuad',
+        direction: 'alternate',
+        // loop: true,
+        duration: 3000
+      });
+    // anime({
+    //     targets: '.firstToTransition',
+    //     delay: 3000,
+    //     zIndex: '-10', 
+        
+      
+    anime({
+        targets: '.secondToTransition',
+        width: '100%', // -> from '28px' to '100%',
+        easing: 'easeInOutQuad',
+        direction: 'alternate',
+        // loop: true,
+        duration: 2500
+      });
 
 })();
 

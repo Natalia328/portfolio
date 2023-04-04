@@ -127,6 +127,37 @@ body::-webkit-scrollbar-thumb:hover {
   }
 }
 
+// Intro
+
+.intro{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.toTransition{
+  position: absolute;
+  width: 0%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.firstToTransition {
+  background-color:$lightColor;
+}
+
+.secondToTransition {
+  background-color: $mainMediumColor;
+}
+
+
+
+
+
 .homePage {
   display: flex;
   justify-content: space-between;

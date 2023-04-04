@@ -7,6 +7,15 @@
  * Copyright Natalia Świerczek Portfolio © All Rights Reserved
  */
 ?>
+<section class="intro">
+    <div class="toTransition firstToTransition ">
+        <h1 class="mainTitleName"><?php the_field('homePageOpening_mainTitleName'); ?></h1>
+        <h1 class="mainTitleLastName"><?php the_field('homePageOpening_mainTitleLastName'); ?></h1>
+    </div>
+    <div class="toTransition secondToTransition"></div>
+
+</section>
+
 <nav class="navigation">
     <?php
     wp_nav_menu(
