@@ -126,12 +126,13 @@ body::-webkit-scrollbar-thumb:hover {
     }
   }
 }
-
+.homePageOpening{
+  height: 100vh;
+}
 .homePage {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  height: 100vh;
   width: 100%;
   padding: 2em 2em;
   color: $mediumLightColor;
@@ -144,7 +145,7 @@ body::-webkit-scrollbar-thumb:hover {
   }
   .line {
     height: 1px;
-    width: 10%;
+    width: 20%;
     background-color: $mainMediumColor;
   }
   h1 {
@@ -157,13 +158,49 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .homePageAboutMe {
-  .descriptions {
-    align-self: flex-end;
-    width: 60vw;
-    text-align: justify;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 12em 5em;
+  font-weight: bold;
+  background-color: $mediumLightColor;
+  color: $darkColor;
+  .aboutMeMain {
+    width: 80%;
+    padding-bottom: 1em;
+    font-size: 6rem;
+    text-align: center;
   }
+  .aboutMeDescrpition{
+    align-self: flex-end;
+    width: 50%;
+    text-align: justify;
+    font-size: 2.5rem;
+  }
+  a {
+    text-decoration: none;
+    color: $mainMediumColor;
+    i{
+      // width: 20px;
+      // height: 20px;
+      font-size: 2.5rem;
+      color: wheat;
+    }
+  }
+  a:hover{
+    text-decoration: underline;
+  }
+
 }
+
+
+
+
+
+
 .homePageWork {
+  height: 100vh;
   .descriptions {
     align-self: flex-end;
     justify-content: flex-end;
@@ -171,6 +208,7 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .homePageContact {
+  height: 100vh;
   transition: 0.8s;
   .mail {
     font-size: 5rem;
