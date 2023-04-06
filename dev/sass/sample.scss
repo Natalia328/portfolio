@@ -174,33 +174,36 @@ body::-webkit-scrollbar-thumb:hover {
   }
 }
 
+// CONTACT
+
 .homePageContact {
   transition: 0.8s;
   overflow: hidden;
-  .marquee {
+  .contactPageMarquee {
     display: flex;
     overflow: hidden;
     width: 100vw;
     height: 100vh;
     gap: 1rem;
   }
-  .marquee .mail {
+  .contactPageMail {
+    padding-left: 1em;
     font-size: 10rem;
     white-space: nowrap;
     align-self: center;
   }
   
-  .link {
+  .contactPageLink {
     text-decoration: none;
     color: $darkColor;
     font-weight: bold;
   }
   
-  .link:hover {
+  .contactPageLink:hover {
     text-decoration: underline;
     
   }
-  .linkedIn {
+  .contactPageLinkedIn {
     font-size: 2.5rem;
     letter-spacing: 5px;
     align-self: center;

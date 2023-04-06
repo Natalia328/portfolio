@@ -81,4 +81,4 @@ function marquee(selector, speed) {
   //after window is completed load
   //1 class selector for marquee
   //2 marquee speed 0.2
-  window.addEventListener("load", marquee(".marquee", 0.5));
+  window.addEventListener("load", marquee(".contactPageMarquee", 0.5));
