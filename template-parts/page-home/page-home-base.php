@@ -17,7 +17,7 @@
     ); ?>
     <button class="burger">
         <!-- <i class="fas fa-times hide"></i> -->
-        <p class="menuBtn">MENU</p>
+        <p class="menuBtn"><i class="fa-regular fa-eye"></i></p>
     </button>
 </nav>
 
