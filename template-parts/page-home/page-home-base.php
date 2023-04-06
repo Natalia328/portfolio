@@ -35,7 +35,6 @@
 </section>
 
 <section id="homePageAboutMe" class="homePage homePageAboutMe">
-
     <div class="aboutMeMain">
         <?php the_field('homePageAboutMe_main'); ?>
     </div>

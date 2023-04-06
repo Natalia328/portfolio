@@ -157,21 +157,24 @@ body::-webkit-scrollbar-thumb:hover {
   }
 }
 
+// ABOUT ME
+
 .homePageAboutMe {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   padding: 12em 5em;
-  font-weight: bold;
   background-color: $mediumLightColor;
   color: $darkColor;
+
   .aboutMeMain {
     width: 80%;
     padding-bottom: 1em;
     font-size: 6rem;
     text-align: center;
   }
+
   .aboutMeDescrpition{
     align-self: flex-end;
     width: 50%;
@@ -182,10 +185,7 @@ body::-webkit-scrollbar-thumb:hover {
     text-decoration: none;
     color: $mainMediumColor;
     i{
-      // width: 20px;
-      // height: 20px;
-      font-size: 2.5rem;
-      color: wheat;
+      color: $darkColor;
     }
   }
   a:hover{
