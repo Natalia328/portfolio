@@ -1,10 +1,12 @@
 // Websites starter common SASS styles
 
+// Frameworks
+@import "bootstrap/bootstrap";
+
+
 // Global variables
 @import "_variables";
 
-// Frameworks
-@import "bootstrap/bootstrap";
 
 // Icons
 @import "icons/fontAwesome/fontawesome";

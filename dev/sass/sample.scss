@@ -88,7 +88,6 @@ body::-webkit-scrollbar-thumb:hover {
       a:hover {
         color: $mainMediumColor;
         letter-spacing: 0;
-
       }
     }
 
@@ -105,7 +104,7 @@ body::-webkit-scrollbar-thumb:hover {
     top: 0;
     right: 0;
     padding: 0.5em 1em;
-    font-size: 5rem;
+    font-size: 8rem;
     transition: 0.2s;
     letter-spacing: 20px;
   }
@@ -121,7 +120,7 @@ body::-webkit-scrollbar-thumb:hover {
   &.active {
     position: absolute;
     z-index: 5;
-    .menu{
+    .menu {
       left: 0;
     }
   }
@@ -151,7 +150,7 @@ body::-webkit-scrollbar-thumb:hover {
   h1 {
     font-size: 15rem;
   }
-  h2 {
+  .headerTitle {
     font-size: 10rem;
     letter-spacing: -10px;
   }
@@ -193,6 +192,8 @@ body::-webkit-scrollbar-thumb:hover {
   }
 
 }
+// WORK
+
 
 
 
@@ -201,9 +202,25 @@ body::-webkit-scrollbar-thumb:hover {
 
 .homePageWork {
   height: 100vh;
-  .descriptions {
-    align-self: flex-end;
-    justify-content: flex-end;
+  padding-top: 5em;
+
+  .homePageWorkWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2em 0;
+    font-size: 8rem;
+    
+    .homePageWorkLink {
+      text-decoration: none;
+      color: $mediumLightColor;
+      text-align: center;
+      letter-spacing: -3px;
+    }
+
+    .fa-eye {
+      padding-left: 0.4em;
+    }
   }
 }
 
