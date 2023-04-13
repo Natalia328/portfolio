@@ -50,6 +50,11 @@ body::-webkit-scrollbar-thumb:hover {
   background: $mainLightColor;
 }
 
+::selection {
+  background-color: $mainLightColor;
+  color: $darkColor;
+}
+
 // Nav
 
 .navigation {
@@ -88,7 +93,6 @@ body::-webkit-scrollbar-thumb:hover {
       a:hover {
         color: $mainMediumColor;
         letter-spacing: 0;
-
       }
     }
 
@@ -105,7 +109,7 @@ body::-webkit-scrollbar-thumb:hover {
     top: 0;
     right: 0;
     padding: 0.5em 1em;
-    font-size: 5rem;
+    font-size: 8rem;
     transition: 0.2s;
     letter-spacing: 20px;
   }
@@ -121,7 +125,7 @@ body::-webkit-scrollbar-thumb:hover {
   &.active {
     position: absolute;
     z-index: 5;
-    .menu{
+    .menu {
       left: 0;
     }
   }
@@ -162,7 +166,6 @@ body::-webkit-scrollbar-thumb:hover {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  height: 100vh;
   width: 100%;
   padding: 2em 2em;
   color: $mediumLightColor;
@@ -175,58 +178,124 @@ body::-webkit-scrollbar-thumb:hover {
   }
   .line {
     height: 1px;
-    width: 10%;
+    width: 20%;
     background-color: $mainMediumColor;
   }
   h1 {
     font-size: 15rem;
   }
-  h2 {
+  .headerTitle {
     font-size: 10rem;
     letter-spacing: -10px;
   }
 }
 
+// ABOUT ME
+
 .homePageAboutMe {
-  .descriptions {
-    align-self: flex-end;
-    width: 60vw;
-    text-align: justify;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 12em 5em;
+  background-color: $mediumLightColor;
+  color: $darkColor;
+
+  .aboutMeMain {
+    width: 80%;
+    padding-bottom: 1em;
+    font-size: 6rem;
+    text-align: center;
   }
-}
-.homePageWork {
-  .descriptions {
+
+  .aboutMeDescrpition{
     align-self: flex-end;
-    justify-content: flex-end;
+    width: 50%;
+    text-align: justify;
+    font-size: 2.5rem;
+  }
+  a {
+    text-decoration: none;
+    color: $mainMediumColor;
+    i{
+      color: $darkColor;
+    }
+  }
+  a:hover{
+    text-decoration: underline;
+  }
+
+}
+// WORK
+
+
+
+
+
+
+
+.homePageWork {
+  height: 100vh;
+  padding-top: 5em;
+
+  .homePageWorkWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2em 0;
+    font-size: 8rem;
+    
+    .homePageWorkLink {
+      text-decoration: none;
+      color: $mediumLightColor;
+      text-align: center;
+      letter-spacing: -3px;
+    }
+
+    .fa-eye {
+      padding-left: 0.4em;
+    }
   }
 }
 
+// CONTACT
+
 .homePageContact {
+  height: 100vh;
   transition: 0.8s;
-  .mail {
-    font-size: 5rem;
-    transition: 0.5s;
+  overflow: hidden;
+  .contactPageMarquee {
+    display: flex;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    gap: 1rem;
+  }
+  .contactPageMail {
+    padding-left: 1em;
+    font-size: 10rem;
+    white-space: nowrap;
     align-self: center;
   }
-  .link {
+  
+  .contactPageLink {
     text-decoration: none;
-    color: $mediumLightColor;
-  }
-  .contactTitle {
-    transition: 0.5s;
-  }
-  .contactTitleEffect {
-    letter-spacing: 0;
+    color: $darkColor;
     font-weight: bold;
   }
+  
+  .contactPageLink:hover {
+    text-decoration: underline;
+    
+  }
+  .contactPageLinkedIn {
+    font-size: 2.5rem;
+    letter-spacing: 5px;
+    align-self: center;
 }
-.homePageContact {
-  .reverseColors {
-    color: $mainMediumColor;
-    font-weight: bold;
-  }
 }
 .reverseColors {
-  background-color: $mainLightColor;
-  color: $mainMediumColor;
+  color: $darkColor;
+  background-color: $mainMediumColor;
 }
+
