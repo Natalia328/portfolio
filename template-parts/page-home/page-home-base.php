@@ -47,11 +47,11 @@
 </section>
 
 <section id="homePageWork" class="homePage homePageWork">
-    <h2><?php the_field('homePageWork_mainTitle'); ?></h2>
-    <div class="descriptions">
-        <p><?php the_field('homePageWork_description1'); ?></p>
-        <p><?php the_field('homePageWork_description2'); ?></p>
-        <p><?php the_field('homePageWork_description3'); ?></p>
+    <h2 class="headerTitle"><?php the_field('homePageWork_mainTitle'); ?></h2>
+    <div class="homePageWorkWrapper">
+        <a class="homePageWorkLink" href="#homePageWork">
+            <?php the_field('homePageWork_button'); ?><i class="fa-regular fa-eye"></i>
+        </a>
     </div>
 </section>
 
