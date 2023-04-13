@@ -6,8 +6,12 @@
     console.log('Animations start');
 
     // anime({
-    //     targets: '.menu-item-64',
-    //     translateX: 250,
+    //     targets: '.mail',
+    //     translateX: 2500,
+    //     direction: 'rtl',
+    //     loop: true,
+    //     easing: 'linear',
+    //     duration: 5000
     // });
 
 
@@ -43,12 +47,38 @@ burgerBtn.addEventListener('click', handleNav)
 
 const contactTitleEffect = () => {
     if (window.scrollY > 2500) {
-        contactTitle.classList.add("contactTitleEffect");
+        // contactTitle.classList.add("contactTitleEffect");
         contactSection.classList.add("reverseColors");
+        // contactLinks.classList.add("reverseColors");
     } else {
-        contactTitle.classList.remove("contactTitleEffect");
+        // contactTitle.classList.remove("contactTitleEffect");
         contactSection.classList.remove("reverseColors");
+        // contactLinks.classList.remove("reverseColors");
     }
 };
 
 window.addEventListener("scroll", contactTitleEffect)
+
+
+function marquee(selector, speed) {
+    const parentSelector = document.querySelector(selector);
+    const clone = parentSelector.innerHTML;
+    const firstElement = parentSelector.children[0];
+    let i = 0;
+  
+    parentSelector.insertAdjacentHTML("beforeend", clone);
+    parentSelector.insertAdjacentHTML("beforeend", clone);
+  
+    setInterval(function () {
+      firstElement.style.marginLeft =`-${i}px`;
+      if (i > firstElement.clientWidth) {
+        i = 0;
+      }
+      i = i + speed;
+    }, 0);
+  }
+  
+  //after window is completed load
+  //1 class selector for marquee
+  //2 marquee speed 0.2
+  window.addEventListener("load", marquee(".contactPageMarquee", 0.5));

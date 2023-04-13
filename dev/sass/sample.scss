@@ -50,6 +50,11 @@ body::-webkit-scrollbar-thumb:hover {
   background: $mainLightColor;
 }
 
+::selection {
+  background-color: $mainLightColor;
+  color: $darkColor;
+}
+
 // Nav
 
 .navigation {
@@ -224,33 +229,44 @@ body::-webkit-scrollbar-thumb:hover {
   }
 }
 
+// CONTACT
+
 .homePageContact {
   height: 100vh;
   transition: 0.8s;
-  .mail {
-    font-size: 5rem;
-    transition: 0.5s;
+  overflow: hidden;
+  .contactPageMarquee {
+    display: flex;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    gap: 1rem;
+  }
+  .contactPageMail {
+    padding-left: 1em;
+    font-size: 10rem;
+    white-space: nowrap;
     align-self: center;
   }
-  .link {
+  
+  .contactPageLink {
     text-decoration: none;
-    color: $mediumLightColor;
-  }
-  .contactTitle {
-    transition: 0.5s;
-  }
-  .contactTitleEffect {
-    letter-spacing: 0;
+    color: $darkColor;
     font-weight: bold;
   }
+  
+  .contactPageLink:hover {
+    text-decoration: underline;
+    
+  }
+  .contactPageLinkedIn {
+    font-size: 2.5rem;
+    letter-spacing: 5px;
+    align-self: center;
 }
-.homePageContact {
-  .reverseColors {
-    color: $mainMediumColor;
-    font-weight: bold;
-  }
 }
 .reverseColors {
-  background-color: $mainLightColor;
-  color: $mainMediumColor;
+  color: $darkColor;
+  background-color: $mainMediumColor;
 }
+
