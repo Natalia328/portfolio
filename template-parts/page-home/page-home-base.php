@@ -35,14 +35,31 @@
 </section>
 
 <section id="homePageAboutMe" class="homePage homePageAboutMe">
-    <div class="aboutMeMain">
-        <?php the_field('homePageAboutMe_main'); ?>
-    </div>
+    <?php $aboutMeMainFields = get_field('homePageAboutMe_main'); 
+
+    if (count($aboutMeMainFields) > 0) : # Main repeater-field 
+        foreach ($aboutMeMainFields[0] as $aboutMeMainKey => $aboutMeMainValue) :
+            if (is_array($aboutMeMainValue) && count($aboutMeMainValue) > 0) : # Sub repeater-field 
+                foreach ($aboutMeMainValue as $aboutMeSubKey => $aboutMeSubValue) : ?>
+                    <p class="aboutMeParagraph paragraph-<?php echo $aboutMeSubKey + 1; ?>">
+                        <?php foreach ($aboutMeSubValue as $aboutMeKey => $aboutMeValue) :
+                            if ($aboutMeValue) : ?>
+                                <span class="aboutMeText <?php echo $aboutMeKey; ?>">
+                                    <?php echo $aboutMeValue; ?>
+                                </span>
+                            <?php endif;
+                        endforeach; ?>
+                    </p>
+                <?php endforeach;
+            endif;
+        endforeach;
+    endif; ?>
+
     <div class="aboutMeDescrpition">
         <?php the_field('homePageAboutMe_description'); ?>
     </div>
-
 </section>
+
 
 <section id="homePageWork" class="homePage homePageWork">
     <h2 class="headerTitle"><?php the_field('homePageWork_mainTitle'); ?></h2>
@@ -57,8 +74,8 @@
 
     <h2 class="contactTitle"><?php the_field('homePageContact_mainTitle'); ?></h2>
     <div class="marquee">
-    <a class="link mail" href="mailto:<?php the_field('homePageContact_mail'); ?>"> <?php the_field('homePageContact_mail'); ?></a>
+        <a class="link mail" href="mailto:<?php the_field('homePageContact_mail'); ?>"> <?php the_field('homePageContact_mail'); ?></a>
     </div>
-    <a class ="link linkedIn" href="<?php the_field('homePageContact_linkedin'); ?>" target="_blank">LinkedIn</a>
+    <a class="link linkedIn" href="<?php the_field('homePageContact_linkedin'); ?>" target="_blank">LinkedIn</a>
 
 </section>
