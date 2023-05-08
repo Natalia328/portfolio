@@ -19,6 +19,6 @@
 
 
     <section id="workPage" class="homePage workPage">
-        <h2 class="headerTitle">Technologies</h2>
+        <h2 class="headerTitle">Technologies<?php the_field('work_technologies'); ?></h2>
         <h2 class="headerTitle">Works</h2>
 </section>
