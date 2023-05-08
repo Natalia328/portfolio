@@ -147,11 +147,11 @@ anime.timeline({loop: true})
     translateZ: 0,
     easing: "easeOutExpo",
     duration: 600,
-    delay: (el, i) => 70 * (i+1)
+    delay: (el, i) => 20 * (i+1)
   }).add({
     targets: '.aboutMeText',
     opacity: 0,
-    duration: 1000,
+    duration: 500,
     easing: "easeOutExpo",
     delay: 1000
   });
