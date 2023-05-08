@@ -49,7 +49,7 @@
 <section id="homePageWork" class="homePage homePageWork">
     <h2 class="headerTitle"><?php the_field('homePageWork_mainTitle'); ?></h2>
     <div class="homePageWorkWrapper">
-        <a class="homePageWorkLink" href="#homePageWork">
+        <a class="homePageWorkLink" href="wp-content\themes\nsportfolio\work.php">
             <?php the_field('homePageWork_button'); ?><i class="fa-regular fa-eye"></i>
         </a>
     </div>
