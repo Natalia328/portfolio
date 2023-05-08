@@ -125,7 +125,7 @@ for (var i = 0; i < textWrapper.length; i++) {
  }
 
  function splitLetters(textWrapper) {
-  var content = textWrapper.innerHTML;
+  var content = textWrapper.innerHTML.trim();
   textWrapper.innerHTML = '';
   var letters = [];
   for (var i = 0; i < content.length; i++) {
@@ -134,8 +134,8 @@ for (var i = 0; i < textWrapper.length; i++) {
     letter.innerHTML = content.charAt(i);
     textWrapper.appendChild(letter);
     letters.push(letter);
+    
   }
-  
   wordArray.push(letters);
 }
 
@@ -153,5 +153,5 @@ anime.timeline({loop: true})
     opacity: 0,
     duration: 500,
     easing: "easeOutExpo",
-    delay: 1000
+    delay: 50
   });

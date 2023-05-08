@@ -166,17 +166,14 @@ body::-webkit-scrollbar-thumb:hover {
   padding: 12em 5em;
   background-color: $mediumLightColor;
   color: $darkColor;
-  
-
 
   .aboutMeText {
     width: 80%;
-    padding-bottom: 1em;
+    // padding-bottom: 1em;
     font-size: 6rem;
     text-align: center;
     position: relative;
-    display: inline-block;
-    
+    // display: inline-block;
   }
 
   .aboutMeDescrpition{
