@@ -36,7 +36,7 @@
     </div>
 </section>
 
-<section id="homePageAboutMe" class="homePage homePageAboutMe">
+<section id="homePageAboutMe" class="homePage homePageAboutMe lightSection">
     <h2><?php the_field('homePageAboutMe_mainTitle'); ?></h2>
     <div class="descriptions">
         <p><?php the_field('homePageAboutMe_description1'); ?></p>

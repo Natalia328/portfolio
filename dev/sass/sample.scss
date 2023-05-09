@@ -109,6 +109,9 @@ body::-webkit-scrollbar-thumb:hover {
     transition: 0.2s;
     letter-spacing: 20px;
   }
+  .burger-dark-color {
+    color: $darkColor;
+  }
 
   // .burgerFeature {
   //   letter-spacing: 0px;
