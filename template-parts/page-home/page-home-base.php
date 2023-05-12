@@ -35,7 +35,7 @@
 </section>
 
 <section id="homePageAboutMe" class="homePage homePageAboutMe">
-    <?php $aboutMeMainFields = get_field('homePageAboutMe_main'); 
+    <?php $aboutMeMainFields = get_field('homePageAboutMe_main');
 
     if (count($aboutMeMainFields) > 0) : # Main repeater-field 
         foreach ($aboutMeMainFields[0] as $aboutMeMainKey => $aboutMeMainValue) :
@@ -47,10 +47,10 @@
                                 <span class="aboutMeText <?php echo $aboutMeKey; ?>">
                                     <?php echo $aboutMeValue; ?>
                                 </span>
-                            <?php endif;
+                        <?php endif;
                         endforeach; ?>
                     </p>
-                <?php endforeach;
+    <?php endforeach;
             endif;
         endforeach;
     endif; ?>

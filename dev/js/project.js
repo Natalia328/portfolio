@@ -3,12 +3,12 @@
 // Authors: Natalia Świerczek (swierczek.n@gmail.com)
 // Copyright Natalia Świerczek Portfolio © All Rights Reserved
 (function () {
-  console.log('Animations start');
+    console.log('Animations start');
 
-  // anime({
-  //     targets: '.menu-item-64',
-  //     translateX: 250,
-  // });
+    // anime({
+    //     targets: '.menu-item-64',
+    //     translateX: 250,
+    // });
 
 
 })();
@@ -22,18 +22,18 @@ const contactTitle = document.querySelector(".contactTitle")
 
 // Navigation slide
 const handleNav = () => {
-  nav.classList.toggle('active');
-  html.classList.toggle('hideScrollBar');
-  // burgerBtn.classList.toggle('burgerFeature');
-  liList.forEach((item) => {
-    item.addEventListener("click", () => {
-      nav.classList.remove("active");
-      html.classList.remove('hideScrollBar');
-      // if(burgerBtn.classList.contains('burgerFeature')){
-      //     burgerBtn.classList.remove('burgerFeature')
-      // }
+    nav.classList.toggle('active');
+    html.classList.toggle('hideScrollBar');
+    // burgerBtn.classList.toggle('burgerFeature');
+    liList.forEach((item) => {
+        item.addEventListener("click", () => {
+            nav.classList.remove("active");
+            html.classList.remove('hideScrollBar');
+            // if(burgerBtn.classList.contains('burgerFeature')){
+            //     burgerBtn.classList.remove('burgerFeature')
+            // }
+        });
     });
-  });
 }
 
 burgerBtn.addEventListener('click', handleNav)
@@ -42,13 +42,13 @@ burgerBtn.addEventListener('click', handleNav)
 // Contact section
 
 const contactTitleEffect = () => {
-  if (window.scrollY > 2500) {
-    contactTitle.classList.add("contactTitleEffect");
-    contactSection.classList.add("reverseColors");
-  } else {
-    contactTitle.classList.remove("contactTitleEffect");
-    contactSection.classList.remove("reverseColors");
-  }
+    if (window.scrollY > 2500) {
+        contactTitle.classList.add("contactTitleEffect");
+        contactSection.classList.add("reverseColors");
+    } else {
+        contactTitle.classList.remove("contactTitleEffect");
+        contactSection.classList.remove("reverseColors");
+    }
 };
 
 window.addEventListener("scroll", contactTitleEffect)
@@ -207,57 +207,59 @@ window.addEventListener("scroll", contactTitleEffect)
 //   ----------------------------------------
 
 // Wrap every letter in a span
-var textWrapper1 = document.querySelector('.text-2');
-var textWrapper2 = document.querySelector('.text-3');
-var textWrapper3 = document.querySelector('.text-4');
-textWrapper1.innerHTML = textWrapper1.textContent.replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>");
-textWrapper2.innerHTML = textWrapper2.textContent.replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>");
-textWrapper3.innerHTML = textWrapper3.textContent.replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>");
+const textWrapper1 = document.querySelector('.text-2');
+const textWrapper2 = document.querySelector('.text-3');
+const textWrapper3 = document.querySelector('.text-4');
+
+textWrapper1.innerHTML = splitLetters(textWrapper1.textContent);
+textWrapper2.innerHTML = splitLetters(textWrapper2.textContent);
+textWrapper3.innerHTML = splitLetters(textWrapper3.textContent);
 
 
-anime.timeline({loop: true})
+anime.timeline({ loop: true })
 
-  .add({
-    targets: '.text-2 .letter',
-    opacity: [0,1],
-    easing: "easeOutExpo",
-    duration: 600,
-    offset: '-=775',
-    delay: (el, i) => 34 * (i+1)
-  })
-  .add({
-    targets: '.paragraph-4 .text-2',
-    opacity: 0,
-    duration: 1000,
-    easing: "easeOutExpo",
-    delay: 1000
-  }).add({
-    targets: '.text-3 .letter',
-    opacity: [0,1],
-    easing: "easeOutExpo",
-    duration: 600,
-    offset: '-=775',
-    delay: (el, i) => 34 * (i+1)
-  }).add({
-    targets: '.paragraph-4 .text-3',
-    opacity: 0,
-    duration: 1000,
-    easing: "easeOutExpo",
-    delay: 1000
-  }).add({
-    targets: '.text-4 .letter',
-    opacity: [0,1],
-    easing: "easeOutExpo",
-    duration: 600,
-    offset: '-=775',
-    delay: (el, i) => 34 * (i+1)
-  }).add({
-    targets: '.paragraph-4 .text-4',
-    opacity: 0,
-    duration: 1000,
-    easing: "easeOutExpo",
-    delay: 1000
-  })
+    .add({
+        targets: '.text-2 .letter',
+        opacity: [0, 1],
+        easing: "easeOutExpo",
+        duration: 600,
+        offset: '-=775',
+        delay: (el, i) => 34 * (i + 1)
+    })
+    .add({
+        targets: '.paragraph-4 .text-2',
+        opacity: 0,
+        duration: 1000,
+
+        easing: "easeOutExpo",
+        delay: 1000
+    }).add({
+        targets: '.text-3 .letter',
+        opacity: [0, 1],
+        easing: "easeOutExpo",
+        duration: 600,
+        offset: '-=775',
+        delay: (el, i) => 34 * (i + 1)
+    }).add({
+        targets: '.paragraph-4 .text-3',
+        opacity: 0,
+        duration: 1000,
+        easing: "easeOutExpo",
+        delay: 1000
+    }).add({
+        targets: '.text-4 .letter',
+        opacity: [0, 1],
+        easing: "easeOutExpo",
+        duration: 600,
+        offset: '-=775',
+        delay: (el, i) => 34 * (i + 1)
+    }).add({
+        targets: '.paragraph-4 .text-4',
+        opacity: 0,
+        duration: 1000,
+        easing: "easeOutExpo",
+        delay: 1000
+    })
 
 
 
@@ -267,12 +269,31 @@ anime.timeline({loop: true})
 let lines = document.querySelectorAll('.text-1');
 
 window.onscroll = () => {
-  let pos = (window.scrollY - 50) / 20;
-  for (let i = 0; i < lines.length; i++) {
-    if (i % 2 === 0) {
-      lines[i].style.left = `${pos}px`
-    } else {
-      lines[i].style.right = `${pos}px`
+    let pos = (window.scrollY - 50) / 20;
+    for (let i = 0; i < lines.length; i++) {
+        if (i % 2 === 0) {
+            lines[i].style.left = `${pos}px`
+        } else {
+            lines[i].style.right = `${pos}px`
+        }
     }
-  }
+}
+
+function splitLetters(text) {
+    if (!text) {
+        return '';
+    }
+
+    let textToReturn = '';
+    text = text.trim();
+
+    for (let i = 0; i < text.length; i++) {
+        if (text[i] && text[i] !== '' && text[i] !== ' ') {
+            textToReturn += `<span class="letter">${text[i]}</span>`;
+        } else {
+            textToReturn += '<span class="letter">&nbsp;</span>';
+        }
+    }
+
+    return textToReturn;
 }

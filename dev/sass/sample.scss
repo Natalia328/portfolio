@@ -229,6 +229,18 @@ body::-webkit-scrollbar-thumb:hover {
   }
   .letter {
     display: inline-block;
+    background-color: $darkColor;
+    color: $lightColor;
+
+    &:first-of-type {
+      padding-left: 20px;
+      border-radius: 15px 0 0 15px;
+    }
+
+    &:last-of-type {
+      padding-right: 20px;
+      border-radius: 0 15px 15px 0;
+    }
   }
 }
 
