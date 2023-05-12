@@ -8,12 +8,12 @@
  * Copyright Natalia Świerczek Portfolio © All Rights Reserved
  */
 
-// get_header();
+get_header();
 
 // Work page
 include "template-parts/work-page/workPage.php";
 
 
-// get_footer();
+get_footer();
 ?>
 
