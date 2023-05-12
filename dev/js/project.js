@@ -217,7 +217,6 @@ textWrapper3.innerHTML = splitLetters(textWrapper3.textContent);
 
 
 anime.timeline({ loop: true })
-
     .add({
         targets: '.text-2 .letter',
         opacity: [0, 1],
@@ -230,7 +229,6 @@ anime.timeline({ loop: true })
         targets: '.paragraph-4 .text-2',
         opacity: 0,
         duration: 1000,
-
         easing: "easeOutExpo",
         delay: 1000
     }).add({
@@ -272,9 +270,9 @@ window.onscroll = () => {
     let pos = (window.scrollY - 50) / 20;
     for (let i = 0; i < lines.length; i++) {
         if (i % 2 === 0) {
-            lines[i].style.left = `${pos}px`
+            lines[i].style.left = `${pos}px`;
         } else {
-            lines[i].style.right = `${pos}px`
+            lines[i].style.right = `${pos}px`;
         }
     }
 }
@@ -284,10 +282,11 @@ function splitLetters(text) {
         return '';
     }
 
-    let textToReturn = '';
     text = text.trim();
+    const textLength = text.length;
+    let textToReturn = '';
 
-    for (let i = 0; i < text.length; i++) {
+    for (let i = 0; i < textLength; i++) {
         if (text[i] && text[i] !== '' && text[i] !== ' ') {
             textToReturn += `<span class="letter">${text[i]}</span>`;
         } else {
