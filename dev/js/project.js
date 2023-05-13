@@ -20,7 +20,7 @@
 const burgerBtn = document.querySelector('.burger');
 const nav = document.querySelector('.navigation');
 const liList = document.querySelectorAll("li");
-const contactSection = document.querySelector(".homePageContact");
+const contactSection = document.querySelector("#homePageContact");
 const html = document.querySelector('html');
 const contactTitle = document.querySelector(".contactTitle")
 
@@ -42,11 +42,13 @@ const handleNav = () => {
 
 burgerBtn.addEventListener('click', handleNav)
 
+console.log(contactSection.getBoundingClientRect().top);
 
 // Contact section
 
+
 const contactTitleEffect = () => {
-    if (window.scrollY > 2500) {
+    if (contactSection.getBoundingClientRect().top < window.innerHeight*0.6) {
         // contactTitle.classList.add("contactTitleEffect");
         contactSection.classList.add("reverseColors");
         // contactLinks.classList.add("reverseColors");
