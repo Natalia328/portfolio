@@ -42,7 +42,23 @@ const handleNav = () => {
 
 burgerBtn.addEventListener('click', handleNav)
 
-console.log(contactSection.getBoundingClientRect().top);
+// Menu btn change color
+const allSections = document.querySelectorAll('section')
+
+const handleObserver = () => {
+    const currentSection = window.scrollY;
+
+    allSections.forEach(section => {
+      if (section.classList.contains("lightSection") && section.offsetTop <= currentSection) {
+        burgerBtn.classList.add('burger-dark-color')
+      } else if (!section.classList.contains("lightSection") && section.offsetTop <= currentSection) {
+        burgerBtn.classList.remove('burger-dark-color')
+      }
+    })
+}
+
+window.addEventListener('scroll', handleObserver)
+
 
 // Contact section
 
