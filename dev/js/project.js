@@ -6,8 +6,12 @@
     console.log('Animations start');
 
     // anime({
-    //     targets: '.menu-item-64',
-    //     translateX: 250,
+    //     targets: '.mail',
+    //     translateX: 2500,
+    //     direction: 'rtl',
+    //     loop: true,
+    //     easing: 'linear',
+    //     duration: 5000
     // });
 
     anime({
@@ -30,7 +34,7 @@
 const burgerBtn = document.querySelector('.burger');
 const nav = document.querySelector('.navigation');
 const liList = document.querySelectorAll("li");
-const contactSection = document.querySelector(".homePageContact");
+const contactSection = document.querySelector("#homePageContact");
 const html = document.querySelector('html');
 const contactTitle = document.querySelector(".contactTitle")
 
@@ -52,42 +56,61 @@ const handleNav = () => {
 
 burgerBtn.addEventListener('click', handleNav)
 
+// Menu btn change color
+const allSections = document.querySelectorAll('section')
+
+const handleObserver = () => {
+    const currentSection = window.scrollY;
+
+    allSections.forEach(section => {
+      if (section.classList.contains("lightSection") && section.offsetTop <= currentSection) {
+        burgerBtn.classList.add('burger-dark-color')
+      } else if (!section.classList.contains("lightSection") && section.offsetTop <= currentSection) {
+        burgerBtn.classList.remove('burger-dark-color')
+      }
+    })
+}
+
+window.addEventListener('scroll', handleObserver)
+
 
 // Contact section
 
+
 const contactTitleEffect = () => {
-    if (window.scrollY > 2500) {
-        contactTitle.classList.add("contactTitleEffect");
+    if (contactSection.getBoundingClientRect().top < window.innerHeight*0.6) {
+        // contactTitle.classList.add("contactTitleEffect");
         contactSection.classList.add("reverseColors");
+        // contactLinks.classList.add("reverseColors");
     } else {
-        contactTitle.classList.remove("contactTitleEffect");
+        // contactTitle.classList.remove("contactTitleEffect");
         contactSection.classList.remove("reverseColors");
+        // contactLinks.classList.remove("reverseColors");
     }
 };
 
 window.addEventListener("scroll", contactTitleEffect)
 
 
-// Work section on main page
-
-// Wrap every letter in a span
-// var textWrapper = document.querySelector('.homePageWorkLink');
-// textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
-
-// anime.timeline({loop: true})
-//   .add({
-//     targets: '.homePageWorkLink .letter',
-//     translateX: [40,0],
-//     translateZ: 0,
-//     opacity: [0,1],
-//     easing: "easeOutExpo",
-//     duration: 700,
-//     delay: (el, i) => 200 + 30 * i
-//   }).add({
-//     targets: '.homePageWorkLink .letter',
-//     translateX: [0,-30],
-//     opacity: [1,0],
-//     easing: "easeInExpo",
-//     duration: 500,
-//     delay: (el, i) => 50 + 30 * i
-//   });
+function marquee(selector, speed) {
+    const parentSelector = document.querySelector(selector);
+    const clone = parentSelector.innerHTML;
+    const firstElement = parentSelector.children[0];
+    let i = 0;
+  
+    parentSelector.insertAdjacentHTML("beforeend", clone);
+    parentSelector.insertAdjacentHTML("beforeend", clone);
+  
+    setInterval(function () {
+      firstElement.style.marginLeft =`-${i}px`;
+      if (i > firstElement.clientWidth) {
+        i = 0;
+      }
+      i = i + speed;
+    }, 0);
+  }
+  
+  //after window is completed load
+  //1 class selector for marquee
+  //2 marquee speed 0.2
+  window.addEventListener("load", marquee(".contactPageMarquee", 0.5));
