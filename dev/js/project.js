@@ -6,9 +6,27 @@
     console.log('Animations start');
 
     // anime({
-    //     targets: '.menu-item-64',
-    //     translateX: 250,
+    //     targets: '.mail',
+    //     translateX: 2500,
+    //     direction: 'rtl',
+    //     loop: true,
+    //     easing: 'linear',
+    //     duration: 5000
     // });
+
+    anime({
+        targets: '.homePageWorkLink.project-1',
+        width: ['0%', '120px'],
+        height: ['0%', '120px'],
+        easing: 'easeInOutQuad'
+    });
+
+    anime({
+        targets: '.homePageWorkLink.project-2',
+        width: ['0%', '220px'],
+        height: ['0%', '220px'],
+        easing: 'easeInOutQuad'
+    });
 
 
 })();
@@ -16,7 +34,7 @@
 const burgerBtn = document.querySelector('.burger');
 const nav = document.querySelector('.navigation');
 const liList = document.querySelectorAll("li");
-const contactSection = document.querySelector(".homePageContact");
+const contactSection = document.querySelector("#homePageContact");
 const html = document.querySelector('html');
 const contactTitle = document.querySelector(".contactTitle")
 
@@ -38,16 +56,36 @@ const handleNav = () => {
 
 burgerBtn.addEventListener('click', handleNav)
 
+// Menu btn change color
+const allSections = document.querySelectorAll('section')
+
+const handleObserver = () => {
+    const currentSection = window.scrollY;
+
+    allSections.forEach(section => {
+      if (section.classList.contains("lightSection") && section.offsetTop <= currentSection) {
+        burgerBtn.classList.add('burger-dark-color')
+      } else if (!section.classList.contains("lightSection") && section.offsetTop <= currentSection) {
+        burgerBtn.classList.remove('burger-dark-color')
+      }
+    })
+}
+
+window.addEventListener('scroll', handleObserver)
+
 
 // Contact section
 
+
 const contactTitleEffect = () => {
-    if (window.scrollY > 2500) {
-        contactTitle.classList.add("contactTitleEffect");
+    if (contactSection.getBoundingClientRect().top < window.innerHeight*0.6) {
+        // contactTitle.classList.add("contactTitleEffect");
         contactSection.classList.add("reverseColors");
+        // contactLinks.classList.add("reverseColors");
     } else {
-        contactTitle.classList.remove("contactTitleEffect");
+        // contactTitle.classList.remove("contactTitleEffect");
         contactSection.classList.remove("reverseColors");
+        // contactLinks.classList.remove("reverseColors");
     }
 };
 

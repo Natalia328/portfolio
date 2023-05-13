@@ -64,18 +64,23 @@
 <section id="homePageWork" class="homePage homePageWork">
     <h2 class="headerTitle"><?php the_field('homePageWork_mainTitle'); ?></h2>
     <div class="homePageWorkWrapper">
-        <a class="homePageWorkLink" href="#homePageWork">
-            <?php the_field('homePageWork_button'); ?><i class="fa-regular fa-eye"></i>
-        </a>
+        <?php $allProjects = get_field('projectPages');
+        foreach ($allProjects as $index => $project) : ?>
+            <a class="homePageWorkLink project-<?php echo $index + 1; ?>" href="<?php echo $project['projectData']['url']; ?>" target="<?php echo $project['projectData']['target']; ?>">
+                <h3 class="projectLink">
+                    <?php echo $project['projectData']['title']; ?>
+                </h3>
+            </a>
+        <?php endforeach ?>
     </div>
 </section>
 
 <section id="homePageContact" class="homePage homePageContact">
 
-    <h2 class="contactTitle"><?php the_field('homePageContact_mainTitle'); ?></h2>
-    <div class="marquee">
-        <a class="link mail" href="mailto:<?php the_field('homePageContact_mail'); ?>"> <?php the_field('homePageContact_mail'); ?></a>
+    <h2 class="headerTitle"><?php the_field('homePageContact_mainTitle'); ?></h2>
+    <div class="contactPageMarquee">
+    <a class="contactPageLink contactPageMail" href="mailto:<?php the_field('homePageContact_mail'); ?>"> <?php the_field('homePageContact_mail'); ?></a>
     </div>
-    <a class="link linkedIn" href="<?php the_field('homePageContact_linkedin'); ?>" target="_blank">LinkedIn</a>
+    <a class ="contactPageLink contactPageLinkedIn" href="<?php the_field('homePageContact_linkedinURL'); ?>" target="_blank"><?php the_field('homePageContact_linkedin'); ?></a>
 
 </section>
