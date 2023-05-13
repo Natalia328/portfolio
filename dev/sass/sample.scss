@@ -207,6 +207,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 .homePageWork {
   padding-top: 5em;
+  padding-bottom: 5em;
 
   .homePageWorkWrapper {
     display: flex;
@@ -214,12 +215,33 @@ body::-webkit-scrollbar-thumb:hover {
     justify-content: center;
     padding: 2em 0;
     font-size: 8rem;
-    
+
     .homePageWorkLink {
       text-decoration: none;
       color: $mediumLightColor;
       text-align: center;
       letter-spacing: -3px;
+      font-weight: normal;
+      display: inline-block;
+      width: 150px;
+      height: 150px;
+      background: red;
+      border-radius: 50%;
+      font-size: 20px;
+      margin: 20px;
+      position: relative;
+
+      .projectLink {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-weight: bold;
+        color: black;
+      }
+    }
+    .homePageWorkLink .letter {
+      display: inline-block;
     }
 
     .fa-eye {
@@ -269,3 +291,22 @@ body::-webkit-scrollbar-thumb:hover {
   background-color: $mainMediumColor;
 }
 
+.workPage {
+  .projectElement {
+    width: 94vh;
+    max-width: 94vw;
+    height: 94vh;
+    max-height: 94vw;
+    margin: 3vh auto;
+    border-radius: 50%;
+    position: relative;
+
+    .projectLabel {
+      background: $darkColor;
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      text-align: center;
+    }
+  }
+}

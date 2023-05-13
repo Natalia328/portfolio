@@ -14,6 +14,20 @@
     //     duration: 5000
     // });
 
+    anime({
+        targets: '.homePageWorkLink.project-1',
+        width: ['0%', '120px'],
+        height: ['0%', '120px'],
+        easing: 'easeInOutQuad'
+    });
+
+    anime({
+        targets: '.homePageWorkLink.project-2',
+        width: ['0%', '220px'],
+        height: ['0%', '220px'],
+        easing: 'easeInOutQuad'
+    });
+
 
 })();
 
