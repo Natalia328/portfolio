@@ -136,7 +136,7 @@ body::-webkit-scrollbar-thumb:hover {
     }
   }
 }
-.homePageOpening{
+.homePageOpening {
   height: 100vh;
 }
 .homePage {
@@ -177,32 +177,84 @@ body::-webkit-scrollbar-thumb:hover {
   padding: 12em 5em;
   background-color: $mediumLightColor;
   color: $darkColor;
+  overflow-x: hidden;
 
-  .aboutMeMain {
+  .aboutMeText {
     width: 80%;
-    padding-bottom: 1em;
     font-size: 6rem;
+  }
+  .aboutMeParagraph {
     text-align: center;
   }
+  .text-1 {
+    position: relative;
+    transition: 1s;
+  }
 
-  .aboutMeDescrpition{
+  .paragraph-1 .text-1,
+  .paragraph-3 .text-1 {
+    left: -50px;
+  }
+  .paragraph-2 .text-1,
+  .paragraph-5 .text-1 {
+    right: -50px;
+  }
+
+  .text-2,
+  .text-3,
+  .text-4 {
+    position: absolute;
+    margin: auto;
+    left: 0;
+    top: 0;
+    right: 0;
+    opacity: 1;
+  }
+
+  .paragraph-4 {
+    position: relative;
+    display: inline-block;
+    height: 9rem;
+    width: 100%;
+  }
+  .letter {
+    display: inline-block;
+  }
+
+  .aboutMeDescrpition {
     align-self: flex-end;
     width: 50%;
     text-align: justify;
     font-size: 2.5rem;
+    padding-top: 2em;
   }
   a {
     text-decoration: none;
     color: $mainMediumColor;
-    i{
+    i {
       color: $darkColor;
     }
   }
-  a:hover{
+  a:hover {
     text-decoration: underline;
   }
+  .letter {
+    display: inline-block;
+    background-color: $darkColor;
+    color: $lightColor;
 
+    &:first-of-type {
+      padding-left: 20px;
+      border-radius: 15px 0 0 15px;
+    }
+
+    &:last-of-type {
+      padding-right: 20px;
+      border-radius: 0 15px 15px 0;
+    }
+  }
 }
+
 // WORK
 
 .homePageWork {

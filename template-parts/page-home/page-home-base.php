@@ -34,16 +34,32 @@
     </div>
 </section>
 
-<section id="homePageAboutMe" class="homePage homePageAboutMe lightSection">
-    <h2><?php the_field('homePageAboutMe_mainTitle'); ?></h2>
-    <div class="descriptions">
-        <p><?php the_field('homePageAboutMe_description1'); ?></p>
-        <p><?php the_field('homePageAboutMe_description2'); ?></p>
-        <p><?php the_field('homePageAboutMe_description3'); ?></p>
-        <p><?php the_field('homePageAboutMe_description4'); ?></p>
-    </div>
+<section id="homePageAboutMe" class="homePage homePageAboutMe">
+    <?php $aboutMeMainFields = get_field('homePageAboutMe_main');
 
+    if (count($aboutMeMainFields) > 0) : # Main repeater-field 
+        foreach ($aboutMeMainFields[0] as $aboutMeMainKey => $aboutMeMainValue) :
+            if (is_array($aboutMeMainValue) && count($aboutMeMainValue) > 0) : # Sub repeater-field 
+                foreach ($aboutMeMainValue as $aboutMeSubKey => $aboutMeSubValue) : ?>
+                    <p class="aboutMeParagraph paragraph-<?php echo $aboutMeSubKey + 1; ?>">
+                        <?php foreach ($aboutMeSubValue as $aboutMeKey => $aboutMeValue) :
+                            if ($aboutMeValue) : ?>
+                                <span class="aboutMeText <?php echo $aboutMeKey; ?>">
+                                    <?php echo $aboutMeValue; ?>
+                                </span>
+                        <?php endif;
+                        endforeach; ?>
+                    </p>
+    <?php endforeach;
+            endif;
+        endforeach;
+    endif; ?>
+
+    <div class="aboutMeDescrpition">
+        <?php the_field('homePageAboutMe_description'); ?>
+    </div>
 </section>
+
 
 <section id="homePageWork" class="homePage homePageWork">
     <h2 class="headerTitle"><?php the_field('homePageWork_mainTitle'); ?></h2>
