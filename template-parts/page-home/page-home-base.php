@@ -31,8 +31,6 @@
         <p><?php the_field('homePageOpening_extraDescription1'); ?></p>
         <p class="line">
         <p><?php the_field('homePageOpening_extraDescription2'); ?></p>
-        <p class="line">
-        <p><?php the_field('homePageOpening_extraDescription3'); ?></p>
     </div>
 </section>
 
@@ -44,23 +42,24 @@
         <p><?php the_field('homePageAboutMe_description3'); ?></p>
         <p><?php the_field('homePageAboutMe_description4'); ?></p>
     </div>
+
 </section>
 
 <section id="homePageWork" class="homePage homePageWork">
-    <h2><?php the_field('homePageWork_mainTitle'); ?></h2>
-    <div class="descriptions">
-        <p><?php the_field('homePageWork_description1'); ?></p>
-        <p><?php the_field('homePageWork_description2'); ?></p>
-        <p><?php the_field('homePageWork_description3'); ?></p>
+    <h2 class="headerTitle"><?php the_field('homePageWork_mainTitle'); ?></h2>
+    <div class="homePageWorkWrapper">
+        <a class="homePageWorkLink" href="#homePageWork">
+            <?php the_field('homePageWork_button'); ?><i class="fa-regular fa-eye"></i>
+        </a>
     </div>
 </section>
 
 <section id="homePageContact" class="homePage homePageContact">
-    <h2 class="contactTitle"><?php the_field('homePageContact_mainTitle'); ?></h2>
-    <a class="mail link reverseColors" href="mailto:<?php the_field('homePageContact_mail'); ?>"> <?php the_field('homePageContact_mail'); ?></a>
-    <div class="shortInfo">
-        <!-- <p class="line"> -->
-        <a class="link reverseColors" href="<?php the_field('homePageContact_linkedinURL'); ?>">
-            <?php the_field('homePageContact_linkedin'); ?> </a>
+
+    <h2 class="headerTitle"><?php the_field('homePageContact_mainTitle'); ?></h2>
+    <div class="contactPageMarquee">
+    <a class="contactPageLink contactPageMail" href="mailto:<?php the_field('homePageContact_mail'); ?>"> <?php the_field('homePageContact_mail'); ?></a>
     </div>
+    <a class ="contactPageLink contactPageLinkedIn" href="<?php the_field('homePageContact_linkedinURL'); ?>" target="_blank"><?php the_field('homePageContact_linkedin'); ?></a>
+
 </section>
