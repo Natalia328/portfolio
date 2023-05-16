@@ -26,9 +26,10 @@ body {
 
   // font-family: "Aboreto", cursive;
   // font-family: "Montserrat Alternates", sans-serif;
-  font-family: "Poiret One", cursive;
+  // font-family: "Poiret One", cursive;
   // font-family: "Raleway", sans-serif;
   // font-family: "Righteous", cursive;
+  font-family: 'Josefin Sans', sans-serif;
 
   background: $darkColor;
 }
@@ -110,7 +111,7 @@ body::-webkit-scrollbar-thumb:hover {
     right: 0;
     padding: 0.5em 1em;
     font-size: 8rem;
-    
+
     letter-spacing: 20px;
   }
   .burger-dark-color {
@@ -321,22 +322,21 @@ body::-webkit-scrollbar-thumb:hover {
     white-space: nowrap;
     align-self: center;
   }
-  
+
   .contactPageLink {
     text-decoration: none;
     color: $darkColor;
     font-weight: bold;
   }
-  
+
   .contactPageLink:hover {
     text-decoration: underline;
-    
   }
   .contactPageLinkedIn {
     font-size: 2.5rem;
     letter-spacing: 5px;
     align-self: center;
-}
+  }
 }
 .reverseColors {
   color: $darkColor;
