@@ -7,6 +7,14 @@
  * Copyright Natalia Świerczek Portfolio © All Rights Reserved
  */
 ?>
+<section class="intro">
+    <div class="toTransition thirdToTransition"></div>
+    <div class="toTransition forthToTransition"></div>
+    <div class="toTransition firstToTransition"></div>
+    <div class="toTransition secondToTransition"></div>
+
+</section>
+
 <nav class="navigation">
     <?php
     wp_nav_menu(
