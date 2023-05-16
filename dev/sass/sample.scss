@@ -26,9 +26,10 @@ body {
 
   // font-family: "Aboreto", cursive;
   // font-family: "Montserrat Alternates", sans-serif;
-  font-family: "Poiret One", cursive;
+  // font-family: "Poiret One", cursive;
   // font-family: "Raleway", sans-serif;
   // font-family: "Righteous", cursive;
+  font-family: 'Josefin Sans', sans-serif;
 
   background: $darkColor;
 }
@@ -53,6 +54,42 @@ body::-webkit-scrollbar-thumb:hover {
 ::selection {
   background-color: $mainLightColor;
   color: $darkColor;
+}
+
+
+// Intro
+
+.intro {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.toTransition {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.thirdToTransition {
+  width: 50%;
+}
+.forthToTransition {
+  width: 30%;
+}
+
+.firstToTransition,
+.thirdToTransition {
+  background-color: $mediumLightColor;
+}
+
+.secondToTransition,
+.forthToTransition {
+  background-color: $mainMediumColor;
 }
 
 // Nav
@@ -110,16 +147,22 @@ body::-webkit-scrollbar-thumb:hover {
     right: 0;
     padding: 0.5em 1em;
     font-size: 8rem;
-    transition: 0.2s;
+
     letter-spacing: 20px;
+  }
+  .burger-dark-color {
+    color: $darkColor;
   }
 
   // .burgerFeature {
   //   letter-spacing: 0px;
   // }
-
-  .burger:hover {
+  .menuBtn {
+    transition: color 0.2s;
+  }
+  .menuBtn:hover {
     color: $mainMediumColor;
+    transform: rotateX(180deg);
   }
 
   &.active {
@@ -130,40 +173,8 @@ body::-webkit-scrollbar-thumb:hover {
     }
   }
 }
-
-// Intro
-
-.intro {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 10;
-}
-
-.toTransition {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-}
-.thirdToTransition {
-  width: 50%;
-}
-.forthToTransition {
-  width: 30%;
-}
-
-.firstToTransition,
-.thirdToTransition {
-  background-color: $mediumLightColor;
-}
-
-.secondToTransition,
-.forthToTransition {
-  background-color: $mainMediumColor;
+.homePageOpening{
+  height: 100vh;
 }
 
 .homePage {
@@ -204,12 +215,48 @@ body::-webkit-scrollbar-thumb:hover {
   padding: 12em 5em;
   background-color: $mediumLightColor;
   color: $darkColor;
+  overflow-x: hidden;
 
-  .aboutMeMain {
+  .aboutMeText {
     width: 80%;
-    padding-bottom: 1em;
     font-size: 6rem;
+  }
+  .aboutMeParagraph {
     text-align: center;
+  }
+  .text-1 {
+    position: relative;
+    transition: 1s;
+  }
+
+  .paragraph-1 .text-1,
+  .paragraph-3 .text-1 {
+    left: -50px;
+  }
+  .paragraph-2 .text-1,
+  .paragraph-5 .text-1 {
+    right: -50px;
+  }
+
+  .text-2,
+  .text-3,
+  .text-4 {
+    position: absolute;
+    margin: auto;
+    left: 0;
+    top: 0;
+    right: 0;
+    opacity: 1;
+  }
+
+  .paragraph-4 {
+    position: relative;
+    display: inline-block;
+    height: 9rem;
+    width: 100%;
+  }
+  .letter {
+    display: inline-block;
   }
 
   .aboutMeDescrpition {
@@ -217,23 +264,45 @@ body::-webkit-scrollbar-thumb:hover {
     width: 50%;
     text-align: justify;
     font-size: 2.5rem;
+    padding-top: 2em;
+    position: relative;
+    right: -20px;
+    transition: 2s;
   }
   a {
     text-decoration: none;
     color: $mainMediumColor;
     i {
+    i {
       color: $darkColor;
     }
   }
   a:hover {
+  a:hover {
     text-decoration: underline;
   }
+  .letter {
+    display: inline-block;
+    background-color: $darkColor;
+    color: $lightColor;
+
+    &:first-of-type {
+      padding-left: 20px;
+      border-radius: 15px 0 0 15px;
+    }
+
+    &:last-of-type {
+      padding-right: 20px;
+      border-radius: 0 15px 15px 0;
+    }
+  }
 }
+
 // WORK
 
 .homePageWork {
-  height: 100vh;
   padding-top: 5em;
+  padding-bottom: 5em;
 
   .homePageWorkWrapper {
     display: flex;
@@ -242,16 +311,82 @@ body::-webkit-scrollbar-thumb:hover {
     padding: 2em 0;
     font-size: 8rem;
 
+    .circle {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
+    
+    .circle-dark-dashed {
+      width: 12rem;
+      height: 12rem;
+      margin: auto;
+      border-radius: 51%;
+      background-color: transparent;
+      border: 2px dashed $mediumLightColor;
+    }
+
+    .homePageWorkEmptyCircle {
+      position: relative;
+      width: 8rem;
+      height: 8rem;
+      margin: 20px;
+    }
+    
+    .double-bounce1, .double-bounce2 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background-color: $mainMediumColor;
+      opacity: 0.6;
+      animation: sk-bounce 8.0s infinite ease-in-out;
+    }
+    
+    .double-bounce2 {
+      animation-delay: -1.0s;
+    }
+    
+    @keyframes sk-bounce {
+      0%, 100% { 
+        transform: scale(0.0);
+      } 50% { 
+        transform: scale(1.0);
+      }
+    }
+
     .homePageWorkLink {
+      position: relative;
+      width: 12rem;
+      height: 12rem;
+      display: inline-block;
+      font-size: 3.2rem;
+      margin: 20px;
       text-decoration: none;
       color: $mediumLightColor;
       text-align: center;
       letter-spacing: -3px;
-    }
+      font-weight: normal;
+      background: $mainLightColor;
+      border-radius: 50%;
 
-    .fa-eye {
-      padding-left: 0.4em;
+      .projectLink {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-weight: bold;
+        color: $lightColor;
+      }
     }
+    // .homePageWorkLink .letter {
+    //   display: inline-block;
+    // }   
   }
 }
 
@@ -275,11 +410,13 @@ body::-webkit-scrollbar-thumb:hover {
     align-self: center;
   }
 
+
   .contactPageLink {
     text-decoration: none;
     color: $darkColor;
     font-weight: bold;
   }
+
 
   .contactPageLink:hover {
     text-decoration: underline;
@@ -289,8 +426,29 @@ body::-webkit-scrollbar-thumb:hover {
     letter-spacing: 5px;
     align-self: center;
   }
+  }
 }
 .reverseColors {
   color: $darkColor;
   background-color: $mainMediumColor;
+}
+
+.workPage {
+  .projectElement {
+    width: 94vh;
+    max-width: 94vw;
+    height: 94vh;
+    max-height: 94vw;
+    margin: 3vh auto;
+    border-radius: 50%;
+    position: relative;
+
+    .projectLabel {
+      background: $darkColor;
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      text-align: center;
+    }
+  }
 }
