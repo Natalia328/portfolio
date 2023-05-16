@@ -133,7 +133,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 // Intro
 
-.intro{
+.intro {
   position: fixed;
   width: 100%;
   height: 100%;
@@ -142,25 +142,29 @@ body::-webkit-scrollbar-thumb:hover {
   z-index: 10;
 }
 
-.toTransition{
+.toTransition {
   position: absolute;
-  width: 0%;
+  width: 100%;
   height: 100%;
   top: 0;
   left: 0;
 }
-
-.firstToTransition {
-  background-color:$lightColor;
+.thirdToTransition {
+  width: 50%;
+}
+.forthToTransition {
+  width: 30%;
 }
 
-.secondToTransition {
+.firstToTransition,
+.thirdToTransition {
+  background-color: $mediumLightColor;
+}
+
+.secondToTransition,
+.forthToTransition {
   background-color: $mainMediumColor;
 }
-
-
-
-
 
 .homePage {
   display: flex;
@@ -208,7 +212,7 @@ body::-webkit-scrollbar-thumb:hover {
     text-align: center;
   }
 
-  .aboutMeDescrpition{
+  .aboutMeDescrpition {
     align-self: flex-end;
     width: 50%;
     text-align: justify;
@@ -217,22 +221,15 @@ body::-webkit-scrollbar-thumb:hover {
   a {
     text-decoration: none;
     color: $mainMediumColor;
-    i{
+    i {
       color: $darkColor;
     }
   }
-  a:hover{
+  a:hover {
     text-decoration: underline;
   }
-
 }
 // WORK
-
-
-
-
-
-
 
 .homePageWork {
   height: 100vh;
@@ -244,7 +241,7 @@ body::-webkit-scrollbar-thumb:hover {
     justify-content: center;
     padding: 2em 0;
     font-size: 8rem;
-    
+
     .homePageWorkLink {
       text-decoration: none;
       color: $mediumLightColor;
@@ -277,25 +274,23 @@ body::-webkit-scrollbar-thumb:hover {
     white-space: nowrap;
     align-self: center;
   }
-  
+
   .contactPageLink {
     text-decoration: none;
     color: $darkColor;
     font-weight: bold;
   }
-  
+
   .contactPageLink:hover {
     text-decoration: underline;
-    
   }
   .contactPageLinkedIn {
     font-size: 2.5rem;
     letter-spacing: 5px;
     align-self: center;
-}
+  }
 }
 .reverseColors {
   color: $darkColor;
   background-color: $mainMediumColor;
 }
-

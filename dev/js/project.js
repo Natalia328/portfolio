@@ -2,53 +2,40 @@
 //
 // Authors: Natalia Świerczek (swierczek.n@gmail.com)
 // Copyright Natalia Świerczek Portfolio © All Rights Reserved
-(function () {
-    console.log('Animations start');
 
-    // anime({
-    //     targets: '.mail',
-    //     translateX: 2500,
-    //     direction: 'rtl',
-    //     loop: true,
-    //     easing: 'linear',
-    //     duration: 5000
-    // });
-
-    // var colorsExamples = anime.timeline({
-    //     endDelay: 1000,
-    //     easing: 'easeOutExpo',
-    //     direction: 'alternate',
-    //     loop: true
-    //   })
-    //   .add({ targets: '.firstToTransition',  background: '$mainMediumColor' }, 0)
-    //   .add({ targets: '.secondToTransition',  background: '$mediumLightColor' }, 0)
-    //   .add({ targets: '.toTransition' }, 0);
-
+const intro = document.querySelector('.intro');
+function animeIntro() {
     anime({
         targets: '.firstToTransition',
-
-        width: '100%', // -> from '28px' to '100%',
+        width: '0%',
         easing: 'easeInOutQuad',
-        direction: 'alternate',
-        // loop: true,
-        duration: 3000
-      });
-    // anime({
-    //     targets: '.firstToTransition',
-    //     delay: 3000,
-    //     zIndex: '-10', 
-        
-      
+        duration: 3300
+    })
     anime({
         targets: '.secondToTransition',
-        width: '100%', // -> from '28px' to '100%',
+        width: '0%',
         easing: 'easeInOutQuad',
-        direction: 'alternate',
-        // loop: true,
-        duration: 2500
-      });
+        duration: 2600
+    });
+    anime({
+        targets: '.thirdToTransition',
+        width: '0%',
+        easing: 'easeInOutQuad',
+        duration: 5000
+    });
+    anime({
+        targets: '.forthToTransition',
+        width: '0%',
+        easing: 'easeInOutQuad',
+        duration: 5000
+    });
+};
 
-})();
+window.addEventListener("load", animeIntro);
+setTimeout(() => {
+    intro.style.width="0%";
+  }, "5000");
+
 
 const burgerBtn = document.querySelector('.burger');
 const nav = document.querySelector('.navigation');
@@ -98,20 +85,20 @@ function marquee(selector, speed) {
     const clone = parentSelector.innerHTML;
     const firstElement = parentSelector.children[0];
     let i = 0;
-  
+
     parentSelector.insertAdjacentHTML("beforeend", clone);
     parentSelector.insertAdjacentHTML("beforeend", clone);
-  
+
     setInterval(function () {
-      firstElement.style.marginLeft =`-${i}px`;
-      if (i > firstElement.clientWidth) {
-        i = 0;
-      }
-      i = i + speed;
+        firstElement.style.marginLeft = `-${i}px`;
+        if (i > firstElement.clientWidth) {
+            i = 0;
+        }
+        i = i + speed;
     }, 0);
-  }
-  
-  //after window is completed load
-  //1 class selector for marquee
-  //2 marquee speed 0.2
-  window.addEventListener("load", marquee(".contactPageMarquee", 0.5));
+}
+
+//after window is completed load
+//1 class selector for marquee
+//2 marquee speed 0.2
+window.addEventListener("load", marquee(".contactPageMarquee", 0.5));
