@@ -22,20 +22,21 @@ function generateRange() {
 }
 
 setInterval(animeWorkCircles, 4000);
-setInterval(randomSize, 2500);
-const c = [];
-function randomSize() { 
+setInterval(animeEmptyCircles, 2500);
+
+function animeEmptyCircles() {
+    const c = [];
     for (let i = 0; i < 6; i++) {
         c[i] = getRandom(2, 7);
+
     }
-}
-function animeEmptyCircles 
-    .add({
+
+    anime({
         targets: '.homePageWorkEmptyCircle',
-        duration: 2500,
+        duration: 1000,
         easing: 'easeInOutQuad',
         loop: true
-    }).add({
+    }); anime({
         targets: '.homePageWorkEmptyCircle.circle1',
         width: [`0`, `${c[0]}rem`],
         height: [`0`, `${c[0]}rem`],
@@ -59,7 +60,8 @@ function animeEmptyCircles
         targets: '.homePageWorkEmptyCircle.circle6',
         width: [`0`, `${c[5]}rem`],
         height: [`0`, `${c[5]}rem`],
-    })}();
+    });
+}
 
 function animeWorkCircles() {
     generateRange();
@@ -72,8 +74,15 @@ function animeWorkCircles() {
     });
     anime({
         targets: '.homePageWorkLink.project-1 .circle-dark-dashed',
-        width: [`0`, `${x}rem`],
-        height: [`0`, `${x}rem`],
+        width: [`0`, `${x*0.95}rem`],
+        height: [`0`, `${x*0.95}rem`],
+        duration: 2000,
+        easing: 'easeInOutQuad'
+    });
+    anime({
+        targets: '.homePageWorkLink.project-2 .circle-dark-dashed',
+        width: [`0`, `${y*0.95}rem`],
+        height: [`0`, `${y*0.95}rem`],
         duration: 2000,
         easing: 'easeInOutQuad'
     });
@@ -96,19 +105,19 @@ function animeWorkCircles() {
         duration: 2000,
         easing: 'easeInOutQuad'
     });
-    // anime({
-    //     targets: '.circle-container',
-    //     scale: [0, 1],
-    //     duration: 1100,
-    //     easing: "easeInOutExpo",
-    //     offset: '-=1000'
-    //   })
+    anime({
+        targets: '.circle-container',
+        scale: [0, 1],
+        duration: 1100,
+        easing: "easeInOutExpo",
+        offset: '-=1000'
+      });
     anime({
     targets: '.circle-dark-dashed',
     rotateZ: 360,
     duration: 8000,
-    easing: "linear"
-    // loop: true
+    easing: "linear",
+    loop: true
 });   
 
 
