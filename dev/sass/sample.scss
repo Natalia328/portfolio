@@ -268,20 +268,69 @@ body::-webkit-scrollbar-thumb:hover {
     padding: 2em 0;
     font-size: 8rem;
 
+    .circle {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
+    
+    .circle-dark-dashed {
+      width: 12rem;
+      height: 12rem;
+      margin: auto;
+      border-radius: 51%;
+      background-color: transparent;
+      border: 2px dashed $mediumLightColor;
+    }
+
+    .homePageWorkEmptyCircle {
+      position: relative;
+      width: 8rem;
+      height: 8rem;
+      margin: 20px;
+    }
+    
+    .double-bounce1, .double-bounce2 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background-color: $mainMediumColor;
+      opacity: 0.6;
+      animation: sk-bounce 8.0s infinite ease-in-out;
+    }
+    
+    .double-bounce2 {
+      animation-delay: -1.0s;
+    }
+    
+    @keyframes sk-bounce {
+      0%, 100% { 
+        transform: scale(0.0);
+      } 50% { 
+        transform: scale(1.0);
+      }
+    }
+
     .homePageWorkLink {
+      position: relative;
+      width: 12rem;
+      height: 12rem;
+      display: inline-block;
+      font-size: 3.2rem;
+      margin: 20px;
       text-decoration: none;
       color: $mediumLightColor;
       text-align: center;
       letter-spacing: -3px;
       font-weight: normal;
-      display: inline-block;
-      width: 150px;
-      height: 150px;
-      background: red;
+      background: $mainLightColor;
       border-radius: 50%;
-      font-size: 20px;
-      margin: 20px;
-      position: relative;
 
       .projectLink {
         position: absolute;
@@ -289,16 +338,12 @@ body::-webkit-scrollbar-thumb:hover {
         left: 50%;
         transform: translate(-50%, -50%);
         font-weight: bold;
-        color: black;
+        color: $lightColor;
       }
     }
-    .homePageWorkLink .letter {
-      display: inline-block;
-    }
-
-    .fa-eye {
-      padding-left: 0.4em;
-    }
+    // .homePageWorkLink .letter {
+    //   display: inline-block;
+    // }   
   }
 }
 
