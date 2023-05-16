@@ -77,18 +77,18 @@ body::-webkit-scrollbar-thumb:hover {
 }
 .thirdToTransition {
   width: 50%;
+  background-color: $mainMediumColor;
 }
 .forthToTransition {
   width: 30%;
+  background-color: $darkColor;
 }
 
-.firstToTransition,
-.thirdToTransition {
+.firstToTransition{
   background-color: $mediumLightColor;
 }
 
-.secondToTransition,
-.forthToTransition {
+.secondToTransition{
   background-color: $mainMediumColor;
 }
 
