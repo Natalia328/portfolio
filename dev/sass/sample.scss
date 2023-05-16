@@ -55,6 +55,8 @@ body::-webkit-scrollbar-thumb:hover {
   background-color: $mainLightColor;
   color: $darkColor;
 }
+
+
 // Intro
 
 .intro {
@@ -75,18 +77,18 @@ body::-webkit-scrollbar-thumb:hover {
 }
 .thirdToTransition {
   width: 50%;
+  background-color: $mainMediumColor;
 }
 .forthToTransition {
   width: 30%;
+  background-color: $darkColor;
 }
 
-.firstToTransition,
-.thirdToTransition {
+.firstToTransition{
   background-color: $mediumLightColor;
 }
 
-.secondToTransition,
-.forthToTransition {
+.secondToTransition{
   background-color: $mainMediumColor;
 }
 
@@ -171,9 +173,10 @@ body::-webkit-scrollbar-thumb:hover {
     }
   }
 }
-.homePageOpening {
+.homePageOpening{
   height: 100vh;
 }
+
 .homePage {
   display: flex;
   justify-content: space-between;
@@ -262,17 +265,16 @@ body::-webkit-scrollbar-thumb:hover {
     text-align: justify;
     font-size: 2.5rem;
     padding-top: 2em;
-    position: relative;
-    right: -20px;
-    transition: 2s;
   }
   a {
     text-decoration: none;
     color: $mainMediumColor;
     i {
+    i {
       color: $darkColor;
     }
   }
+  a:hover {
   a:hover {
     text-decoration: underline;
   }
@@ -405,11 +407,13 @@ body::-webkit-scrollbar-thumb:hover {
     align-self: center;
   }
 
+
   .contactPageLink {
     text-decoration: none;
     color: $darkColor;
     font-weight: bold;
   }
+
 
   .contactPageLink:hover {
     text-decoration: underline;
@@ -418,6 +422,7 @@ body::-webkit-scrollbar-thumb:hover {
     font-size: 2.5rem;
     letter-spacing: 5px;
     align-self: center;
+  }
   }
 }
 .reverseColors {
@@ -443,4 +448,5 @@ body::-webkit-scrollbar-thumb:hover {
       text-align: center;
     }
   }
+}
 }
