@@ -2,44 +2,126 @@
 //
 // Authors: Natalia Świerczek (swierczek.n@gmail.com)
 // Copyright Natalia Świerczek Portfolio © All Rights Reserved
-// (function () {
-//     console.log('Animations start');
 
-    // anime({
-    //     targets: '.mail',
-    //     translateX: 2500,
-    //     direction: 'rtl',
-    //     loop: true,
-    //     easing: 'linear',
-    //     duration: 5000
-    // });
-    const intro = document.querySelector('.intro');
-function animeIntro() {
+function getRandom(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+let x;
+let y;
+
+function generateRange() {
+    let drawn = getRandom(1, 2);
+    if (drawn === 1) {
+        x = getRandom(12, 17);
+        y = getRandom(30, 40);
+    } else {
+        x = getRandom(30, 40);
+        y = getRandom(12, 17);
+    }
+}
+
+setInterval(animeWorkCircles, 4000);
+setInterval(animeEmptyCircles, 2500);
+
+function animeEmptyCircles() {
+    const c = [];
+    for (let i = 0; i < 6; i++) {
+        c[i] = getRandom(2, 7);
+
+    }
+
     anime({
-        targets: '.firstToTransition',
-        width: '0%',
+        targets: '.homePageWorkEmptyCircle',
+        duration: 1000,
         easing: 'easeInOutQuad',
-        duration: 3300
-    })
+        loop: true
+    }); anime({
+        targets: '.homePageWorkEmptyCircle.circle1',
+        width: [`0`, `${c[0]}rem`],
+        height: [`0`, `${c[0]}rem`],
+    }); anime({
+        targets: '.homePageWorkEmptyCircle.circle2',
+        width: [`0`, `${c[1]}rem`],
+        height: [`0`, `${c[1]}rem`],
+    }); anime({
+        targets: '.homePageWorkEmptyCircle.circle3',
+        width: [`0`, `${c[2]}rem`],
+        height: [`0`, `${c[2]}rem`],
+    }); anime({
+        targets: '.homePageWorkEmptyCircle.circle4',
+        width: [`0`, `${c[3]}rem`],
+        height: [`0`, `${c[3]}rem`],
+    }); anime({
+        targets: '.homePageWorkEmptyCircle.circle5',
+        width: [`0`, `${c[4]}rem`],
+        height: [`0`, `${c[4]}rem`],
+    }); anime({
+        targets: '.homePageWorkEmptyCircle.circle6',
+        width: [`0`, `${c[5]}rem`],
+        height: [`0`, `${c[5]}rem`],
+    });
+}
+
+function animeWorkCircles() {
+    generateRange();
     anime({
-        targets: '.secondToTransition',
-        width: '0%',
-        easing: 'easeInOutQuad',
-        duration: 2600
+        targets: '.homePageWorkLink.project-1',
+        width: [`${x * 0.5}rem`, `${x}rem`],
+        height: [`${x * 0.5}rem`, `${x}rem`],
+        duration: 2000,
+        easing: 'easeInOutQuad'
     });
     anime({
-        targets: '.thirdToTransition',
-        width: '0%',
-        easing: 'easeInOutQuad',
-        duration: 5000
+        targets: '.homePageWorkLink.project-1 .circle-dark-dashed',
+        width: [`0`, `${x*0.95}rem`],
+        height: [`0`, `${x*0.95}rem`],
+        duration: 2000,
+        easing: 'easeInOutQuad'
     });
     anime({
-        targets: '.forthToTransition',
-        width: '0%',
-        easing: 'easeInOutQuad',
-        duration: 5000
+        targets: '.homePageWorkLink.project-2 .circle-dark-dashed',
+        width: [`0`, `${y*0.95}rem`],
+        height: [`0`, `${y*0.95}rem`],
+        duration: 2000,
+        easing: 'easeInOutQuad'
     });
-};
+    anime({
+        targets: '.project-1 .projectLink',
+        fontSize: ['0em', `${x * 0.1}em`],
+        duration: 2000,
+        easing: 'easeInOutQuad'
+    });
+    anime({
+        targets: '.homePageWorkLink.project-2',
+        width: [`${y * 0.5}rem`, `${y}rem`],
+        height: [`${y * 0.5}rem`, `${y}rem`],
+        duration: 2000,
+        easing: 'easeInOutQuad'
+    });
+    anime({
+        targets: '.project-2 .projectLink',
+        fontSize: ['0em', `${y * 0.1}em`],
+        duration: 2000,
+        easing: 'easeInOutQuad'
+    });
+    anime({
+        targets: '.circle-container',
+        scale: [0, 1],
+        duration: 1100,
+        easing: "easeInOutExpo",
+        offset: '-=1000'
+      });
+    anime({
+    targets: '.circle-dark-dashed',
+    rotateZ: 360,
+    duration: 8000,
+    easing: "linear",
+    loop: true
+});   
+
+
+}
 
 
 
