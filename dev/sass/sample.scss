@@ -26,9 +26,10 @@ body {
 
   // font-family: "Aboreto", cursive;
   // font-family: "Montserrat Alternates", sans-serif;
-  font-family: "Poiret One", cursive;
+  // font-family: "Poiret One", cursive;
   // font-family: "Raleway", sans-serif;
   // font-family: "Righteous", cursive;
+  font-family: 'Josefin Sans', sans-serif;
 
   background: $darkColor;
 }
@@ -262,11 +263,47 @@ body::-webkit-scrollbar-thumb:hover {
   padding-bottom: 5em;
 
   .homePageWorkWrapper {
+    // position: relative;
+    // width: 100%;
+    // height: 80%;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 2em 0;
     font-size: 8rem;
+
+    // .circle1 {
+    //   top: 10%;
+    //   left: 67%;
+    // }
+    // .circle2 {
+    //   top: 13%;
+    //   left: 13%;
+    // }
+    // .circle3 {
+    //   top: 86%;
+    //   left: 10%;
+    // }
+    // .circle4 {
+    //   top: 45%;
+    //   left: 13%;
+    // }
+    // .circle5 {
+    //   top: 7%;
+    //   left: 78%;
+    // }
+    // .circle6 {
+    //   top: 89%;
+    //   left: 55%;
+    // }
+    // .project-1 {
+    //   top: 33%;
+    //   left: 19%;
+    // }
+    // .project-2 {
+    //   top: 66%;
+    //   left: 56%;
+    // }
 
     .circle {
       position: absolute;
@@ -288,6 +325,7 @@ body::-webkit-scrollbar-thumb:hover {
 
     .homePageWorkEmptyCircle {
       position: relative;
+      // display: inline-block;
       width: 8rem;
       height: 8rem;
       margin: 20px;
