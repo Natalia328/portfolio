@@ -26,7 +26,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Fahkwang:wght@700&family=Kodchasan:wght@700&family=Krub:wght@600;700&family=Montserrat+Alternates:wght@100;200;300;400;500;600;700;800;900&family=Noto+Serif+Display:wght@700;800;900&display=swap" rel="stylesheet">
     <!-- Link with fonts to be updated, after final decision, which to use -->
 
-
+    <link href="https://fonts.googleapis.com/css2?family=Fahkwang:wght@700&family=Josefin+Sans:wght@600;700&family=Kanit:wght@600;700;800;900&family=Kodchasan:wght@700&family=Krub:wght@600;700&family=Montserrat+Alternates:wght@100;200;300;400;500;600;700;800;900&family=Noto+Serif+Display:wght@700;800;900&display=swap" rel="stylesheet">
+    
     <title><?php the_title() ?></title>
 
 </head>

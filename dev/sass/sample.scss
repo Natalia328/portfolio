@@ -29,9 +29,9 @@ body {
   // font-family: "Poiret One", cursive;
   // font-family: "Raleway", sans-serif;
   // font-family: "Righteous", cursive;
-
+  font-family: 'Josefin Sans', sans-serif;
   // font-family: 'Fahkwang', sans-serif;
-  font-family: "Kodchasan", sans-serif; 
+  // font-family: "Kodchasan", sans-serif; 
   // font-family: 'Krub', sans-serif;
   // font-family: 'Montserrat Alternates', sans-serif;
   // font-family: 'Noto Serif Display', serif;
@@ -323,26 +323,38 @@ body::-webkit-scrollbar-thumb:hover {
   }
   .contactPageMail {
     padding-left: 1em;
-    font-size: 10rem;
+    font-size: 16rem;
+    letter-spacing: -15px;
+    text-decoration: underline;
     white-space: nowrap;
     align-self: center;
   }
 
   .contactPageLink {
-    text-decoration: none;
     color: $darkColor;
     font-weight: bold;
   }
 
-  .contactPageLink:hover {
-    text-decoration: underline;
-  }
-  .contactPageLinkedIn {
+  // .contactPageLink:hover {
+  //   text-decoration: underline;
+  // }
+
+  .linkWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    .contactPageLink  {
     font-size: 2.5rem;
     letter-spacing: 5px;
-    align-self: center;
+    text-decoration: none;
+    // padding-bottom: 1em;
+    // padding: 1em 3em 0;
+    // border-top: 5px solid black;
+  }
   }
 }
+
 .reverseColors {
   color: $darkColor;
   background-color: $mainMediumColor;
