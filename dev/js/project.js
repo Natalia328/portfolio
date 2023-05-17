@@ -306,7 +306,7 @@ let lines = document.querySelectorAll('.text-1');
 let description = document.querySelector('.aboutMeDescrpition');
 
 window.onscroll = () => {
-    let pos = (window.scrollY - 50) / 20;
+    let pos = (window.scrollY - 50)/20;
     for (let i = 0; i < lines.length; i++) {
         if (i % 2 === 0) {
             lines[i].style.left = `${pos}px`;
