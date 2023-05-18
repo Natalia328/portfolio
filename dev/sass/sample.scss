@@ -192,7 +192,7 @@ body::-webkit-scrollbar-thumb:hover {
     background: transparent;
     color: $mediumLightColor;
     border: none;
-    animation: anime-main-section 3s cubic-bezier(0.215, 0.61, 0.355, 1) 4s both;
+    animation: anime-main-section 3s cubic-bezier(0.215, 0.61, 0.355, 1) 8s both;
     z-index: 6;
   }
 
@@ -235,7 +235,7 @@ body::-webkit-scrollbar-thumb:hover {
     align-items: center;
     justify-content: space-around;
     letter-spacing: 5px;
-    animation: anime-main-section 1s cubic-bezier(0.215, 0.61, 0.355, 1) 5s both;
+    animation: anime-main-section 1s cubic-bezier(0.215, 0.61, 0.355, 1) 8s both;
   }
 
   .line {
@@ -246,7 +246,7 @@ body::-webkit-scrollbar-thumb:hover {
 
   .mainTitleInfo {
     font-size: 15rem;
-    animation: anime-main-section 1s cubic-bezier(0.215, 0.61, 0.355, 1) 5s both;
+    animation: anime-main-section 1s cubic-bezier(0.215, 0.61, 0.355, 1) 8s both;
   }
   
   .headerTitle {
@@ -341,7 +341,7 @@ body::-webkit-scrollbar-thumb:hover {
     color: $mainMediumColor;
 
     i {
-      color: $mediumLightColor;
+      color: $darkColor;
     }
   }
 
