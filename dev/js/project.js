@@ -3,6 +3,43 @@
 // Authors: Natalia Świerczek (swierczek.n@gmail.com)
 // Copyright Natalia Świerczek Portfolio © All Rights Reserved
 
+
+const intro = document.querySelector('.intro');
+function animeIntro() {
+    anime({
+        targets: '.firstToTransition',
+        width: '0%',
+        easing: 'easeInOutQuad',
+        duration: 3300
+    })
+    anime({
+        targets: '.secondToTransition',
+        width: '0%',
+        easing: 'easeInOutQuad',
+        duration: 2600
+    });
+    anime({
+        targets: '.thirdToTransition',
+        width: '0%',
+        easing: 'easeInOutQuad',
+        duration: 5000
+    });
+    anime({
+        targets: '.forthToTransition',
+        width: '0%',
+        easing: 'easeInOutQuad',
+        duration: 5000
+    });
+};
+
+window.addEventListener("load", animeIntro);
+
+
+setTimeout(() => {
+    intro.style.width = `0%`;
+  }, "5000");
+
+
 function getRandom(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
@@ -78,15 +115,15 @@ function animeWorkCircles() {
     });
     anime({
         targets: '.homePageWorkLink.project-1 .circle-dark-dashed',
-        width: [`0`, `${x*0.95}rem`],
-        height: [`0`, `${x*0.95}rem`],
+        width: [`0`, `${x * 0.95}rem`],
+        height: [`0`, `${x * 0.95}rem`],
         duration: 2000,
         easing: 'easeInOutQuad'
     });
     anime({
         targets: '.homePageWorkLink.project-2 .circle-dark-dashed',
-        width: [`0`, `${y*0.95}rem`],
-        height: [`0`, `${y*0.95}rem`],
+        width: [`0`, `${y * 0.95}rem`],
+        height: [`0`, `${y * 0.95}rem`],
         duration: 2000,
         easing: 'easeInOutQuad'
     });
@@ -115,14 +152,14 @@ function animeWorkCircles() {
         duration: 1100,
         easing: "easeInOutExpo",
         offset: '-=1000'
-      });
+    });
     anime({
-    targets: '.circle-dark-dashed',
-    rotateZ: 360,
-    duration: 8000,
-    easing: "linear",
-    loop: true
-});   
+        targets: '.circle-dark-dashed',
+        rotateZ: 360,
+        duration: 8000,
+        easing: "linear",
+        loop: true
+    });
 
 
 }
@@ -250,6 +287,7 @@ anime.timeline({ loop: true })
 
 // Line moving
 let lines = document.querySelectorAll('.text-1');
+let description = document.querySelector('.aboutMeDescrpition');
 
 window.onscroll = () => {
     let pos = (window.scrollY - 50) / 20;
@@ -260,6 +298,8 @@ window.onscroll = () => {
             lines[i].style.right = `${pos}px`;
         }
     }
+    description.style.right = `${pos}px`;
+
 }
 
 function splitLetters(text) {

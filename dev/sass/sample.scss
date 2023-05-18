@@ -56,6 +56,42 @@ body::-webkit-scrollbar-thumb:hover {
   color: $darkColor;
 }
 
+
+// Intro
+
+.intro {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.toTransition {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.thirdToTransition {
+  width: 50%;
+  background-color: $mainMediumColor;
+}
+.forthToTransition {
+  width: 30%;
+  background-color: $darkColor;
+}
+
+.firstToTransition{
+  background-color: $mediumLightColor;
+}
+
+.secondToTransition{
+  background-color: $mainMediumColor;
+}
+
 // Nav
 
 .navigation {
@@ -111,7 +147,7 @@ body::-webkit-scrollbar-thumb:hover {
     right: 0;
     padding: 0.5em 1em;
     font-size: 8rem;
-    
+
     letter-spacing: 20px;
   }
   .burger-dark-color {
@@ -137,9 +173,10 @@ body::-webkit-scrollbar-thumb:hover {
     }
   }
 }
-.homePageOpening {
+.homePageOpening{
   height: 100vh;
 }
+
 .homePage {
   display: flex;
   justify-content: space-between;
@@ -233,9 +270,11 @@ body::-webkit-scrollbar-thumb:hover {
     text-decoration: none;
     color: $mainMediumColor;
     i {
+    i {
       color: $darkColor;
     }
   }
+  a:hover {
   a:hover {
     text-decoration: underline;
   }
@@ -378,22 +417,24 @@ body::-webkit-scrollbar-thumb:hover {
     white-space: nowrap;
     align-self: center;
   }
-  
+
+
   .contactPageLink {
     text-decoration: none;
     color: $darkColor;
     font-weight: bold;
   }
-  
+
+
   .contactPageLink:hover {
     text-decoration: underline;
-    
   }
   .contactPageLinkedIn {
     font-size: 2.5rem;
     letter-spacing: 5px;
     align-self: center;
-}
+  }
+  }
 }
 .reverseColors {
   color: $darkColor;
@@ -418,4 +459,5 @@ body::-webkit-scrollbar-thumb:hover {
       text-align: center;
     }
   }
+}
 }
