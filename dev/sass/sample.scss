@@ -22,21 +22,7 @@ html {
 body {
   font-size: 1.6rem;
   text-transform: uppercase;
-  //Font to consider
-  // font-family: 'Montserrat Alternates', sans-serif;
-  // font-family: "Aboreto", cursive;
-  // font-family: "Montserrat Alternates", sans-serif;
-  // font-family: "Poiret One", cursive;
-  // font-family: "Poiret One", cursive;
-  // font-family: "Raleway", sans-serif;
-  // font-family: "Righteous", cursive;
-  font-family: 'Josefin Sans', sans-serif;
-  // font-family: 'Fahkwang', sans-serif;
-  // font-family: "Kodchasan", sans-serif; 
-  // font-family: 'Krub', sans-serif;
-  // font-family: 'Montserrat Alternates', sans-serif;
-  // font-family: 'Noto Serif Display', serif;
-
+  font-family: "Josefin Sans", sans-serif;
   background: $darkColor;
 }
 
@@ -62,40 +48,59 @@ body::-webkit-scrollbar-thumb:hover {
   color: $darkColor;
 }
 
-
 // Intro
 
-.intro {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 10;
-}
+.introPage {
 
-.toTransition {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-}
-.thirdToTransition {
-  width: 50%;
-  background-color: $mainMediumColor;
-}
-.forthToTransition {
-  width: 30%;
-  background-color: $darkColor;
-}
+  .intro {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+  }
 
-.firstToTransition{
-  background-color: $mediumLightColor;
-}
+  .toTransition {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
 
-.secondToTransition{
-  background-color: $mainMediumColor;
+  .welcomeTitle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 13rem;
+    text-align: center;
+    z-index: 11;
+    color: $lightColor;
+    transition: 1s;
+    transform-origin: 50% 50%;
+    letter-spacing: -20px;
+    line-height: 85%;
+  }
+
+  .first {
+    width: 50%;
+    background-color: $mainMediumColor;
+  }
+
+  .second {
+    width: 30%;
+    background-color: $darkColor;
+  }
+
+  .third {
+    background-color: $mediumLightColor;
+  }
+
+  .fourth {
+    background-color: $mainMediumColor;
+  }
 }
 
 // Nav
@@ -179,7 +184,7 @@ body::-webkit-scrollbar-thumb:hover {
     }
   }
 }
-.homePageOpening{
+.homePageOpening {
   height: 100vh;
 }
 
@@ -276,36 +281,36 @@ body::-webkit-scrollbar-thumb:hover {
     text-decoration: none;
     color: $mainMediumColor;
     i {
-    i {
-      color: $darkColor;
+      i {
+        color: $darkColor;
+      }
     }
-  }
-  a:hover {
-  a:hover {
-    text-decoration: underline;
-  }
-  .letter {
-    display: inline-block;
-    background-color: $darkColor;
-    color: $lightColor;
+    a:hover {
+      a:hover {
+        text-decoration: underline;
+      }
+      .letter {
+        display: inline-block;
+        background-color: $darkColor;
+        color: $lightColor;
 
-    &:first-of-type {
-      padding-left: 20px;
-      border-radius: 15px 0 0 15px;
+        &:first-of-type {
+          padding-left: 20px;
+          border-radius: 15px 0 0 15px;
+        }
+
+        &:last-of-type {
+          padding-right: 20px;
+          border-radius: 0 15px 15px 0;
+        }
+      }
     }
 
-    &:last-of-type {
-      padding-right: 20px;
-      border-radius: 0 15px 15px 0;
-    }
-  }
-}
+    // WORK
 
-// WORK
-
-.homePageWork {
-  padding-top: 5em;
-  padding-bottom: 5em;
+    .homePageWork {
+      padding-top: 5em;
+      padding-bottom: 5em;
 
   .homePageWorkWrapper {
     width: 100%;
@@ -324,23 +329,23 @@ body::-webkit-scrollbar-thumb:hover {
       grid-row: 3 / 5;
     }
 
-    .circle {
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      margin: auto;
-    }
-    
-    .circle-dark-dashed {
-      width: 12rem;
-      height: 12rem;
-      margin: auto;
-      border-radius: 51%;
-      background-color: transparent;
-      border: 2px dashed $mediumLightColor;
-    }
+        .circle {
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          margin: auto;
+        }
+
+        .circle-dark-dashed {
+          width: 12rem;
+          height: 12rem;
+          margin: auto;
+          border-radius: 51%;
+          background-color: transparent;
+          border: 2px dashed $mediumLightColor;
+        }
 
     .homePageWorkEmptyCircle {
       position: relative;
@@ -374,37 +379,37 @@ body::-webkit-scrollbar-thumb:hover {
       }
     }
 
-    .homePageWorkLink {
-      position: relative;
-      width: 12rem;
-      height: 12rem;
-      display: inline-block;
-      font-size: 3.2rem;
-      margin: 20px;
-      text-decoration: none;
-      color: $mediumLightColor;
-      text-align: center;
-      letter-spacing: -3px;
-      font-weight: normal;
-      background: $mainLightColor;
-      border-radius: 50%;
+        .homePageWorkLink {
+          position: relative;
+          width: 12rem;
+          height: 12rem;
+          display: inline-block;
+          font-size: 3.2rem;
+          margin: 20px;
+          text-decoration: none;
+          color: $mediumLightColor;
+          text-align: center;
+          letter-spacing: -3px;
+          font-weight: normal;
+          background: $mainLightColor;
+          border-radius: 50%;
 
-      .projectLink {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-weight: bold;
-        color: $lightColor;
+          .projectLink {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-weight: bold;
+            color: $lightColor;
+          }
+        }
+        // .homePageWorkLink .letter {
+        //   display: inline-block;
+        // }
       }
     }
-    // .homePageWorkLink .letter {
-    //   display: inline-block;
-    // }   
-  }
-}
 
-// CONTACT
+    // CONTACT
 
 .homePageContact {
   height: 100vh;
@@ -458,15 +463,15 @@ body::-webkit-scrollbar-thumb:hover {
   background-color: $mainMediumColor;
 }
 
-.workPage {
-  .projectElement {
-    width: 94vh;
-    max-width: 94vw;
-    height: 94vh;
-    max-height: 94vw;
-    margin: 3vh auto;
-    border-radius: 50%;
-    position: relative;
+  .workPage {
+    .projectElement {
+      width: 94vh;
+      max-width: 94vw;
+      height: 94vh;
+      max-height: 94vw;
+      margin: 3vh auto;
+      border-radius: 50%;
+      position: relative;
 
     .projectLabel {
       background: $darkColor;
