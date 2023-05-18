@@ -16,17 +16,15 @@
 </section>
 
 <nav class="navigation">
-        <?php
-        wp_nav_menu(
-            array(
-                "theme_location" => "header-menu",
-                // "after" => '<i class="fa-regular fa-arrow-right"></i>'
-            )
-        ); ?>
-        <button class="burger">
-            <!-- <i class="fas fa-times hide"></i> -->
-            <p class="menuBtn"><i class="fa-regular fa-eye"></i></p>
-        </button>
+    <?php
+    wp_nav_menu(
+        array(
+            "theme_location" => "header-menu",
+        )
+    ); ?>
+    <button class="burger">
+        <p class="menuBtn"><i class="fa-regular fa-eye"></i></p>
+    </button>
     </section>
 </nav>
 
