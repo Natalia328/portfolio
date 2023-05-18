@@ -176,17 +176,19 @@ body::-webkit-scrollbar-thumb:hover {
   justify-content: center;
   flex-direction: column;
   padding: 12em 5em;
-  // background-color: $mediumLightColor;
-  // color: $darkColor;
+  background-color: $mediumLightColor;
+  color: $darkColor;
   overflow-x: hidden;
 
   .aboutMeText {
     width: 80%;
     font-size: 6rem;
   }
+
   .aboutMeParagraph {
     text-align: center;
   }
+  
   .text-1 {
     position: relative;
     transition: 1s;
@@ -196,6 +198,7 @@ body::-webkit-scrollbar-thumb:hover {
   .paragraph-3 .text-1 {
     left: -50px;
   }
+
   .paragraph-2 .text-1,
   .paragraph-5 .text-1 {
     right: -50px;
@@ -218,6 +221,7 @@ body::-webkit-scrollbar-thumb:hover {
     height: 9rem;
     width: 100%;
   }
+
   .letter {
     display: inline-block;
   }
@@ -232,16 +236,20 @@ body::-webkit-scrollbar-thumb:hover {
     right: -20px;
     transition: 2s;
   }
+
   a {
     text-decoration: none;
     color: $mainMediumColor;
+
     i {
-      color: $darkColor;
+      color: $mediumLightColor;
     }
   }
+
   a:hover {
     text-decoration: underline;
   }
+
   .letter {
     display: inline-block;
     background-color: $mainMediumColor;
