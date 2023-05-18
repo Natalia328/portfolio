@@ -116,9 +116,18 @@ YTEST
 <section id="homePageContact" class="homePage homePageContact">
 
     <h2 class="headerTitle"><?php the_field('homePageContact_mainTitle'); ?></h2>
+
     <div class="contactPageMarquee">
         <a class="contactPageLink contactPageMail" href="mailto:<?php the_field('homePageContact_mail'); ?>"> <?php the_field('homePageContact_mail'); ?></a>
+        <a class="contactPageLink contactPageMail" href="mailto:<?php the_field('homePageContact_mail'); ?>"> <?php the_field('homePageContact_mail'); ?></a>
     </div>
-    <a class="contactPageLink contactPageLinkedIn" href="<?php the_field('homePageContact_linkedinURL'); ?>" target="_blank"><?php the_field('homePageContact_linkedin'); ?></a>
+    <div class="linkWrapper">
+        <a class="contactPageLink contactPageLinkedIn" href="<?php the_field('homePageContact_linkedinURL'); ?>" target="_blank"><?php the_field('homePageContact_linkedin'); ?></a>
+
+        <a class="contactPageLink contactPageGithub" href="<?php the_field('homePageContact_githubURL'); ?>" target="_blank"><?php the_field('homePageContact_github'); ?></a>
+
+    </div>
+
+
 
 </section>
