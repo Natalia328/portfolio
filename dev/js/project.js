@@ -4,40 +4,63 @@
 // Copyright Natalia Świerczek Portfolio © All Rights Reserved
 
 
+// -----------------
+// INTRO
+
 const intro = document.querySelector('.intro');
+const welcome = document.querySelector('.welcomeTitle');
+
 function animeIntro() {
+
+    setTimeout(function () {
+        welcome.style.scale = '1.5';
+    }, 1000);
+
     anime({
-        targets: '.firstToTransition',
+        targets: '.welcomeTitle',
+        left: '-100%',
+        easing: 'linear',
+        duration: 3000,
+        delay: 3000
+    });
+    anime({
+        targets: '.third',
         width: '0%',
         easing: 'easeInOutQuad',
-        duration: 3300
+        duration: 3300,
+        delay: 3000
     })
     anime({
-        targets: '.secondToTransition',
+        targets: '.fourth',
         width: '0%',
         easing: 'easeInOutQuad',
-        duration: 2600
+        duration: 2600,
+        delay: 3000
     });
     anime({
-        targets: '.thirdToTransition',
+        targets: '.first',
         width: '0%',
         easing: 'easeInOutQuad',
-        duration: 5000
+        duration: 5000,
+        delay: 3000
     });
     anime({
-        targets: '.forthToTransition',
+        targets: '.second',
         width: '0%',
         easing: 'easeInOutQuad',
-        duration: 5000
+        duration: 5000,
+        delay: 3000
     });
+
 };
 
 window.addEventListener("load", animeIntro);
-
-
 setTimeout(() => {
     intro.style.width = `0%`;
-  }, "5000");
+}, "8000");
+
+// -----------------
+
 
 
 function getRandom(min, max) {
