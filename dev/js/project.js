@@ -26,7 +26,7 @@ setInterval(animeEmptyCircles, 2500);
 
 function animeEmptyCircles() {
     const c = [];
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < 7; i++) {
         c[i] = getRandom(2, 7);
 
     }
@@ -60,6 +60,10 @@ function animeEmptyCircles() {
         targets: '.homePageWorkEmptyCircle.circle6',
         width: [`0`, `${c[5]}rem`],
         height: [`0`, `${c[5]}rem`],
+    }); anime({
+        targets: '.homePageWorkEmptyCircle.circle7',
+        width: [`0`, `${c[6]}rem`],
+        height: [`0`, `${c[6]}rem`],
     });
 }
 
