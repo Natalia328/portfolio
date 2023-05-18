@@ -14,25 +14,26 @@
     <div class="toTransition secondToTransition"></div>
 
 </section>
-YTEST
+
 <nav class="navigation">
-    <?php
-    wp_nav_menu(
-        array(
-            "theme_location" => "header-menu",
-            // "after" => '<i class="fa-regular fa-arrow-right"></i>'
-        )
-    ); ?>
-    <button class="burger">
-        <!-- <i class="fas fa-times hide"></i> -->
-        <p class="menuBtn"><i class="fa-regular fa-eye"></i></p>
-    </button>
+        <?php
+        wp_nav_menu(
+            array(
+                "theme_location" => "header-menu",
+                // "after" => '<i class="fa-regular fa-arrow-right"></i>'
+            )
+        ); ?>
+        <button class="burger">
+            <!-- <i class="fas fa-times hide"></i> -->
+            <p class="menuBtn"><i class="fa-regular fa-eye"></i></p>
+        </button>
+    </section>
 </nav>
 
 <section id="homePageOpening" class="homePage homePageOpening">
     <div class="mainTitle">
-        <h1 class="mainTitleName"><?php the_field('homePageOpening_mainTitleName'); ?></h1>
-        <h1 class="mainTitleLastName"><?php the_field('homePageOpening_mainTitleLastName'); ?></h1>
+        <h1 class="mainTitleInfo"><?php the_field('homePageOpening_mainTitleName'); ?></h1>
+        <h1 class="mainTitleInfo"><?php the_field('homePageOpening_mainTitleLastName'); ?></h1>
     </div>
 
     <div class="shortInfo">
@@ -71,7 +72,7 @@ YTEST
 <section id="homePageWork" class="homePage homePageOpening homePageWork">
     <h2 class="headerTitle"><?php the_field('homePageWork_mainTitle'); ?></h2>
     <div class="homePageWorkWrapper">
-    <!-- <div class="homePageWorkEmptyCircle circle1">
+        <!-- <div class="homePageWorkEmptyCircle circle1">
             <div class="double-bounce1"></div>
             <div class="double-bounce2"></div>           
         </div>
@@ -99,7 +100,7 @@ YTEST
             <div class="double-bounce1"></div>
             <div class="double-bounce2"></div>           
         </div> -->
-        
+
         <?php $allProjects = get_field('projectPages');
         foreach ($allProjects as $index => $project) : ?>
             <a class="homePageWorkLink project-<?php echo $index + 1; ?>" href="<?php echo $project['projectData']['url']; ?>" target="<?php echo $project['projectData']['target']; ?>">
@@ -109,7 +110,7 @@ YTEST
                 <span class="circle circle-container"><span class="circle circle-dark-dashed"></span></span>
             </a>
         <?php endforeach ?>
-        
+
     </div>
 </section>
 
