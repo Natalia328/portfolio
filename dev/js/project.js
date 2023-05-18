@@ -187,7 +187,8 @@ function animeWorkCircles() {
 
 }
 
-
+// -----------------------
+// Navigation
 
 const burgerBtn = document.querySelector('.burger');
 const nav = document.querySelector('.navigation');
@@ -196,18 +197,13 @@ const contactSection = document.querySelector("#homePageContact");
 const html = document.querySelector('html');
 const contactTitle = document.querySelector(".contactTitle")
 
-// Navigation slide
 const handleNav = () => {
     nav.classList.toggle('active');
     html.classList.toggle('hideScrollBar');
-    // burgerBtn.classList.toggle('burgerFeature');
     liList.forEach((item) => {
         item.addEventListener("click", () => {
             nav.classList.remove("active");
             html.classList.remove('hideScrollBar');
-            // if(burgerBtn.classList.contains('burgerFeature')){
-            //     burgerBtn.classList.remove('burgerFeature')
-            // }
         });
     });
 }
@@ -216,11 +212,11 @@ burgerBtn.addEventListener('click', handleNav)
 
 
 // Menu btn change color
+
 const allSections = document.querySelectorAll('section')
 
 const handleObserver = () => {
     const currentSection = window.scrollY;
-
     allSections.forEach(section => {
         if (section.classList.contains("lightSection") && section.offsetTop <= currentSection) {
             burgerBtn.classList.add('burger-dark-color')
