@@ -7,12 +7,14 @@
  * Copyright Natalia Świerczek Portfolio © All Rights Reserved
  */
 ?>
-<section class="intro">
-    <div class="toTransition thirdToTransition"></div>
-    <div class="toTransition forthToTransition"></div>
-    <div class="toTransition firstToTransition"></div>
-    <div class="toTransition secondToTransition"></div>
-
+<section class="introPage">
+    <div class="welcomeTitle">Welcome on my website</div>
+    <div class="intro">
+            <div class="toTransition first"></div>
+            <div class="toTransition second"></div>
+            <div class="toTransition third"></div>
+            <div class="toTransition fourth"></div>
+    </div>
 </section>
 
 <nav class="navigation">
