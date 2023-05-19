@@ -8,7 +8,7 @@
  */
 ?>
 <section class="introPage">
-    <div class="welcomeTitle">Welcome on my website</div>
+    <div class="welcomeTitle"><?php the_field('welcomeTitle'); ?></div>
     <div class="intro">
             <div class="toTransition first"></div>
             <div class="toTransition second"></div>
@@ -16,6 +16,8 @@
             <div class="toTransition fourth"></div>
     </div>
 </section>
+
+welcomeTitle
 
 <nav class="navigation">
     <?php
