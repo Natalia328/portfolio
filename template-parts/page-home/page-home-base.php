@@ -71,6 +71,7 @@ YTEST
 <section id="homePageWork" class="homePage homePageOpening homePageWork">
     <h2 class="headerTitle"><?php the_field('homePageWork_mainTitle'); ?></h2>
     <div class="homePageWorkWrapper">
+    <div id="circleBackground"></div>
     <!-- <div class="homePageWorkEmptyCircle circle1">
             <div class="double-bounce1"></div>
             <div class="double-bounce2"></div>           
