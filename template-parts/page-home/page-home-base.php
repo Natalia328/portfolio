@@ -70,56 +70,23 @@ YTEST
 
 <section id="homePageWork" class="homePage homePageOpening homePageWork">
     <h2 class="headerTitle"><?php the_field('homePageWork_mainTitle'); ?></h2>
-    <div class="homePageWorkWrapper">
-    <div id="circleBackground"></div>
-    <!-- <div class="homePageWorkEmptyCircle circle1">
-            <div class="double-bounce1"></div>
-            <div class="double-bounce2"></div>           
-        </div>
-        <div class="homePageWorkEmptyCircle circle2">
-            <div class="double-bounce1"></div>
-            <div class="double-bounce2"></div>           
-        </div>
-        <div class="homePageWorkEmptyCircle circle3">
-            <div class="double-bounce1"></div>
-            <div class="double-bounce2"></div>           
-        </div>
-        <div class="homePageWorkEmptyCircle circle4">
-            <div class="double-bounce1"></div>
-            <div class="double-bounce2"></div>           
-        </div>
-        <div class="homePageWorkEmptyCircle circle5">
-            <div class="double-bounce1"></div>
-            <div class="double-bounce2"></div>           
-        </div>
-        <div class="homePageWorkEmptyCircle circle6">
-            <div class="double-bounce1"></div>
-            <div class="double-bounce2"></div>           
-        </div>
-        <div class="homePageWorkEmptyCircle circle7">
-            <div class="double-bounce1"></div>
-            <div class="double-bounce2"></div>           
-        </div> -->
-        
+    <div id="homePageWorkWrapper" class="homePageWorkWrapper">
         <?php $allProjects = get_field('projectPages');
         foreach ($allProjects as $index => $project) : ?>
-            <a class="homePageWorkLink project-<?php echo $index + 1; ?>" href="<?php echo $project['projectData']['url']; ?>" target="<?php echo $project['projectData']['target']; ?>">
+            <a class="homePageWorkLink project project-<?php echo $index + 1; ?>" href="<?php echo $project['projectData']['url']; ?>" target="<?php echo $project['projectData']['target']; ?>">
                 <h3 class="projectLink">
                     <?php echo $project['projectData']['title']; ?>
                 </h3>
                 <span class="circle circle-container"><span class="circle circle-dark-dashed"></span></span>
             </a>
         <?php endforeach ?>
-        
     </div>
 </section>
 
 <section id="homePageContact" class="homePage homePageContact">
-
     <h2 class="headerTitle"><?php the_field('homePageContact_mainTitle'); ?></h2>
     <div class="contactPageMarquee">
         <a class="contactPageLink contactPageMail" href="mailto:<?php the_field('homePageContact_mail'); ?>"> <?php the_field('homePageContact_mail'); ?></a>
     </div>
     <a class="contactPageLink contactPageLinkedIn" href="<?php the_field('homePageContact_linkedinURL'); ?>" target="_blank"><?php the_field('homePageContact_linkedin'); ?></a>
-
 </section>
