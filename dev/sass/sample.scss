@@ -372,11 +372,14 @@ body::-webkit-scrollbar-thumb:hover {
   }
 
   .aboutMeDescrpition {
+    position: relative;
+    right: -50px;
     align-self: flex-end;
     width: 50%;
     text-align: justify;
     font-size: 2.5rem;
     padding-top: 2em;
+    transition: 1.5s;
   }
 
   a {
