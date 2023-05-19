@@ -329,9 +329,11 @@ body::-webkit-scrollbar-thumb:hover {
     width: 80%;
     font-size: 6rem;
   }
+
   .aboutMeParagraph {
     text-align: center;
   }
+  
   .text-1 {
     position: relative;
     transition: 1s;
@@ -341,6 +343,7 @@ body::-webkit-scrollbar-thumb:hover {
   .paragraph-3 .text-1 {
     left: -50px;
   }
+
   .paragraph-2 .text-1,
   .paragraph-5 .text-1 {
     right: -50px;
@@ -363,6 +366,7 @@ body::-webkit-scrollbar-thumb:hover {
     height: 9rem;
     width: 100%;
   }
+
   .letter {
     display: inline-block;
   }
@@ -374,22 +378,24 @@ body::-webkit-scrollbar-thumb:hover {
     font-size: 2.5rem;
     padding-top: 2em;
   }
+
   a {
     text-decoration: none;
     color: $mainMediumColor;
+
     i {
-      i {
-        color: $darkColor;
-      }
+      color: $darkColor;
     }
-    a:hover {
-      a:hover {
-        text-decoration: underline;
-      }
-      .letter {
-        display: inline-block;
-        background-color: $darkColor;
-        color: $lightColor;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .letter {
+    display: inline-block;
+    background-color: $mainMediumColor;
+    color: $lightColor;
 
         &:first-of-type {
           padding-left: 20px;
@@ -580,5 +586,4 @@ body::-webkit-scrollbar-thumb:hover {
         }
       }
     }
-  }
-}
+  

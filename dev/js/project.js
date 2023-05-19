@@ -247,7 +247,10 @@ const contactTitleEffect = () => {
 window.addEventListener("scroll", contactTitleEffect)
 
 
+// About me section
+
 // Wrap every letter in a span
+
 const textWrapper1 = document.querySelector('.text-2');
 const textWrapper2 = document.querySelector('.text-3');
 const textWrapper3 = document.querySelector('.text-4');
@@ -255,7 +258,6 @@ const textWrapper3 = document.querySelector('.text-4');
 textWrapper1.innerHTML = splitLetters(textWrapper1.textContent);
 textWrapper2.innerHTML = splitLetters(textWrapper2.textContent);
 textWrapper3.innerHTML = splitLetters(textWrapper3.textContent);
-
 
 anime.timeline({ loop: true })
     .add({
@@ -301,14 +303,11 @@ anime.timeline({ loop: true })
     })
 
 
-
-
-
 // Line moving
 let lines = document.querySelectorAll('.text-1');
 
 window.onscroll = () => {
-    let pos = (window.scrollY - 50) / 20;
+    let pos = (window.scrollY - 50)/20;
     for (let i = 0; i < lines.length; i++) {
         if (i % 2 === 0) {
             lines[i].style.left = `${pos}px`;
@@ -316,6 +315,7 @@ window.onscroll = () => {
             lines[i].style.right = `${pos}px`;
         }
     }
+    description.style.right = `${pos}px`;
 }
 
 function splitLetters(text) {
@@ -334,7 +334,6 @@ function splitLetters(text) {
             textToReturn += '<span class="letter">&nbsp;</span>';
         }
     }
-
     return textToReturn;
 }
 
