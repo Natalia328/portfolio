@@ -74,10 +74,12 @@ YTEST
         <?php $allProjects = get_field('projectPages');
         foreach ($allProjects as $index => $project) : ?>
             <a class="homePageWorkLink project project-<?php echo $index + 1; ?>" href="<?php echo $project['projectData']['url']; ?>" target="<?php echo $project['projectData']['target']; ?>">
-                <h3 class="projectLink">
-                    <?php echo $project['projectData']['title']; ?>
-                </h3>
-                <span class="circle circle-container"><span class="circle circle-dark-dashed"></span></span>
+                <div class="marginWrapper">    
+                    <h3 class="projectLink">
+                        <?php echo $project['projectData']['title']; ?>
+                    </h3>
+                    <span class="circle circle-container"><span class="circle circle-dark-dashed"></span></span>
+                </div>
             </a>
         <?php endforeach ?>
     </div>

@@ -763,6 +763,9 @@ Made by: Bruno Vieira
                 newHtmlElement.style.height = `${elementDimmension}px`;
                 newHtmlElement.style.left = `${x}px`;
                 newHtmlElement.style.top = `${y}px`;
+                const wrapper = document.createElement('div');
+                wrapper.classList.add('marginWrapper');
+                newHtmlElement.appendChild(wrapper);
                 projectsWrapper.appendChild(newHtmlElement);
             }
 
