@@ -305,6 +305,7 @@ anime.timeline({ loop: true })
 
 // Line moving
 let lines = document.querySelectorAll('.text-1');
+let description = document.querySelector('.aboutMeDescrpition');
 
 window.onscroll = () => {
     let pos = (window.scrollY - 50)/20;
