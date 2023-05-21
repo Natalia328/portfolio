@@ -17,13 +17,6 @@ function animeIntro() {
     }, 1000);
 
     anime({
-        targets: '.welcomeTitle',
-        left: '-100%',
-        easing: 'linear',
-        duration: 3000,
-        delay: 3000
-    });
-    anime({
         targets: '.third',
         width: '0%',
         easing: 'easeInOutQuad',
