@@ -9,7 +9,6 @@
 
 const intro = document.querySelector('.intro');
 const welcome = document.querySelector('.welcomeTitle');
-const introTitleWrapper = document.querySelector('.introTitleWrapper');
 
 function animeIntro() {
 
