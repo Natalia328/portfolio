@@ -15,9 +15,8 @@ function animeIntro() {
     setTimeout(function () {
         welcome.style.scale = '1.5';
     }, 1000);
-
     anime({
-        targets: '.welcomeTitle',
+        targets: '.introTitleWrapper',
         left: '-100%',
         easing: 'linear',
         duration: 3000,

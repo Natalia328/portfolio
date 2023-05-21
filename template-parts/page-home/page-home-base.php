@@ -8,7 +8,9 @@
  */
 ?>
 <section class="introPage">
+    <div class= "introTitleWrapper">
     <div class="welcomeTitle"><?php the_field('welcomeTitle'); ?></div>
+    </div>
     <div class="intro">
             <div class="toTransition first"></div>
             <div class="toTransition second"></div>
