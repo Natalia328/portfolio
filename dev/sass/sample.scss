@@ -106,7 +106,7 @@ body::-webkit-scrollbar-thumb:hover {
   }
 }
 
-// Nav
+// Navigation
 
 .navigation {
   .menu-menu-container {
@@ -115,6 +115,7 @@ body::-webkit-scrollbar-thumb:hover {
     height: 100vh;
     z-index: -5;
   }
+
   .menu {
     position: absolute;
     bottom: 0;
@@ -126,8 +127,15 @@ body::-webkit-scrollbar-thumb:hover {
     height: 100vh;
     width: 100vw;
     padding-bottom: 3em;
-    background-color: $darkColor;
     list-style: none;
+    background-image: linear-gradient(
+      270deg,
+      $darkColor,
+      $mainLightColor,
+      $mainMediumColor
+    );
+    background-size: 600% 100%;
+    animation: anime-bgr 8s infinite both;
 
     .menu-item {
       transition: 0.5s;
@@ -144,6 +152,8 @@ body::-webkit-scrollbar-thumb:hover {
       a:hover {
         color: $mainMediumColor;
         letter-spacing: 0;
+        animation: anime-blur 3s cubic-bezier(0.55, 0.085, 0.68, 0.53) infinite
+          both;
       }
     }
 
@@ -153,27 +163,27 @@ body::-webkit-scrollbar-thumb:hover {
   }
 
   .burger {
-    background: transparent;
-    color: $mediumLightColor;
-    border: none;
     position: fixed;
     top: 0;
     right: 0;
     padding: 0.5em 1em;
     font-size: 8rem;
-
     letter-spacing: 20px;
+    background: transparent;
+    color: $lightColor;
+    border: none;
+    animation: anime-main-section 3s cubic-bezier(0.215, 0.61, 0.355, 1) 8s both;
+    z-index: 6;
   }
+
   .burger-dark-color {
     color: $darkColor;
   }
 
-  // .burgerFeature {
-  //   letter-spacing: 0px;
-  // }
   .menuBtn {
     transition: color 0.2s;
   }
+
   .menuBtn:hover {
     color: $mainMediumColor;
     transform: rotateX(180deg);
@@ -187,6 +197,7 @@ body::-webkit-scrollbar-thumb:hover {
     }
   }
 }
+
 .homePageOpening {
   height: 100vh;
 }
@@ -197,25 +208,113 @@ body::-webkit-scrollbar-thumb:hover {
   flex-direction: column;
   width: 100%;
   padding: 2em 2em;
-  color: $mediumLightColor;
+  color: $lightColor;
   font-weight: bold;
+
   .shortInfo {
     display: flex;
     align-items: center;
     justify-content: space-around;
     letter-spacing: 5px;
+    animation: anime-main-section 1s cubic-bezier(0.215, 0.61, 0.355, 1) 8s both;
   }
+
   .line {
     height: 1px;
     width: 20%;
-    background-color: $mainMediumColor;
+    background-color: $lightColor;
   }
-  h1 {
-    font-size: 15rem;
+  .mainTitle {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    padding: 10rem;
   }
+
+  .mainTitleInfo {
+    font-size: 20rem;
+    letter-spacing: -20px;
+
+    &:first-child {
+      align-self: flex-start;
+      animation: slide-in-bck-top 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 7s
+        both;
+    }
+
+    &:last-child {
+      align-self: flex-end;
+      animation: slide-in-bck-bottom 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+        7s both;
+    }
+  }
+
   .headerTitle {
     font-size: 10rem;
     letter-spacing: -10px;
+  }
+}
+
+@keyframes anime-bgr {
+  0% {
+    background-position: 100% 50%;
+  }
+  50% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes anime-blur {
+  0% {
+    filter: blur(0.01);
+  }
+  50% {
+    filter: blur(12px) opacity(20%);
+  }
+  100% {
+    filter: blur(0.01) opacity(100%);
+  }
+}
+
+@keyframes slide-in-bck-top {
+  0% {
+    transform: translateZ(700px) translateY(-300px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateZ(0) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes anime-main-section {
+  0% {
+    letter-spacing: 1em;
+    transform: translateZ(400px);
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateZ(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-bck-bottom {
+  0% {
+    transform: translateZ(700px) translateY(300px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateZ(0) translateY(0);
+    opacity: 1;
   }
 }
 
@@ -235,9 +334,11 @@ body::-webkit-scrollbar-thumb:hover {
     width: 80%;
     font-size: 6rem;
   }
+
   .aboutMeParagraph {
     text-align: center;
   }
+
   .text-1 {
     position: relative;
     transition: 1s;
@@ -247,6 +348,7 @@ body::-webkit-scrollbar-thumb:hover {
   .paragraph-3 .text-1 {
     left: -50px;
   }
+
   .paragraph-2 .text-1,
   .paragraph-5 .text-1 {
     right: -50px;
@@ -269,51 +371,57 @@ body::-webkit-scrollbar-thumb:hover {
     height: 9rem;
     width: 100%;
   }
+
   .letter {
     display: inline-block;
   }
 
   .aboutMeDescrpition {
+    position: relative;
+    right: -50px;
     align-self: flex-end;
     width: 50%;
     text-align: justify;
     font-size: 2.5rem;
     padding-top: 2em;
+    transition: 1.5s;
   }
+
   a {
     text-decoration: none;
     color: $mainMediumColor;
+
     i {
-      i {
-        color: $darkColor;
-      }
+      color: $darkColor;
     }
-    a:hover {
-      a:hover {
-        text-decoration: underline;
-      }
-      .letter {
-        display: inline-block;
-        background-color: $darkColor;
-        color: $lightColor;
+  }
 
-        &:first-of-type {
-          padding-left: 20px;
-          border-radius: 15px 0 0 15px;
-        }
+  a:hover {
+    text-decoration: underline;
+  }
 
-        &:last-of-type {
-          padding-right: 20px;
-          border-radius: 0 15px 15px 0;
-        }
-      }
+  .letter {
+    display: inline-block;
+    background-color: $mainMediumColor;
+    color: $lightColor;
+
+    &:first-of-type {
+      padding-left: 20px;
+      border-radius: 15px 0 0 15px;
     }
 
-    // WORK
+    &:last-of-type {
+      padding-right: 20px;
+      border-radius: 0 15px 15px 0;
+    }
+  }
+}
 
-    .homePageWork {
-      padding-top: 5em;
-      padding-bottom: 5em;
+// WORK
+
+.homePageWork {
+  padding-top: 5em;
+  padding-bottom: 5em;
 
   .homePageWorkWrapper {
     width: 100%;
@@ -332,23 +440,23 @@ body::-webkit-scrollbar-thumb:hover {
       grid-row: 3 / 5;
     }
 
-        .circle {
-          position: absolute;
-          left: 0;
-          right: 0;
-          top: 0;
-          bottom: 0;
-          margin: auto;
-        }
+    .circle {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
 
-        .circle-dark-dashed {
-          width: 12rem;
-          height: 12rem;
-          margin: auto;
-          border-radius: 51%;
-          background-color: transparent;
-          border: 2px dashed $mediumLightColor;
-        }
+    .circle-dark-dashed {
+      width: 12rem;
+      height: 12rem;
+      margin: auto;
+      border-radius: 51%;
+      background-color: transparent;
+      border: 2px dashed $mediumLightColor;
+    }
 
     .homePageWorkEmptyCircle {
       position: relative;
@@ -357,8 +465,9 @@ body::-webkit-scrollbar-thumb:hover {
       height: 8rem;
       margin: 20px;
     }
-    
-    .double-bounce1, .double-bounce2 {
+
+    .double-bounce1,
+    .double-bounce2 {
       position: absolute;
       top: 0;
       left: 0;
@@ -367,52 +476,54 @@ body::-webkit-scrollbar-thumb:hover {
       border-radius: 50%;
       background-color: $mainMediumColor;
       opacity: 0.6;
-      animation: sk-bounce 8.0s infinite ease-in-out;
+      animation: sk-bounce 8s infinite ease-in-out;
     }
-    
+
     .double-bounce2 {
-      animation-delay: -1.0s;
+      animation-delay: -1s;
     }
-    
+
     @keyframes sk-bounce {
-      0%, 100% { 
-        transform: scale(0.0);
-      } 50% { 
-        transform: scale(1.0);
+      0%,
+      100% {
+        transform: scale(0);
+      }
+      50% {
+        transform: scale(1);
       }
     }
 
-        .homePageWorkLink {
-          position: relative;
-          width: 12rem;
-          height: 12rem;
-          display: inline-block;
-          font-size: 3.2rem;
-          margin: 20px;
-          text-decoration: none;
-          color: $mediumLightColor;
-          text-align: center;
-          letter-spacing: -3px;
-          font-weight: normal;
-          background: $mainLightColor;
-          border-radius: 50%;
+    .homePageWorkLink {
+      position: relative;
+      width: 12rem;
+      height: 12rem;
+      display: inline-block;
+      font-size: 3.2rem;
+      margin: 20px;
+      text-decoration: none;
+      color: $mediumLightColor;
+      text-align: center;
+      letter-spacing: -3px;
+      font-weight: normal;
+      background: $mainLightColor;
+      border-radius: 50%;
 
-          .projectLink {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-weight: bold;
-            color: $lightColor;
-          }
-        }
-        // .homePageWorkLink .letter {
-        //   display: inline-block;
-        // }
+      .projectLink {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-weight: bold;
+        color: $lightColor;
       }
     }
+    // .homePageWorkLink .letter {
+    //   display: inline-block;
+    // }
+  }
+}
 
-    // CONTACT
+// CONTACT
 
 .homePageContact {
   height: 100vh;
@@ -434,8 +545,6 @@ body::-webkit-scrollbar-thumb:hover {
     align-self: center;
   }
 
-
-
   .contactPageLink {
     color: $darkColor;
     font-weight: bold;
@@ -445,19 +554,19 @@ body::-webkit-scrollbar-thumb:hover {
   //   text-decoration: underline;
   // }
 
-  .linkWrapper{
+  .linkWrapper {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
 
-    .contactPageLink  {
-    font-size: 2.5rem;
-    letter-spacing: 5px;
-    text-decoration: none;
-    // padding-bottom: 1em;
-    // padding: 1em 3em 0;
-    // border-top: 5px solid black;
-  }
+    .contactPageLink {
+      font-size: 2.5rem;
+      letter-spacing: 5px;
+      text-decoration: none;
+      // padding-bottom: 1em;
+      // padding: 1em 3em 0;
+      // border-top: 5px solid black;
+    }
   }
 }
 
@@ -466,15 +575,15 @@ body::-webkit-scrollbar-thumb:hover {
   background-color: $mainMediumColor;
 }
 
-  .workPage {
-    .projectElement {
-      width: 94vh;
-      max-width: 94vw;
-      height: 94vh;
-      max-height: 94vw;
-      margin: 3vh auto;
-      border-radius: 50%;
-      position: relative;
+.workPage {
+  .projectElement {
+    width: 94vh;
+    max-width: 94vw;
+    height: 94vh;
+    max-height: 94vw;
+    margin: 3vh auto;
+    border-radius: 50%;
+    position: relative;
 
     .projectLabel {
       background: $darkColor;
@@ -485,4 +594,7 @@ body::-webkit-scrollbar-thumb:hover {
     }
   }
 }
-  }}
+
+@import "./small";
+@import "./medium";
+@import "./large";

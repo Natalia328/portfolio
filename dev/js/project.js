@@ -186,7 +186,8 @@ function animeWorkCircles() {
 
 }
 
-
+// -----------------------
+// Navigation
 
 const burgerBtn = document.querySelector('.burger');
 const nav = document.querySelector('.navigation');
@@ -195,18 +196,13 @@ const contactSection = document.querySelector("#homePageContact");
 const html = document.querySelector('html');
 const contactTitle = document.querySelector(".contactTitle")
 
-// Navigation slide
 const handleNav = () => {
     nav.classList.toggle('active');
     html.classList.toggle('hideScrollBar');
-    // burgerBtn.classList.toggle('burgerFeature');
     liList.forEach((item) => {
         item.addEventListener("click", () => {
             nav.classList.remove("active");
             html.classList.remove('hideScrollBar');
-            // if(burgerBtn.classList.contains('burgerFeature')){
-            //     burgerBtn.classList.remove('burgerFeature')
-            // }
         });
     });
 }
@@ -215,11 +211,11 @@ burgerBtn.addEventListener('click', handleNav)
 
 
 // Menu btn change color
+
 const allSections = document.querySelectorAll('section')
 
 const handleObserver = () => {
     const currentSection = window.scrollY;
-
     allSections.forEach(section => {
         if (section.classList.contains("lightSection") && section.offsetTop <= currentSection) {
             burgerBtn.classList.add('burger-dark-color')
@@ -250,7 +246,10 @@ const contactTitleEffect = () => {
 window.addEventListener("scroll", contactTitleEffect)
 
 
+// About me section
+
 // Wrap every letter in a span
+
 const textWrapper1 = document.querySelector('.text-2');
 const textWrapper2 = document.querySelector('.text-3');
 const textWrapper3 = document.querySelector('.text-4');
@@ -258,7 +257,6 @@ const textWrapper3 = document.querySelector('.text-4');
 textWrapper1.innerHTML = splitLetters(textWrapper1.textContent);
 textWrapper2.innerHTML = splitLetters(textWrapper2.textContent);
 textWrapper3.innerHTML = splitLetters(textWrapper3.textContent);
-
 
 anime.timeline({ loop: true })
     .add({
@@ -304,11 +302,9 @@ anime.timeline({ loop: true })
     })
 
 
-
-
-
 // Line moving
 let lines = document.querySelectorAll('.text-1');
+let description = document.querySelector('.aboutMeDescrpition');
 
 window.onscroll = () => {
     let pos = (window.scrollY - 50) / 20;
@@ -319,6 +315,7 @@ window.onscroll = () => {
             lines[i].style.right = `${pos}px`;
         }
     }
+    description.style.right = `${pos}px`;
 }
 
 function splitLetters(text) {
@@ -337,7 +334,6 @@ function splitLetters(text) {
             textToReturn += '<span class="letter">&nbsp;</span>';
         }
     }
-
     return textToReturn;
 }
 
