@@ -1,0 +1,71 @@
+// CONTACT
+
+.homePageContact {
+    height: 100vh;
+    transition: 0.8s;
+    overflow: hidden;
+    .contactPageMarquee {
+      display: flex;
+      overflow: hidden;
+      width: 100vw;
+      height: 100vh;
+      gap: 1rem;
+    }
+    .contactPageMail {
+      padding-left: 1em;
+      font-size: 16rem;
+      letter-spacing: -15px;
+      text-decoration: underline;
+      white-space: nowrap;
+      align-self: center;
+    }
+  
+    .contactPageLink {
+      color: $darkColor;
+      font-weight: bold;
+    }
+  
+    // .contactPageLink:hover {
+    //   text-decoration: underline;
+    // }
+  
+    .linkWrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+  
+      .contactPageLink {
+        font-size: 2.5rem;
+        letter-spacing: 5px;
+        text-decoration: none;
+        // padding-bottom: 1em;
+        // padding: 1em 3em 0;
+        // border-top: 5px solid black;
+      }
+    }
+  }
+  
+  .reverseColors {
+    color: $darkColor;
+    background-color: $mainMediumColor;
+  }
+  
+  .workPage {
+    .projectElement {
+      width: 94vh;
+      max-width: 94vw;
+      height: 94vh;
+      max-height: 94vw;
+      margin: 3vh auto;
+      border-radius: 50%;
+      position: relative;
+  
+      .projectLabel {
+        background: $darkColor;
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }

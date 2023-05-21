@@ -19,7 +19,6 @@
     </div>
 </section>
 
-welcomeTitle
 
 <nav class="navigation">
     <?php
