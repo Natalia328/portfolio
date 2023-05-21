@@ -9,13 +9,20 @@
 
 const intro = document.querySelector('.intro');
 const welcome = document.querySelector('.welcomeTitle');
+const introTitleWrapper = document.querySelector('.introTitleWrapper');
 
 function animeIntro() {
 
     setTimeout(function () {
         welcome.style.scale = '1.5';
     }, 1000);
-
+    anime({
+        targets: '.introTitleWrapper',
+        left: '-100%',
+        easing: 'linear',
+        duration: 3000,
+        delay: 3000
+    });
     anime({
         targets: '.third',
         width: '0%',
