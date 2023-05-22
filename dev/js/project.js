@@ -310,7 +310,7 @@ anime.timeline({ loop: true })
 
 // Line moving
 let lines = document.querySelectorAll('.text-1');
-let description = document.querySelector('.aboutMeDescrpition');
+// let description = document.querySelector('.aboutMeDescrpition');
 
 window.onscroll = () => {
     let pos = (window.scrollY - 50) / 20;
@@ -321,7 +321,7 @@ window.onscroll = () => {
             lines[i].style.right = `${pos}px`;
         }
     }
-    description.style.right = `${pos}px`;
+    // description.style.right = `${pos}px`;
 }
 
 function splitLetters(text) {

@@ -46,7 +46,7 @@
     </div>
 </section>
 
-<section id="homePageAboutMe" class="homePage homePageAboutMe lightSection">
+<section id="homePageAboutMe" class="homePageAboutMe lightSection">
     <?php $aboutMeMainFields = get_field('homePageAboutMe_main');
 
     if (count($aboutMeMainFields) > 0) : # Main repeater-field 
