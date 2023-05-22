@@ -7,7 +7,7 @@
  * Copyright Natalia Świerczek Portfolio © All Rights Reserved
  */
 ?>
-<!-- <section class="introPage">
+<section class="introPage">
     <div class= "introTitleWrapper">
     <div class="welcomeTitle"><?php the_field('welcomeTitle'); ?></div>
     </div>
@@ -17,7 +17,7 @@
             <div class="toTransition third"></div>
             <div class="toTransition fourth"></div>
     </div>
-</section> -->
+</section>
 
 
 <nav class="navigation">
@@ -119,7 +119,7 @@
 
 <section id="homePageContact" class="homePage homePageContact">
 
-    <h2 class="headerTitle"><?php the_field('homePageContact_mainTitle'); ?></h2>
+    <!-- <h2 class="headerTitle"><?php the_field('homePageContact_mainTitle'); ?></h2> -->
 
     <div class="contactPageMarquee">
         <a class="contactPageLink contactPageMail" href="mailto:<?php the_field('homePageContact_mail'); ?>"> <?php the_field('homePageContact_mail'); ?></a>

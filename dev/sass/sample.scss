@@ -52,10 +52,6 @@ body::-webkit-scrollbar-thumb:hover {
   color: $darkColor;
 }
 
-
-
-
-
 .homePageOpening {
   height: 100vh;
 }
@@ -73,13 +69,15 @@ body::-webkit-scrollbar-thumb:hover {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    letter-spacing: 5px;
+    flex-direction: column;
+    letter-spacing: 2px;
+    font-weight: 200;
     animation: anime-main-section 1s cubic-bezier(0.215, 0.61, 0.355, 1) 8s both;
   }
 
   .line {
     height: 1px;
-    width: 20%;
+    width: 70%;
     background-color: $lightColor;
   }
   .mainTitle {
@@ -87,23 +85,22 @@ body::-webkit-scrollbar-thumb:hover {
     width: 100%;
     height: 100%;
     align-items: center;
-    justify-content: space-evenly;
     flex-direction: column;
     padding: 10rem;
   }
 
   .mainTitleInfo {
-    font-size: 20rem;
-    letter-spacing: -20px;
+    font-size: 6rem;
+    letter-spacing: -5px;
 
     &:first-child {
-      align-self: flex-start;
+      // align-self: flex-start;
       animation: slide-in-bck-top 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 7s
         both;
     }
 
     &:last-child {
-      align-self: flex-end;
+      // align-self: flex-end;
       animation: slide-in-bck-bottom 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)
         7s both;
     }
@@ -176,11 +173,45 @@ body::-webkit-scrollbar-thumb:hover {
   }
 }
 
+@media (min-width: 576px) {
+  .homePage {
+    .shortInfo {
+      height: 16vh;
+      font-size: 1.6rem;
+    }
+    .mainTitleInfo {
+      font-size: 7rem;
+      letter-spacing: -6px;
+    }
+    .line {
+      width: 55%;
+    }
+  }
+}
+@media (min-width: 768px) {
+  .homePage {
+    .shortInfo {
+      height: 25vh;
+      font-size: 2rem;
+    }
+    .mainTitleInfo {
+      font-size: 10rem;
+    }
+  }
+}
 
-
-
-
-
-@import "./small";
-@import "./medium";
-@import "./large";
+@media (min-width: 992px) {
+  .homePage {
+    .shortInfo {
+      flex-direction: row;
+      height: 7vh;
+    }
+    .mainTitleInfo {
+      font-size: 13rem;
+      letter-spacing: -15px;
+    }
+    .line {
+      width: 20%;
+    }
+  }
+}

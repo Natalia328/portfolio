@@ -59,10 +59,10 @@ function animeIntro() {
 
 };
 
-// window.addEventListener("load", animeIntro);
-// setTimeout(() => {
-//     intro.style.width = `0%`;
-// }, "8000");
+window.addEventListener("load", animeIntro);
+setTimeout(() => {
+    intro.style.width = `0%`;
+}, "8000");
 
 // -----------------
 
