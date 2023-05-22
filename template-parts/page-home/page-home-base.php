@@ -7,7 +7,7 @@
  * Copyright Natalia Świerczek Portfolio © All Rights Reserved
  */
 ?>
-<section class="introPage">
+<!-- <section class="introPage">
     <div class= "introTitleWrapper">
     <div class="welcomeTitle"><?php the_field('welcomeTitle'); ?></div>
     </div>
@@ -17,7 +17,7 @@
             <div class="toTransition third"></div>
             <div class="toTransition fourth"></div>
     </div>
-</section>
+</section> -->
 
 
 <nav class="navigation">
@@ -72,9 +72,9 @@
     </div>
 </section>
 
-<section id="homePageWork" class="homePage homePageOpening homePageWork">
+<!-- <section id="homePageWork" class="homePage homePageOpening homePageWork">
     <h2 class="headerTitle"><?php the_field('homePageWork_mainTitle'); ?></h2>
-    <div class="homePageWorkWrapper">
+    <div class="homePageWorkWrapper"> -->
         <!-- <div class="homePageWorkEmptyCircle circle1">
             <div class="double-bounce1"></div>
             <div class="double-bounce2"></div>           
@@ -104,7 +104,7 @@
             <div class="double-bounce2"></div>           
         </div> -->
 
-        <?php $allProjects = get_field('projectPages');
+        <!-- <?php $allProjects = get_field('projectPages');
         foreach ($allProjects as $index => $project) : ?>
             <a class="homePageWorkLink project-<?php echo $index + 1; ?>" href="<?php echo $project['projectData']['url']; ?>" target="<?php echo $project['projectData']['target']; ?>">
                 <h3 class="projectLink">
@@ -115,7 +115,7 @@
         <?php endforeach ?>
 
     </div>
-</section>
+</section> -->
 
 <section id="homePageContact" class="homePage homePageContact">
 

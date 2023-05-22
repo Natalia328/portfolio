@@ -34,7 +34,8 @@
       transition: 0.5s;
 
       a {
-        font-size: 12rem;
+        font-size: 8rem;
+        padding-right: 1em;
         line-height: 80%;
         letter-spacing: -10px;
         text-decoration: none;
@@ -47,6 +48,7 @@
         letter-spacing: 0;
         animation: anime-blur 3s cubic-bezier(0.55, 0.085, 0.68, 0.53) infinite
           both;
+          
       }
     }
 
@@ -59,9 +61,8 @@
     position: fixed;
     top: 0;
     right: 0;
-    padding: 0.5em 1em;
-    font-size: 8rem;
-    letter-spacing: 20px;
+    padding: 0.5em 0.4em;
+    font-size: 7rem;
     background: transparent;
     color: $lightColor;
     border: none;
@@ -79,7 +80,7 @@
 
   .menuBtn:hover {
     color: $mainMediumColor;
-    transform: rotateX(180deg);
+    // transform: rotateX(180deg);
   }
 
   &.active {
@@ -90,4 +91,17 @@
       opacity: 1;
     }
   }
+}
+
+@media (min-width: 576px) {
+
+}
+
+@media (min-width: 768px) {
+
+
+}
+
+@media (min-width: 992px) {
+
 }
