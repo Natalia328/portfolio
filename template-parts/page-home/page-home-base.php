@@ -119,7 +119,7 @@
 
 <section id="homePageContact" class="homePage homePageContact">
 
-    <!-- <h2 class="headerTitle"><?php the_field('homePageContact_mainTitle'); ?></h2> -->
+    <h2 class="headerTitleContact"><?php the_field('homePageContact_mainTitle'); ?></h2>
 
     <div class="contactPageMarquee">
         <a class="contactPageLink contactPageMail" href="mailto:<?php the_field('homePageContact_mail'); ?>"> <?php the_field('homePageContact_mail'); ?></a>

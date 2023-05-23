@@ -7,6 +7,7 @@
 @import "./navigation";
 @import "./about";
 // @import "./work";
+@import "./contact";
 
 *,
 *::before,
@@ -106,10 +107,6 @@ body::-webkit-scrollbar-thumb:hover {
     }
   }
 
-  .headerTitle {
-    font-size: 10rem;
-    letter-spacing: -10px;
-  }
 }
 
 @keyframes anime-bgr {
