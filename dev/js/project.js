@@ -86,51 +86,51 @@ function generateRange() {
     }
 }
 
-setInterval(animeWorkCircles, 4000);
-setInterval(animeEmptyCircles, 2500);
+setInterval(animeWorkCircles, 10000);
+// setInterval(animeEmptyCircles, 2500);
 
-function animeEmptyCircles() {
-    const c = [];
-    for (let i = 0; i < 7; i++) {
-        c[i] = getRandom(2, 7);
+// function animeEmptyCircles() {
+//     const c = [];
+//     for (let i = 0; i < 7; i++) {
+//         c[i] = getRandom(2, 7);
 
-    }
+//     }
 
-    anime({
-        targets: '.homePageWorkEmptyCircle',
-        duration: 1000,
-        easing: 'easeInOutQuad',
-        loop: true
-    }); anime({
-        targets: '.homePageWorkEmptyCircle.circle1',
-        width: [`0`, `${c[0]}rem`],
-        height: [`0`, `${c[0]}rem`],
-    }); anime({
-        targets: '.homePageWorkEmptyCircle.circle2',
-        width: [`0`, `${c[1]}rem`],
-        height: [`0`, `${c[1]}rem`],
-    }); anime({
-        targets: '.homePageWorkEmptyCircle.circle3',
-        width: [`0`, `${c[2]}rem`],
-        height: [`0`, `${c[2]}rem`],
-    }); anime({
-        targets: '.homePageWorkEmptyCircle.circle4',
-        width: [`0`, `${c[3]}rem`],
-        height: [`0`, `${c[3]}rem`],
-    }); anime({
-        targets: '.homePageWorkEmptyCircle.circle5',
-        width: [`0`, `${c[4]}rem`],
-        height: [`0`, `${c[4]}rem`],
-    }); anime({
-        targets: '.homePageWorkEmptyCircle.circle6',
-        width: [`0`, `${c[5]}rem`],
-        height: [`0`, `${c[5]}rem`],
-    }); anime({
-        targets: '.homePageWorkEmptyCircle.circle7',
-        width: [`0`, `${c[6]}rem`],
-        height: [`0`, `${c[6]}rem`],
-    });
-}
+//     anime({
+//         targets: '.homePageWorkEmptyCircle',
+//         duration: 1000,
+//         easing: 'easeInOutQuad',
+//         loop: true
+//     }); anime({
+//         targets: '.homePageWorkEmptyCircle.circle1',
+//         width: [`0`, `${c[0]}rem`],
+//         height: [`0`, `${c[0]}rem`],
+//     }); anime({
+//         targets: '.homePageWorkEmptyCircle.circle2',
+//         width: [`0`, `${c[1]}rem`],
+//         height: [`0`, `${c[1]}rem`],
+//     }); anime({
+//         targets: '.homePageWorkEmptyCircle.circle3',
+//         width: [`0`, `${c[2]}rem`],
+//         height: [`0`, `${c[2]}rem`],
+//     }); anime({
+//         targets: '.homePageWorkEmptyCircle.circle4',
+//         width: [`0`, `${c[3]}rem`],
+//         height: [`0`, `${c[3]}rem`],
+//     }); anime({
+//         targets: '.homePageWorkEmptyCircle.circle5',
+//         width: [`0`, `${c[4]}rem`],
+//         height: [`0`, `${c[4]}rem`],
+//     }); anime({
+//         targets: '.homePageWorkEmptyCircle.circle6',
+//         width: [`0`, `${c[5]}rem`],
+//         height: [`0`, `${c[5]}rem`],
+//     }); anime({
+//         targets: '.homePageWorkEmptyCircle.circle7',
+//         width: [`0`, `${c[6]}rem`],
+//         height: [`0`, `${c[6]}rem`],
+//     });
+// }
 
 function animeWorkCircles() {
     generateRange();
@@ -369,3 +369,94 @@ function marquee(selector, speed) {
 //1 class selector for marquee
 //2 marquee speed 0.2
 window.addEventListener("load", marquee(".contactPageMarquee", 0.5));
+
+
+
+(function () {
+    console.log('START');
+
+    const { random: random, floor: floor } = Math;
+    const allProjectsPositions = [];
+    const projectsWrapper = document.querySelector('#homePageWorkWrapper');
+    let maximumWidth = projectsWrapper.clientWidth;
+    let maximumHeight = projectsWrapper.clientHeight;
+
+    const projectsCount = 6;
+    const minimumProjectWidth = 150;
+    const maximumProjectWidth = (maximumWidth / projectsCount) + minimumProjectWidth;
+
+    let aaa = maximumWidth - maximumProjectWidth;
+    let bbb = maximumHeight - maximumProjectWidth;
+
+    console.log('MAX_WIDTH:', maximumWidth);
+    console.log('MAX_HEIGHT:', maximumHeight);
+
+    function placeProject(htmlElement = null) {
+        const isBigElement = htmlElement ? htmlElement.classList.contains('project') : false;
+        let elementDimmension = 0;
+
+        if (isBigElement) {
+            elementDimmension = floor(random() * (maximumWidth / projectsCount)) + minimumProjectWidth;
+        } else {
+            elementDimmension = floor(random() * (maximumWidth / 9)) + (maximumWidth / 10);
+        }
+
+        const x = random() * aaa;
+        const y = random() * bbb;
+
+        console.log('__ELEMENT:', elementDimmension);
+        console.log('__X:', x);
+        console.log('__Y:', y);
+
+        if (elementDimmension && !isOverlap(x, y, elementDimmension)) {
+            if (htmlElement) {
+                htmlElement.style.width = `${elementDimmension}px`;
+                htmlElement.style.height = `${elementDimmension}px`;
+                htmlElement.style.left = `${x}px`;
+                htmlElement.style.top = `${y}px`;
+            } else {
+                const newHtmlElement = document.createElement("div");
+                newHtmlElement.classList.add('homePageWorkLink');
+                newHtmlElement.style.width = `${elementDimmension}px`;
+                newHtmlElement.style.height = `${elementDimmension}px`;
+                newHtmlElement.style.left = `${x}px`;
+                newHtmlElement.style.top = `${y}px`;
+                const wrapper = document.createElement('div');
+                wrapper.classList.add('marginWrapper');
+                newHtmlElement.appendChild(wrapper);
+                projectsWrapper.appendChild(newHtmlElement);
+            }
+
+            allProjectsPositions.push({ x, y });
+        }
+    }
+
+    /**
+     * Check does project elements are overlap themselfs
+     */
+    function isOverlap(x, y, elementDimmension) {
+        const img = { x: elementDimmension, y: elementDimmension };
+
+        for (const projectPosition of allProjectsPositions) {
+            if (x > projectPosition.x - img.x && x < projectPosition.x + img.x && y > projectPosition.y - img.y && y < projectPosition.y + img.y) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    const allProjectsElements = document.querySelectorAll('.homePageWorkLink') || [];
+
+    // Real projects
+    for (let i = 0; i < allProjectsElements.length; i++) {
+        placeProject(allProjectsElements[i]);
+    }
+
+    // Extra additional circles
+    for (let i = 0; i < 30; i++) {
+        placeProject();
+    }
+})();
+
+
