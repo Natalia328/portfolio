@@ -1,25 +1,58 @@
 // WORK
-#homePageWork{
-    .homePageWorkWrapper {
-        position: relative; 
-        margin: 0 auto;   
-        width: 80vw;
-        height: 80vh;
-        background: yellow;
+#homePageWork {
+  .homePageWorkWrapper {
+    position: relative;
+    margin: 0 auto;
+    width: 80vw;
+    height: 80vh;
+    // background: yellow;
 
-      .homePageWorkLink {
-        position: absolute;
-        width: 100px;
-        height: 100px;
-        
-        .marginWrapper{
-            position: relative;
-            width: 100%;
-            height: 100%;
-            margin: 15px; // TODO: Improve margin
-            background: red;
-            border-radius: 50%;
+    .homePageWorkLink {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      font-size: 3.2rem;
+      text-decoration: none;
+      color: $lightColor;
+      text-align: center;
+      letter-spacing: -3px;
+      font-weight: 400;
+
+      .marginWrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin: 15px; // TODO: Improve margin
+        background: $mainLightColor;
+        border-radius: 50%;
+        .projectLink {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          height: 100%;
         }
       }
     }
+    .circle {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
+
+    .circle-dark-dashed {
+      width: 12rem;
+      height: 12rem;
+      margin: auto;
+      border-radius: 51%;
+      background-color: transparent;
+      border: 2px dashed $lightColor;
+    }
   }
+}
