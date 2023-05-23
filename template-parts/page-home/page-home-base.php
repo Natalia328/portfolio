@@ -19,7 +19,6 @@
     </div>
 </section>
 
-welcomeTitle
 
 <nav class="navigation">
     <?php
@@ -47,7 +46,7 @@ welcomeTitle
     </div>
 </section>
 
-<section id="homePageAboutMe" class="homePage homePageAboutMe lightSection">
+<section id="homePageAboutMe" class="homePageAboutMe lightSection">
     <?php $aboutMeMainFields = get_field('homePageAboutMe_main');
 
     if (count($aboutMeMainFields) > 0) : # Main repeater-field 
@@ -73,7 +72,7 @@ welcomeTitle
     </div>
 </section>
 
-<section id="homePageWork" class="homePage homePageOpening homePageWork">
+<!-- <section id="homePageWork" class="homePage homePageOpening homePageWork">
     <h2 class="headerTitle"><?php the_field('homePageWork_mainTitle'); ?></h2>
     <div id="homePageWorkWrapper" class="homePageWorkWrapper">
         <?php $allProjects = get_field('projectPages');
@@ -88,10 +87,11 @@ welcomeTitle
             </a>
         <?php endforeach ?>
     </div>
-</section>
+</section> -->
 
 <section id="homePageContact" class="homePage homePageContact">
-    <h2 class="headerTitle"><?php the_field('homePageContact_mainTitle'); ?></h2>
+
+    <h2 class="headerTitleContact"><?php the_field('homePageContact_mainTitle'); ?></h2>
 
     <div class="contactPageMarquee">
         <a class="contactPageLink contactPageMail" href="mailto:<?php the_field('homePageContact_mail'); ?>"> <?php the_field('homePageContact_mail'); ?></a>

@@ -1,0 +1,159 @@
+// ABOUT ME
+
+.homePageAboutMe {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 3em 1.5em;
+  background-color: $mediumLightColor;
+  overflow-x: hidden;
+
+  .aboutMeText {
+    width: 80%;
+    height: 30vh;
+    font-size: 2rem;
+    font-weight: 400;
+    color: $darkColor;
+  }
+
+  .aboutMeParagraph {
+    text-align: center;
+  }
+
+  .text-1 {
+    position: relative;
+    transition: 1s;
+  }
+
+  .paragraph-1 .text-1,
+  .paragraph-3 .text-1 {
+    left: -50px;
+  }
+
+  .paragraph-2 .text-1,
+  .paragraph-5 .text-1 {
+    right: -50px;
+  }
+
+  .text-2,
+  .text-3,
+  .text-4 {
+    position: absolute;
+    margin: auto;
+    left: 0;
+    top: 0;
+    right: 0;
+    opacity: 1;
+  }
+
+  .paragraph-4 {
+    position: relative;
+    display: inline-block;
+    height: 3.9rem;
+    width: 100%;
+  }
+
+  .letter {
+    display: inline-block;
+  }
+
+  .aboutMeDescrpition {
+    position: relative;
+    width: 80%;
+    text-align: justify;
+    font-size: 1.2rem;
+    padding-top: 2em;
+    transition: 1.5s;
+    color: $darkColor;
+    font-weight: 400;
+  }
+
+  a {
+    text-decoration: none;
+    color: $mainMediumColor;
+
+    i {
+      color: $darkColor;
+    }
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .letter {
+    display: inline-block;
+    background-color: $mainMediumColor;
+    color: $lightColor;
+
+    &:first-of-type {
+      padding-left: 10px;
+      border-radius: 15px 0 0 15px;
+    }
+
+    &:last-of-type {
+      padding-right: 10px;
+      border-radius: 0 15px 15px 0;
+    }
+  }
+}
+
+@media (min-width: 576px) {
+  .homePageAboutMe {
+    .aboutMeText {
+      width: 80%;
+      height: 30vh;
+      font-size: 3.5rem;
+      font-weight: 700;
+
+    }
+    .aboutMeDescrpition {
+      width: 75%;
+      font-size: 1.8rem;
+
+    }
+    .paragraph-4 {
+      height: 5rem;
+    }
+    .letter {
+      &:first-of-type {
+        padding-left: 20px;
+      }
+
+      &:last-of-type {
+        padding-right: 20px;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .homePageAboutMe {
+    padding: 4em 1.5em;
+    .aboutMeDescrpition {
+      width: 65%;
+      padding-top: 4em;
+    }
+}
+
+}
+
+@media (min-width: 992px) {
+
+
+.homePageAboutMe {
+  padding: 5em 1.5em;
+  .aboutMeText {
+    font-size: 5rem;
+  }
+  .aboutMeDescrpition {
+    width: 50%;
+    padding-top: 4em;
+    font-size: 2.4rem;
+  }
+  .paragraph-4 {
+    height: 6rem;
+  }
+}
+}
