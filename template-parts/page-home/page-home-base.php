@@ -7,32 +7,37 @@
  * Copyright Natalia Świerczek Portfolio © All Rights Reserved
  */
 ?>
-<section class="intro">
-    <div class="toTransition thirdToTransition"></div>
-    <div class="toTransition forthToTransition"></div>
-    <div class="toTransition firstToTransition"></div>
-    <div class="toTransition secondToTransition"></div>
-
+<section class="introPage">
+    <div class= "introTitleWrapper">
+    <div class="welcomeTitle"><?php the_field('welcomeTitle'); ?></div>
+    </div>
+    <div class="intro">
+            <div class="toTransition first"></div>
+            <div class="toTransition second"></div>
+            <div class="toTransition third"></div>
+            <div class="toTransition fourth"></div>
+    </div>
 </section>
-YTEST
+
+welcomeTitle
+
 <nav class="navigation">
     <?php
     wp_nav_menu(
         array(
             "theme_location" => "header-menu",
-            // "after" => '<i class="fa-regular fa-arrow-right"></i>'
         )
     ); ?>
     <button class="burger">
-        <!-- <i class="fas fa-times hide"></i> -->
         <p class="menuBtn"><i class="fa-regular fa-eye"></i></p>
     </button>
+    </section>
 </nav>
 
 <section id="homePageOpening" class="homePage homePageOpening">
     <div class="mainTitle">
-        <h1 class="mainTitleName"><?php the_field('homePageOpening_mainTitleName'); ?></h1>
-        <h1 class="mainTitleLastName"><?php the_field('homePageOpening_mainTitleLastName'); ?></h1>
+        <h1 class="mainTitleInfo"><?php the_field('homePageOpening_mainTitleName'); ?></h1>
+        <h1 class="mainTitleInfo"><?php the_field('homePageOpening_mainTitleLastName'); ?></h1>
     </div>
 
     <div class="shortInfo">
@@ -87,8 +92,18 @@ YTEST
 
 <section id="homePageContact" class="homePage homePageContact">
     <h2 class="headerTitle"><?php the_field('homePageContact_mainTitle'); ?></h2>
+
     <div class="contactPageMarquee">
         <a class="contactPageLink contactPageMail" href="mailto:<?php the_field('homePageContact_mail'); ?>"> <?php the_field('homePageContact_mail'); ?></a>
+        <a class="contactPageLink contactPageMail" href="mailto:<?php the_field('homePageContact_mail'); ?>"> <?php the_field('homePageContact_mail'); ?></a>
     </div>
-    <a class="contactPageLink contactPageLinkedIn" href="<?php the_field('homePageContact_linkedinURL'); ?>" target="_blank"><?php the_field('homePageContact_linkedin'); ?></a>
+    <div class="linkWrapper">
+        <a class="contactPageLink contactPageLinkedIn" href="<?php the_field('homePageContact_linkedinURL'); ?>" target="_blank"><?php the_field('homePageContact_linkedin'); ?></a>
+
+        <a class="contactPageLink contactPageGithub" href="<?php the_field('homePageContact_githubURL'); ?>" target="_blank"><?php the_field('homePageContact_github'); ?></a>
+
+    </div>
+
+
+
 </section>

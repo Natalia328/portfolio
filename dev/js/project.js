@@ -4,40 +4,62 @@
 // Copyright Natalia Świerczek Portfolio © All Rights Reserved
 
 
+// -----------------
+// INTRO
+
 const intro = document.querySelector('.intro');
+const welcome = document.querySelector('.welcomeTitle');
+
 function animeIntro() {
+
+    setTimeout(function () {
+        welcome.style.scale = '1.5';
+    }, 1000);
     anime({
-        targets: '.firstToTransition',
+        targets: '.introTitleWrapper',
+        left: '-100%',
+        easing: 'linear',
+        duration: 3000,
+        delay: 3000
+    });
+    anime({
+        targets: '.third',
         width: '0%',
         easing: 'easeInOutQuad',
-        duration: 3300
+        duration: 3300,
+        delay: 3000
     })
     anime({
-        targets: '.secondToTransition',
+        targets: '.fourth',
         width: '0%',
         easing: 'easeInOutQuad',
-        duration: 2600
+        duration: 2600,
+        delay: 3000
     });
     anime({
-        targets: '.thirdToTransition',
+        targets: '.first',
         width: '0%',
         easing: 'easeInOutQuad',
-        duration: 5000
+        duration: 5000,
+        delay: 3000
     });
     anime({
-        targets: '.forthToTransition',
+        targets: '.second',
         width: '0%',
         easing: 'easeInOutQuad',
-        duration: 5000
+        duration: 5000,
+        delay: 3000
     });
+
 };
 
 window.addEventListener("load", animeIntro);
-
-
 setTimeout(() => {
     intro.style.width = `0%`;
-}, "5000");
+}, "8000");
+
+// -----------------
+
 
 
 function getRandom(min, max) {
@@ -164,7 +186,8 @@ function animeWorkCircles() {
 
 }
 
-
+// -----------------------
+// Navigation
 
 const burgerBtn = document.querySelector('.burger');
 const nav = document.querySelector('.navigation');
@@ -173,18 +196,13 @@ const contactSection = document.querySelector("#homePageContact");
 const html = document.querySelector('html');
 const contactTitle = document.querySelector(".contactTitle")
 
-// Navigation slide
 const handleNav = () => {
     nav.classList.toggle('active');
     html.classList.toggle('hideScrollBar');
-    // burgerBtn.classList.toggle('burgerFeature');
     liList.forEach((item) => {
         item.addEventListener("click", () => {
             nav.classList.remove("active");
             html.classList.remove('hideScrollBar');
-            // if(burgerBtn.classList.contains('burgerFeature')){
-            //     burgerBtn.classList.remove('burgerFeature')
-            // }
         });
     });
 }
@@ -193,11 +211,11 @@ burgerBtn.addEventListener('click', handleNav)
 
 
 // Menu btn change color
+
 const allSections = document.querySelectorAll('section')
 
 const handleObserver = () => {
     const currentSection = window.scrollY;
-
     allSections.forEach(section => {
         if (section.classList.contains("lightSection") && section.offsetTop <= currentSection) {
             burgerBtn.classList.add('burger-dark-color')
@@ -228,7 +246,10 @@ const contactTitleEffect = () => {
 window.addEventListener("scroll", contactTitleEffect)
 
 
+// About me section
+
 // Wrap every letter in a span
+
 const textWrapper1 = document.querySelector('.text-2');
 const textWrapper2 = document.querySelector('.text-3');
 const textWrapper3 = document.querySelector('.text-4');
@@ -236,7 +257,6 @@ const textWrapper3 = document.querySelector('.text-4');
 textWrapper1.innerHTML = splitLetters(textWrapper1.textContent);
 textWrapper2.innerHTML = splitLetters(textWrapper2.textContent);
 textWrapper3.innerHTML = splitLetters(textWrapper3.textContent);
-
 
 anime.timeline({ loop: true })
     .add({
@@ -282,9 +302,6 @@ anime.timeline({ loop: true })
     })
 
 
-
-
-
 // Line moving
 let lines = document.querySelectorAll('.text-1');
 let description = document.querySelector('.aboutMeDescrpition');
@@ -299,7 +316,6 @@ window.onscroll = () => {
         }
     }
     description.style.right = `${pos}px`;
-
 }
 
 function splitLetters(text) {
@@ -318,7 +334,6 @@ function splitLetters(text) {
             textToReturn += '<span class="letter">&nbsp;</span>';
         }
     }
-
     return textToReturn;
 }
 
