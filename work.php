@@ -13,7 +13,6 @@ get_header();
 // Work page
 include "template-parts/work-page/workPage.php";
 
-
 get_footer();
 ?>
 

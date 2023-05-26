@@ -49,25 +49,6 @@
   background-color: $mainMediumColor;
 }
 
-.workPage {
-  .projectElement {
-    width: 94vh;
-    max-width: 94vw;
-    height: 94vh;
-    max-height: 94vw;
-    margin: 3vh auto;
-    border-radius: 50%;
-    position: relative;
-
-    .projectLabel {
-      background: $darkColor;
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      text-align: center;
-    }
-  }
-}
 
 @media (min-width: 576px) {
   .homePageContact {
