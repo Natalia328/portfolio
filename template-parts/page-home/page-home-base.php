@@ -7,7 +7,7 @@
  * Copyright Natalia Świerczek Portfolio © All Rights Reserved
  */
 ?>
-<!-- <section class="introPage">
+<section class="introPage">
     <div class= "introTitleWrapper">
     <div class="welcomeTitle"><?php the_field('welcomeTitle'); ?></div>
     </div>
@@ -17,7 +17,7 @@
             <div class="toTransition third"></div>
             <div class="toTransition fourth"></div>
     </div>
-</section> -->
+</section>
 
 
 <nav class="navigation">
@@ -76,7 +76,7 @@
     </div>
 </section>
 
-<!-- <section id="homePageWork" class="homePage homePageOpening homePageWork">
+<section id="homePageWork" class="homePage homePageOpening homePageWork">
     <h2 class="headerTitle"><?php the_field('homePageWork_mainTitle'); ?></h2>
     <div id="homePageWorkWrapper" class="homePageWorkWrapper">
         <?php $allProjects = get_field('projectPages');
@@ -91,7 +91,7 @@
             </a>
         <?php endforeach ?>
     </div>
-</section> -->
+</section>
 
 <section id="homePageContact" class="homePage homePageContact">
 
