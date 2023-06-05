@@ -7,7 +7,7 @@
  * Copyright Natalia Świerczek Portfolio © All Rights Reserved
  */
 ?>
-<section class="introPage">
+<!-- <section class="introPage">
     <div class= "introTitleWrapper">
     <div class="welcomeTitle"><?php the_field('welcomeTitle'); ?></div>
     </div>
@@ -17,7 +17,7 @@
             <div class="toTransition third"></div>
             <div class="toTransition fourth"></div>
     </div>
-</section>
+</section> -->
 
 
 <nav class="navigation">
@@ -67,18 +67,22 @@
         endforeach;
     endif; ?>
 
-    <div class="aboutMeDescrpition">
-        <?php the_field('homePageAboutMe_description'); ?>
+    <div class="aboutMeWrapper">
+        <div class="aboutMeCircle aboutMeCircleBefore"></div>
+        <div class="aboutMeCircle aboutMeCircleMain"></div>
+        <div class="aboutMeDescrpition">
+            <?php the_field('homePageAboutMe_description'); ?>
+        </div>
     </div>
 </section>
 
-<section id="homePageWork" class="homePage homePageOpening homePageWork">
+<!-- <section id="homePageWork" class="homePage homePageOpening homePageWork">
     <h2 class="headerTitle"><?php the_field('homePageWork_mainTitle'); ?></h2>
     <div id="homePageWorkWrapper" class="homePageWorkWrapper">
         <?php $allProjects = get_field('projectPages');
         foreach ($allProjects as $index => $project) : ?>
             <a class="homePageWorkLink project project-<?php echo $index + 1; ?>" href="<?php echo $project['projectData']['url']; ?>" target="<?php echo $project['projectData']['target']; ?>">
-                <div class="marginWrapper">    
+                <div class="marginWrapper">
                     <h3 class="projectLink">
                         <?php echo $project['projectData']['title']; ?>
                     </h3>
@@ -87,7 +91,7 @@
             </a>
         <?php endforeach ?>
     </div>
-</section>
+</section> -->
 
 <section id="homePageContact" class="homePage homePageContact">
 

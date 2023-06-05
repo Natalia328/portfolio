@@ -59,10 +59,10 @@ function animeIntro() {
 
 };
 
-window.addEventListener("load", animeIntro);
-setTimeout(() => {
-    intro.style.width = `0%`;
-}, "8000");
+// window.addEventListener("load", animeIntro);
+// setTimeout(() => {
+//     intro.style.width = `0%`;
+// }, "8000");
 
 // -----------------
 
@@ -343,9 +343,21 @@ function splitLetters(text) {
     return textToReturn;
 }
 
+// ----------------
+// Anime Circle Work Section
+// ----------------
 
+const aboutMeSection = document.querySelector('.homePageAboutMe');
+const aboutMeCircleBefore = document.querySelector('.aboutMeCircleBefore');
 
-
+window.addEventListener('scroll', function () {
+    if (aboutMeSection.getBoundingClientRect().top < window.innerHeight * 0.7) {
+        let pos = (window.scrollY + 100) / 5;
+        aboutMeCircleBefore.style.left = `${pos}px`;
+    }
+}
+);
+// -------------------
 
 function marquee(selector, speed) {
     const parentSelector = document.querySelector(selector);
