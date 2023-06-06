@@ -34,14 +34,15 @@
 </nav>
 
 <section id="homePageOpening" class="homePage homePageOpening">
-    <div class="openingBackground openingBackgroundLight">
+
+    <div class="openingBackground">
         <div class="stripe stripeLight"></div>
         <div class="stripe stripeLight"></div>
         <div class="stripe stripeLight"></div>
         <div class="stripe stripeLight"></div>
         <div class="stripe stripeLight"></div>
     </div>
-    <div class="openingBackground openingBackgroundDark">
+    <div class="openingBackground">
         <div class="stripe stripeDark"></div>
         <div class="stripe stripeDark"></div>
         <div class="stripe stripeDark"></div>

@@ -69,87 +69,31 @@ setTimeout(() => {
 // Main background animation
 // -----------------
 
-
-function animeBackgroundLight() {
-    var tl = anime.timeline({
-        easing: 'linear',
-        duration: 3000,
-        loop: true,
-        delay: 5000
-    });
-    tl
-        .add({
-            targets: '.stripeLight:nth-of-type(1)',
-            width: '0%',
-            opacity: 1,
-        })
-        .add({
-            targets: '.stripeLight:nth-of-type(2)',
-            width: '0%',
-            opacity: 1,
-        }, 500)
-        .add({
-            targets: '.stripeLight:nth-of-type(3)',
-            width: '0%',
-            opacity: 1,
-        }, 1000)
-        .add({
-            targets: '.stripeLight:nth-of-type(4)',
-            width: '0%',
-            opacity: 1,
-        }, 1500)
-        .add({
-            targets: '.stripeLight:nth-of-type(5)',
-            width: '0%',
-            opacity: 1,
-        }, 2000);
-   
-}
-
-setTimeout(() => {
-    animeBackgroundLight();
-}, "10000");
+const stripsLight = document.querySelectorAll('.stripeLight');
+const stripsDark = document.querySelectorAll('.stripeDark');
 
 
-function animeBackgroundDark() {
-    var tl = anime.timeline({
-        easing: 'linear',
-        duration: 2000,
-        loop: true,
-        delay: 3000
-    });
-    tl
-        .add({
-            targets: '.stripeDark:nth-of-type(1)',
-            width: '0%',
-            opacity: 1,
-        })
-        .add({
-            targets: '.stripeDark:nth-of-type(2)',
-            width: '0%',
-            opacity: 1,
-        }, 400)
-        .add({
-            targets: '.stripeDark:nth-of-type(3)',
-            width: '0%',
-            opacity: 1,
-        }, 800)
-        .add({
-            targets: '.stripeDark:nth-of-type(4)',
-            width: '0%',
-            opacity: 1,
-        }, 1200)
-        .add({
-            targets: '.stripeDark:nth-of-type(5)',
-            width: '0%',
-            opacity: 1,
-        }, 1600);
- 
-}
+setInterval(
+    function animeFirst() {
+        for (let i = 0; i < stripsLight.length; i++) {
+            setTimeout(function () {
+                stripsDark[i].style.transform = "translateX(-100%)";
+            }, i * 200);
+            setTimeout(function () {
+                stripsLight[i].style.transform = "translateX(-100%)";
+            }, (i * 200) + 2500);
+        }
+        setTimeout(function () {
+            for (let i = 0; i < stripsLight.length; i++) {
+                stripsDark[i].style.transform = "translateX(0%)";
+                stripsLight[i].style.transform = "translateX(0%)";
+            }
+        }, 7000);
+    }, 8000);
 
-setTimeout(() => {
-    animeBackgroundDark();
-}, "8000");
+
+// ----------------------
+
 
 
 function getRandom(min, max) {
