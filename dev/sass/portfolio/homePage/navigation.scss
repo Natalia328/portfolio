@@ -46,8 +46,6 @@
       a:hover {
         color: $mainMediumColor;
         letter-spacing: 0;
-        animation: anime-blur 3s cubic-bezier(0.55, 0.085, 0.68, 0.53) infinite
-          both;
       }
     }
 
@@ -79,7 +77,6 @@
 
   .menuBtn:hover {
     color: $mainMediumColor;
-    // transform: rotateX(180deg);
   }
 
   &.active {
@@ -89,6 +86,18 @@
       left: 0;
       opacity: 1;
     }
+  }
+}
+
+@keyframes anime-bgr {
+  0% {
+    background-position: 100% 50%;
+  }
+  50% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
   }
 }
 

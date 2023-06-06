@@ -338,7 +338,6 @@ anime.timeline({ loop: true })
 
 // Line moving
 let lines = document.querySelectorAll('.text-1');
-// let description = document.querySelector('.aboutMeDescrpition');
 
 window.onscroll = () => {
     let pos = (window.scrollY - 50) / 20;
@@ -349,7 +348,6 @@ window.onscroll = () => {
             lines[i].style.right = `${pos}px`;
         }
     }
-    // description.style.right = `${pos}px`;
 }
 
 function splitLetters(text) {
@@ -371,9 +369,21 @@ function splitLetters(text) {
     return textToReturn;
 }
 
+// ----------------
+// Anime Circle Work Section
+// ----------------
 
+const aboutMeSection = document.querySelector('.homePageAboutMe');
+const aboutMeCircleBefore = document.querySelector('.aboutMeCircleBefore');
 
-
+window.addEventListener('scroll', function () {
+    if (aboutMeSection.getBoundingClientRect().top < window.innerHeight * 0.7) {
+        let pos = (window.scrollY + 100) / 5;
+        aboutMeCircleBefore.style.left = `${pos}px`;
+    }
+}
+);
+// -------------------
 
 function marquee(selector, speed) {
     const parentSelector = document.querySelector(selector);
