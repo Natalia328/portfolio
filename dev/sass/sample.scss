@@ -68,6 +68,7 @@ body::-webkit-scrollbar-thumb:hover {
   .openingTextWrapper {
     padding: 2em 2em;
     overflow: hidden;
+    height: 100vh;
   }
   .openingBackground {
     width: 100vw;
@@ -77,15 +78,17 @@ body::-webkit-scrollbar-thumb:hover {
   .stripe {
     width: 100%;
     height: 20vh;
-    // opacity: 0;
-  }
-
-  .stripeLight {
-    background-color: $mainMediumColor;
+    transition: transform .3s ease;
   }
 
   .stripeDark {
     background-color: $darkColor;
+  }
+
+  .stripeLight {
+    // background-color: $lightColor;
+    background-color: $mediumLightColor;
+    // TBC
   }
 
   .shortInfo {
@@ -106,10 +109,12 @@ body::-webkit-scrollbar-thumb:hover {
   .mainTitle {
     display: flex;
     width: 100%;
-    height: 100%;
+    height: 80%;
     align-items: center;
     flex-direction: column;
     padding: 10rem;
+    mix-blend-mode: screen;
+    // TO BE CHECKED SCREENMODE
   }
 
   .mainTitleInfo {
