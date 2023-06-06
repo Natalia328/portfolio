@@ -15,6 +15,7 @@ function animeIntro() {
     setTimeout(function () {
         welcome.style.scale = '1.5';
     }, 1000);
+
     anime({
         targets: '.introTitleWrapper',
         left: '-200%',
@@ -65,7 +66,90 @@ setTimeout(() => {
 }, "8000");
 
 // -----------------
+// Main background animation
+// -----------------
 
+
+function animeBackgroundLight() {
+    var tl = anime.timeline({
+        easing: 'linear',
+        duration: 3000,
+        loop: true,
+        delay: 5000
+    });
+    tl
+        .add({
+            targets: '.stripeLight:nth-of-type(1)',
+            width: '0%',
+            opacity: 1,
+        })
+        .add({
+            targets: '.stripeLight:nth-of-type(2)',
+            width: '0%',
+            opacity: 1,
+        }, 500)
+        .add({
+            targets: '.stripeLight:nth-of-type(3)',
+            width: '0%',
+            opacity: 1,
+        }, 1000)
+        .add({
+            targets: '.stripeLight:nth-of-type(4)',
+            width: '0%',
+            opacity: 1,
+        }, 1500)
+        .add({
+            targets: '.stripeLight:nth-of-type(5)',
+            width: '0%',
+            opacity: 1,
+        }, 2000);
+   
+}
+
+setTimeout(() => {
+    animeBackgroundLight();
+}, "10000");
+
+
+function animeBackgroundDark() {
+    var tl = anime.timeline({
+        easing: 'linear',
+        duration: 2000,
+        loop: true,
+        delay: 3000
+    });
+    tl
+        .add({
+            targets: '.stripeDark:nth-of-type(1)',
+            width: '0%',
+            opacity: 1,
+        })
+        .add({
+            targets: '.stripeDark:nth-of-type(2)',
+            width: '0%',
+            opacity: 1,
+        }, 400)
+        .add({
+            targets: '.stripeDark:nth-of-type(3)',
+            width: '0%',
+            opacity: 1,
+        }, 800)
+        .add({
+            targets: '.stripeDark:nth-of-type(4)',
+            width: '0%',
+            opacity: 1,
+        }, 1200)
+        .add({
+            targets: '.stripeDark:nth-of-type(5)',
+            width: '0%',
+            opacity: 1,
+        }, 1600);
+ 
+}
+
+setTimeout(() => {
+    animeBackgroundDark();
+}, "8000");
 
 
 function getRandom(min, max) {
@@ -458,5 +542,8 @@ window.addEventListener("load", marquee(".contactPageMarquee", 0.5));
         placeProject();
     }
 })();
+
+
+
 
 

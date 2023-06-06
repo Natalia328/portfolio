@@ -34,15 +34,30 @@
 </nav>
 
 <section id="homePageOpening" class="homePage homePageOpening">
-    <div class="mainTitle">
-        <h1 class="mainTitleInfo"><?php the_field('homePageOpening_mainTitleName'); ?></h1>
-        <h1 class="mainTitleInfo"><?php the_field('homePageOpening_mainTitleLastName'); ?></h1>
+    <div class="openingBackground openingBackgroundLight">
+        <div class="stripe stripeLight"></div>
+        <div class="stripe stripeLight"></div>
+        <div class="stripe stripeLight"></div>
+        <div class="stripe stripeLight"></div>
+        <div class="stripe stripeLight"></div>
     </div>
-
-    <div class="shortInfo">
-        <p><?php the_field('homePageOpening_extraDescription1'); ?></p>
-        <p class="line">
-        <p><?php the_field('homePageOpening_extraDescription2'); ?></p>
+    <div class="openingBackground openingBackgroundDark">
+        <div class="stripe stripeDark"></div>
+        <div class="stripe stripeDark"></div>
+        <div class="stripe stripeDark"></div>
+        <div class="stripe stripeDark"></div>
+        <div class="stripe stripeDark"></div>
+    </div>
+    <div class="openingTextWrapper">
+        <div class="mainTitle">
+            <h1 class="mainTitleInfo"><?php the_field('homePageOpening_mainTitleName'); ?></h1>
+            <h1 class="mainTitleInfo"><?php the_field('homePageOpening_mainTitleLastName'); ?></h1>
+        </div>
+        <div class="shortInfo">
+            <p><?php the_field('homePageOpening_extraDescription1'); ?></p>
+            <p class="line">
+            <p><?php the_field('homePageOpening_extraDescription2'); ?></p>
+        </div>
     </div>
 </section>
 
@@ -72,7 +87,7 @@
     </div>
 </section>
 
-<section id="homePageWork" class="homePage homePageOpening homePageWork">
+<!-- <section id="homePageWork" class="homePage homePageOpening homePageWork">
     <h2 class="headerTitle"><?php the_field('homePageWork_mainTitle'); ?></h2>
     <div id="homePageWorkWrapper" class="homePageWorkWrapper">
         <?php $allProjects = get_field('projectPages');
@@ -87,7 +102,7 @@
             </a>
         <?php endforeach ?>
     </div>
-</section>
+</section> -->
 
 <section id="homePageContact" class="homePage homePageContact">
 
