@@ -24,6 +24,7 @@
     justify-content: space-evenly;
     padding: 10rem;
     opacity: 0.3;
+
   }
 
   .mainTitleInfo {
@@ -32,12 +33,10 @@
     font-weight: 900;
 
     &:first-child {
-      // align-self: flex-start;
       animation: slide-in-bck-top 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
     }
 
     &:last-child {
-      // align-self: flex-end;
       animation: slide-in-bck-bottom 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)
         both;
     }
@@ -58,9 +57,11 @@
     color: $lightColor;
     font-size: 1.6rem;
     background-color: $darkColor;
-    transition: .5s;
+    transition: 0.5s;
   }
-  .workText:nth-of-type(3), .workText:nth-of-type(4), .workText:nth-of-type(5){
+  .workText:nth-of-type(3),
+  .workText:nth-of-type(4),
+  .workText:nth-of-type(5) {
     padding-left: 5em;
   }
   .workText:hover {
@@ -72,26 +73,57 @@
 }
 
 .workPageSection {
+  .imgWrapper {
+    position: relative;
+    top: 15vh;
+    overflow: hidden;
+  }
+  .changingTextWrapper {
+    position: fixed;
+    top: 30vh;
+    left: 0;
+    font-size: 3em;
+    z-index: 1;
+    letter-spacing: -8px;
+    text-align: center;
+    width: 100vw;
+  }
+  .changingText {
+    color: $mainLightColor;
+    text-decoration: none;
+    display: none;
+    font-weight: 900;
+    background-color: $mediumLightColor;
+  }
   .projectElement {
     position: relative;
-    width: 50vh;
-    max-width: 50vw;
-    height: 50vh;
-    max-height: 50vw;
-    margin: 3vh auto;
-    border-radius: 50%;
+    width: 80vh;
+    max-width: 80vw;
+    height: 70vh;
+    max-height: 70vw;
+    margin: 5vh auto 10vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: 10px solid $mediumLightColor;
+    transition: all 0.6s ease-in-out;
+    transform: translateY(-150px);
+  }
+  .projectElement:nth-child(odd) {
+    transform: translateX(-150%);
+  }
+  .projectElement:nth-child(even) {
+    transform: translateX(150%);
   }
   .projectElementFirst {
-    background-position-x: 4%;
+    background-position-x: 12%;
   }
-  .projectElementSecond {
-    background-position-x: 47%;
-  }
+  .projectElementSecond,
   .projectElementThird {
     background-position-x: 47%;
   }
   .projectElementFourth {
     background-position-x: 41%;
+    margin-bottom: 50vh;
   }
   .hero-img {
     width: 100%;
@@ -101,7 +133,6 @@
     left: 0;
     background-color: $darkColor;
     opacity: 0.5;
-    border-radius: 50%;
   }
 }
 
@@ -114,4 +145,29 @@
     transform: translateZ(0) translateY(0);
     opacity: 1;
   }
+}
+
+.homeBtnNav {
+  width: 100vw;
+  height: 15vh;
+  background-color: $darkColor;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  padding: 2em 2em;
+  top: 0;
+  z-index: 100;
+  color: $mediumLightColor;
+}
+
+.homeBtn {
+  text-decoration: none;
+  color: $mediumLightColor;
+  font-size: 3rem;
+  transition: 0.3s;
+}
+.homeBtn:hover {
+  color: $mainMediumColor;
+  transform: scale(1.1);
 }
