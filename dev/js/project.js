@@ -370,7 +370,7 @@ function splitLetters(text) {
 }
 
 // ----------------
-// Anime Circle Work Section
+// Anime Circle About me Section
 // ----------------
 
 const aboutMeSection = document.querySelector('.homePageAboutMe');
