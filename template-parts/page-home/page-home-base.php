@@ -7,7 +7,7 @@
  * Copyright Natalia Świerczek Portfolio © All Rights Reserved
  */
 ?>
-<!-- <section class="introPage">
+<section class="introPage">
     <div class= "introTitleWrapper">
     <div class="welcomeTitle"><?php the_field('welcomeTitle'); ?></div>
     </div>
@@ -17,7 +17,7 @@
             <div class="toTransition third"></div>
             <div class="toTransition fourth"></div>
     </div>
-</section> -->
+</section>
 
 
 <nav class="navigation">
