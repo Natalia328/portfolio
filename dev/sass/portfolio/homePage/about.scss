@@ -63,7 +63,7 @@
     width: 80%;
     text-align: justify;
     font-size: 1.2rem;
-    padding-top: 2em;
+
     transition: 1.5s;
     color: $darkColor;
     font-weight: 400;
@@ -98,6 +98,34 @@
     }
   }
 }
+.aboutMeWrapper {
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  justify-content: space-evenly;
+  align-items: center;
+  position: relative;
+  padding-top: 2em;
+}
+.aboutMeCircle {
+  width: 5em;
+  height: 5em;
+  border-radius: 50%;
+}
+
+.aboutMeCircleMain {
+  background-color: $mainMediumColor;
+  margin-bottom: 2em;
+}
+
+.aboutMeCircleBefore {
+  display: inline-block;
+  position: absolute;
+  top: 21%;
+  left: -10%;
+  background-color: $mediumLightColor;
+  transition: 1s;
+}
 
 @media (min-width: 576px) {
   .homePageAboutMe {
@@ -106,12 +134,10 @@
       height: 30vh;
       font-size: 3.5rem;
       font-weight: 700;
-
     }
     .aboutMeDescrpition {
       width: 75%;
       font-size: 1.8rem;
-
     }
     .paragraph-4 {
       height: 5rem;
@@ -120,11 +146,17 @@
       &:first-of-type {
         padding-left: 20px;
       }
-
       &:last-of-type {
         padding-right: 20px;
       }
     }
+  }
+  .aboutMeCircle {
+    width: 9em;
+    height: 9em;
+  }
+  .aboutMeCircleBefore {
+    top: 15%;
   }
 }
 
@@ -132,28 +164,46 @@
   .homePageAboutMe {
     padding: 4em 1.5em;
     .aboutMeDescrpition {
-      width: 65%;
-      padding-top: 4em;
+      width: 55%;
     }
-}
-
+    .aboutMeCircle {
+      width: 11em;
+      height: 11em;
+    }
+    .aboutMeCircleBefore {
+      left: 0%;
+    }
+    .aboutMeCircleMain {
+      margin-bottom: 3em;
+    }
+    .aboutMeWrapper {
+      flex-direction: row;
+      padding-top: 5em;
+    }
+  }
 }
 
 @media (min-width: 992px) {
-
-
-.homePageAboutMe {
-  padding: 5em 1.5em;
-  .aboutMeText {
-    font-size: 5rem;
+  .homePageAboutMe {
+    padding: 5em 1.5em;
+    .aboutMeText {
+      font-size: 5rem;
+    }
+    .aboutMeDescrpition {
+      width: 50%;
+      padding-top: 4em;
+      font-size: 2.4rem;
+    }
+    .paragraph-4 {
+      height: 6rem;
+    }
+    .aboutMeCircleBefore {
+      top: 30%;
+      left: -200px;
+    }
+    .aboutMeCircle {
+      width: 13em;
+      height: 13em;
+    }
   }
-  .aboutMeDescrpition {
-    width: 50%;
-    padding-top: 4em;
-    font-size: 2.4rem;
-  }
-  .paragraph-4 {
-    height: 6rem;
-  }
-}
 }

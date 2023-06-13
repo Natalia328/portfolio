@@ -34,15 +34,31 @@
 </nav>
 
 <section id="homePageOpening" class="homePage homePageOpening">
-    <div class="mainTitle">
-        <h1 class="mainTitleInfo"><?php the_field('homePageOpening_mainTitleName'); ?></h1>
-        <h1 class="mainTitleInfo"><?php the_field('homePageOpening_mainTitleLastName'); ?></h1>
-    </div>
 
-    <div class="shortInfo">
-        <p><?php the_field('homePageOpening_extraDescription1'); ?></p>
-        <p class="line">
-        <p><?php the_field('homePageOpening_extraDescription2'); ?></p>
+    <div class="openingBackground">
+        <div class="stripe stripeLight"></div>
+        <div class="stripe stripeLight"></div>
+        <div class="stripe stripeLight"></div>
+        <div class="stripe stripeLight"></div>
+        <div class="stripe stripeLight"></div>
+    </div>
+    <div class="openingBackground">
+        <div class="stripe stripeDark"></div>
+        <div class="stripe stripeDark"></div>
+        <div class="stripe stripeDark"></div>
+        <div class="stripe stripeDark"></div>
+        <div class="stripe stripeDark"></div>
+    </div>
+    <div class="openingTextWrapper">
+        <div class="mainTitle">
+            <h1 class="mainTitleInfo"><?php the_field('homePageOpening_mainTitleName'); ?></h1>
+            <h1 class="mainTitleInfo"><?php the_field('homePageOpening_mainTitleLastName'); ?></h1>
+        </div>
+        <div class="shortInfo">
+            <p><?php the_field('homePageOpening_extraDescription1'); ?></p>
+            <p class="line">
+            <p><?php the_field('homePageOpening_extraDescription2'); ?></p>
+        </div>
     </div>
 </section>
 
@@ -67,8 +83,12 @@
         endforeach;
     endif; ?>
 
-    <div class="aboutMeDescrpition">
-        <?php the_field('homePageAboutMe_description'); ?>
+    <div class="aboutMeWrapper">
+        <div class="aboutMeCircle aboutMeCircleBefore"></div>
+        <div class="aboutMeCircle aboutMeCircleMain"></div>
+        <div class="aboutMeDescrpition">
+            <?php the_field('homePageAboutMe_description'); ?>
+        </div>
     </div>
 </section>
 
@@ -78,7 +98,7 @@
         <?php $allProjects = get_field('projectPages');
         foreach ($allProjects as $index => $project) : ?>
             <a class="homePageWorkLink project project-<?php echo $index + 1; ?>" href="<?php echo $project['projectData']['url']; ?>" target="<?php echo $project['projectData']['target']; ?>">
-                <div class="marginWrapper">    
+                <div class="marginWrapper">
                     <h3 class="projectLink">
                         <?php echo $project['projectData']['title']; ?>
                     </h3>
