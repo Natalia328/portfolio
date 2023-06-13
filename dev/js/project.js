@@ -471,17 +471,23 @@ const changingText = document.querySelector('.changingText');
 const textArray = ["Commercial Website","Html", "CSS", "JavaScript"];
 
 const handleImg = () => {
-    const currentSection = window.scrollY + 50;
+    const currentSection = window.scrollY + 100;
     for (let i = 0; i < allProjectsImg.length; i++) {
-        const element = allProjectsImg[i];
-        if (element.offsetTop <= currentSection) {
+        if (allProjectsImg[i].offsetTop < currentSection) {
             changingText.style.display = "block";
-            element.style.transform = "translate(0px, 50px)";
-            console.log(textArray[i]);
+            allProjectsImg[i].style.transform = "translate(0px, 50px)";
             changingText.textContent = textArray[i];
+        } else {
+            allProjectsImg[i].style.transform = "translate(150%, -150px)";
+        }       
+
+        if(window.scrollY == 0) {
+            allProjectsImg[0].style.transform = "translate(150%, -150px)";
         }
-        
     }
+
+
+
     // allProjectsImg.forEach(section => {
     //     if (section.offsetTop <= currentSection) {
     //         changingText.style.display = "block";
