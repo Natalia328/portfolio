@@ -78,10 +78,10 @@ setInterval(
         for (let i = 0; i < stripsLight.length; i++) {
             setTimeout(function () {
                 stripsDark[i].style.transform = "translateX(-100%)";
-            }, i * 200);
+            }, i * 100);
             setTimeout(function () {
                 stripsLight[i].style.transform = "translateX(-100%)";
-            }, (i * 200) + 2500);
+            }, (i * 100) + 2500);
         }
         setTimeout(function () {
             for (let i = 0; i < stripsLight.length; i++) {
