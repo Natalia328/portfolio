@@ -506,7 +506,6 @@ window.addEventListener("load", marquee(".contactPageMarquee", 0.5));
 // --------------------
 // Work separate page
 
-// const allSections = document.querySelectorAll('section')
 const allProjectsImg = document.querySelectorAll('.projectElement') || [];
 const changingText = document.querySelector('.changingText');
 const textArray = ["Commercial Website","Html", "CSS", "JavaScript"];
@@ -521,9 +520,9 @@ const handleImg = () => {
             changingText.textContent = textArray[i];
         } else {
             if(i%2==0) {
-                allProjectsImg[i].style.transform = "translate(150%, -50px)";
+                allProjectsImg[i].style.transform = "translate(150%, -100px)";
             } else {
-                allProjectsImg[i].style.transform = "translate(-150%, -50px)";
+                allProjectsImg[i].style.transform = "translate(-150%, -100px)";
             }
         }       
     }

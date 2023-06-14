@@ -1,8 +1,10 @@
 <section id="workPage" class="workPageSection">
     <div class="homeBtnNav">
         <a class="homeBtn" href="..\index.php">BACK</a>
-        <div class="workCircle workCircleBefore"></div>
-        <div class="workCircle workCircleMain"></div>
+        <div class="workCircleWrapper">
+            <div class="workCircle workCircleBefore"></div>
+            <div class="workCircle workCircleMain"></div>
+        </div>
     </div>
 
     <div class="link">
@@ -26,8 +28,8 @@
 
     <div class="imgWrapper">
 
-    <!-- ---Put it to the loop?--- -->
-    
+        <!-- ---Put it to the loop?--- -->
+
         <?php $projectImage = get_field('projectImage'); ?>
         <div class="projectElement projectElementFirst" <?php if ($projectImage) : ?>style="background-image: url('<?php echo $projectImage; ?>');" <?php endif; ?>>
             <div class="hero-img"></div>
