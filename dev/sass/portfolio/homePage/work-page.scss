@@ -21,13 +21,17 @@ body {
       font-size: 3rem;
       font-weight: 400;
       text-decoration: none;
-      color: $mainMediumColor;
+      color: $mainLightColor;
       transition: all 0.3s;
     }
 
     .homeBtn:hover {
       transform: scale(1.1);
       color: $mainMediumColor;
+    }
+
+    .workCircleWrapper {
+      display: flex;
     }
 
     .workCircle {
@@ -42,22 +46,26 @@ body {
     }
     .workCircleBefore {
       display: inline-block;
-      position: absolute;
-      top: 0%;
-      left: 45%;
+      // position: absolute;
+      // top: 13%;
+      // left: 45%;
       background-color: $darkColor;
       transition: 1s;
     }
   }
 
+  // body {
+  //   text-align: center;
+  // }
   .link {
     $self: &;
     display: inline-flex;
     align-items: center;
+    // padding: 5px;
     text-decoration: none;
     transform: rotate(-90deg) translate3d(-300px, 0, 0);
-    z-index: 100;
     position: relative;
+    z-index: 104;
 
     &__arrow {
       display: inline-flex;
@@ -97,7 +105,7 @@ body {
       position: relative;
       margin-left: -14px;
       margin-right: 30px;
-      width: 150px;
+      width: 130px;
       height: 2px;
       background: $lightColor;
       overflow: hidden;
@@ -116,9 +124,7 @@ body {
 
     &__text {
       color: $lightColor;
-      font-size: 18px;
-      text-transform: uppercase;
-      font-weight: 200;
+      font-size: 2rem;
       animation: heartbeat 1.5s ease-in-out infinite both;
     }
 
@@ -186,7 +192,6 @@ body {
     }
   }
 
-
   .changingTextWrapper {
     display: flex;
     align-items: center;
@@ -202,9 +207,10 @@ body {
     z-index: 1;
   }
   .linkToWebsite {
-    color: $mainMediumColor;
+    color: $mainLightColor;
     text-decoration: none;
     font-weight: 200;
+    padding: 0 1em;
   }
 
   .linkToWebsiteText {
@@ -217,7 +223,7 @@ body {
   }
   .imgWrapper {
     position: relative;
-    top: 15vh;
+    top: 50vh;
     overflow: hidden;
   }
   .projectElement {
@@ -249,7 +255,7 @@ body {
   }
   .projectElementFirst {
     background-position-x: 12%;
-    margin-top: 50vh;
+    // margin-top: 50vh;
   }
   .projectElementSecond,
   .projectElementThird {
@@ -267,21 +273,55 @@ body {
   width: 100vw;
   height: 5vh;
   padding: 0.4em;
-  font-weight: 100;
+  font-weight: 400;
   border-top: 2px solid $lightColor;
   color: $lightColor;
   z-index: 103;
 }
 
-
 @media (min-width: 576px) {
-
+  .footer {
+    p {
+      font-size: 2rem;
+      margin-bottom: 0;
+      height: 8vh;
+      // padding: 0.6em;
+    }
+  }
+  .workPageSection {
+    .homeBtnNav {
+      .homeBtn {
+        font-size: 4rem;
+      }
+      .workCircle {
+        width: 7em;
+        height: 7em;
+      }
+    }
+    .projectElement {
+      width: 70vh;
+      max-width: 70vw;
+      height: 50vh;
+      max-height: 50vw;
+    }
+    .link {
+      &__text {
+        font-size: 3rem;
+      }
+    }
+  }
 }
 
 @media (min-width: 768px) {
-
+  .workPageSection {
+    .linkToWebsiteText {
+      font-size: 0.7em;
+    }
+    .projectElement {
+      height: 50vh;
+      max-height: 50vw;
+    }
+  }
 }
 
-@media (min-width: 992px) {
 
-}

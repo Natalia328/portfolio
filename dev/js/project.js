@@ -465,7 +465,6 @@
 // --------------------
 // Work separate page
 
-// const allSections = document.querySelectorAll('section')
 const allProjectsImg = document.querySelectorAll('.projectElement') || [];
 const changingText = document.querySelector('.changingText');
 const textArray = ["Commercial Website","Html", "CSS", "JavaScript"];
@@ -480,32 +479,15 @@ const handleImg = () => {
             changingText.textContent = textArray[i];
         } else {
             if(i%2==0) {
-                allProjectsImg[i].style.transform = "translate(150%, -50px)";
+                allProjectsImg[i].style.transform = "translate(150%, -100px)";
             } else {
-                allProjectsImg[i].style.transform = "translate(-150%, -50px)";
+                allProjectsImg[i].style.transform = "translate(-150%, -100px)";
             }
         }       
     }
 
-
-
-    // allProjectsImg.forEach(section => {
-    //     if (section.offsetTop <= currentSection) {
-    //         changingText.style.display = "block";
-    //         section.style.transform = "translate(0px, 50px)";
-    //         changingText.textContent = textArray[i]
-    //     }
-    // })
 }
 
-// const animeFirst =()=>{
-//     anime({
-//         targets: '.projectElementFirst',
-//         translateX: 0,
-//         duration: 3000,
-//         easing: 'easeInOutQuad'
-//       });
-// }
 
 window.addEventListener('scroll', handleImg)
 
