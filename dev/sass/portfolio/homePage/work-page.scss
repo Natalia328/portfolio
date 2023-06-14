@@ -1,9 +1,7 @@
 // WORK - PAGE
 
-body {
-  text-align: center;
-}
 .workPageSection {
+  text-align: center;
   .homeBtnNav {
     display: flex;
     align-items: center;
@@ -46,22 +44,15 @@ body {
     }
     .workCircleBefore {
       display: inline-block;
-      // position: absolute;
-      // top: 13%;
-      // left: 45%;
       background-color: $darkColor;
       transition: 1s;
     }
   }
 
-  // body {
-  //   text-align: center;
-  // }
   .link {
     $self: &;
     display: inline-flex;
     align-items: center;
-    // padding: 5px;
     text-decoration: none;
     transform: rotate(-90deg) translate3d(-300px, 0, 0);
     position: relative;
@@ -255,7 +246,6 @@ body {
   }
   .projectElementFirst {
     background-position-x: 12%;
-    // margin-top: 50vh;
   }
   .projectElementSecond,
   .projectElementThird {
@@ -285,7 +275,6 @@ body {
       font-size: 2rem;
       margin-bottom: 0;
       height: 8vh;
-      // padding: 0.6em;
     }
   }
   .workPageSection {
@@ -323,5 +312,3 @@ body {
     }
   }
 }
-
-
