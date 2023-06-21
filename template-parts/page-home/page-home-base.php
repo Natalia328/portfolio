@@ -54,9 +54,9 @@
             <h1 class="mainTitleInfo"><?php the_field('homePageOpening_mainTitleLastName'); ?></h1>
         </div>
         <div class="shortInfo">
-            <p><?php the_field('homePageOpening_extraDescription1'); ?></p>
+            <p class = "shortInfoText"><?php the_field('homePageOpening_extraDescription1'); ?></p>
             <p class="line">
-            <p><?php the_field('homePageOpening_extraDescription2'); ?></p>
+            <p class = "shortInfoText"><?php the_field('homePageOpening_extraDescription2'); ?></p>
         </div>
     </div>
 </section>
@@ -91,7 +91,7 @@
     </div>
 </section>
 
-<section id="homePageWork" class="homePage homePageOpening homePageWork">
+<!-- <section id="homePageWork" class="homePage homePageOpening homePageWork">
     <h2 class="headerTitle"><?php the_field('homePageWork_mainTitle'); ?></h2>
     <div id="homePageWorkWrapper" class="homePageWorkWrapper">
         <?php $allProjects = get_field('projectPages');
@@ -106,7 +106,7 @@
             </a>
         <?php endforeach ?>
     </div>
-</section>
+</section> -->
 
 <section id="homePageContact" class="homePage homePageContact">
 

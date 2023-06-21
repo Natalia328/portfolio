@@ -54,16 +54,20 @@
     width: 100%;
   }
 
+  .paragraph-5 {
+    padding-top: 0.5em;
+  }
+
   .letter {
     display: inline-block;
+    padding: 0.5em 0 0.25em;
   }
 
   .aboutMeDescrpition {
     position: relative;
     width: 80%;
     text-align: justify;
-    font-size: 1.2rem;
-
+    font-size: 1.6rem;
     transition: 1.5s;
     color: $darkColor;
     font-weight: 400;
@@ -130,17 +134,21 @@
 @media (min-width: 576px) {
   .homePageAboutMe {
     .aboutMeText {
-      width: 80%;
+      width: 90%;
       height: 30vh;
       font-size: 3.5rem;
       font-weight: 700;
     }
     .aboutMeDescrpition {
       width: 75%;
-      font-size: 1.8rem;
+      font-size: 2rem;
     }
     .paragraph-4 {
       height: 5rem;
+    }
+
+    .paragraph-5 {
+      padding-top: 1.4em;
     }
     .letter {
       &:first-of-type {
@@ -196,6 +204,9 @@
     }
     .paragraph-4 {
       height: 6rem;
+    }
+    .paragraph-5 {
+      padding-top: 2.7em;
     }
     .aboutMeCircleBefore {
       top: 30%;
