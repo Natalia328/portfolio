@@ -14,7 +14,6 @@ const enableSASS = true;
 const jsLibraries = [
     '!./dev/js/*.js',
     './dev/js/common/animejs/anime.min.js',
-    './dev/js/common/bootstrap/bootstrap.bundle.min.js'
 ];
 
 // Libraries

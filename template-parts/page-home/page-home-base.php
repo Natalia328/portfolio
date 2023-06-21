@@ -30,7 +30,6 @@
     <button class="burger">
         <p class="menuBtn"><i class="fa-solid fa-eye"></i></p>
     </button>
-    </section>
 </nav>
 
 <section id="homePageOpening" class="homePage homePageOpening">
