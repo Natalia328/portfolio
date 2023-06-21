@@ -28,7 +28,7 @@
         )
     ); ?>
     <button class="burger">
-        <p class="menuBtn"><i class="fa-regular fa-eye"></i></p>
+        <p class="menuBtn"><i class="fa-solid fa-eye"></i></p>
     </button>
     </section>
 </nav>

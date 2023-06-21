@@ -2,7 +2,9 @@
 //
 // Authors: Natalia Świerczek (swierczek.n@gmail.com)
 // Copyright Natalia Świerczek Portfolio © All Rights Reserved
+(function () {
 
+})();
 
 // -----------------
 // INTRO
@@ -114,7 +116,7 @@ function generateRange() {
     }
 }
 
-setInterval(animeWorkCircles, 10000);
+// setInterval(animeWorkCircles, 10000);
 // setInterval(animeEmptyCircles, 2500);
 
 // function animeEmptyCircles() {
@@ -414,49 +416,69 @@ window.addEventListener("load", marquee(".contactPageMarquee", 0.5));
     console.log('START');
 
     const { random: random, floor: floor } = Math;
-    const allProjectsPositions = [];
     const projectsWrapper = document.querySelector('#homePageWorkWrapper');
+    const allProjectsPositions = [];
+
     let maximumWidth = projectsWrapper.clientWidth;
     let maximumHeight = projectsWrapper.clientHeight;
 
-    const projectsCount = 6;
-    const minimumProjectWidth = 150;
+    const projectsCount = 6; // TODO: Get this value dynamically from projects count
+    const minimumProjectWidth = (maximumWidth / projectsCount) > 150 ? (maximumWidth / projectsCount) : 150;
     const maximumProjectWidth = (maximumWidth / projectsCount) + minimumProjectWidth;
-
-    let aaa = maximumWidth - maximumProjectWidth;
-    let bbb = maximumHeight - maximumProjectWidth;
 
     console.log('MAX_WIDTH:', maximumWidth);
     console.log('MAX_HEIGHT:', maximumHeight);
+    console.log('PROJECT:', minimumProjectWidth, maximumProjectWidth);
 
-    function placeProject(htmlElement = null) {
+    let maximalWidthPosition = maximumWidth - maximumProjectWidth; // TODO: Maybe remove this variable completely
+    let maximalHeightPosition = maximumHeight - maximumProjectWidth; // TODO: Maybe remove this variable completely
+
+    function placeProject(htmlElement = null, force = false) {
         const isBigElement = htmlElement ? htmlElement.classList.contains('project') : false;
-        let elementDimmension = 0;
+        let elementDimension = 0;
+        let stopCondition = false;
+        let iteration = 0;
+        let x = 0;
+        let y = 0;
 
-        if (isBigElement) {
-            elementDimmension = floor(random() * (maximumWidth / projectsCount)) + minimumProjectWidth;
-        } else {
-            elementDimmension = floor(random() * (maximumWidth / 9)) + (maximumWidth / 10);
-        }
+        do {
+            iteration++;
 
-        const x = random() * aaa;
-        const y = random() * bbb;
+            if (isBigElement) {
+                elementDimension = floor(random() * (maximumWidth / projectsCount) + minimumProjectWidth);
+            } else {
+                elementDimension = floor(random() * (maximumWidth / 9) + (maximumWidth / 10)); // TODO: Tune this element to
+            }
 
-        console.log('__ELEMENT:', elementDimmension);
-        console.log('__X:', x);
-        console.log('__Y:', y);
+            x = floor(random() * maximalWidthPosition);
+            y = floor(random() * maximalHeightPosition);
 
-        if (elementDimmension && !isOverlap(x, y, elementDimmension)) {
+            console.log('__ELEMENT:', elementDimension, isBigElement ? 'BIG' : '');
+            console.log('____POS_X:', x);
+            console.log('____POS_Y:', y);
+            console.log('__TEST', isFitToSpace(x, y, elementDimension), iteration);
+
+            if (force) {
+                stopCondition = isFitToSpace(x, y, elementDimension);
+            } else {
+                stopCondition = iteration < 3;
+            }
+
+        } while (!stopCondition);
+
+        if (elementDimension && isFitToSpace(x, y, elementDimension)) {
+            console.log('DODAJE --- XXX');
+
             if (htmlElement) {
-                htmlElement.style.width = `${elementDimmension}px`;
-                htmlElement.style.height = `${elementDimmension}px`;
+                htmlElement.style.width = `${elementDimension}px`;
+                htmlElement.style.height = `${elementDimension}px`;
                 htmlElement.style.left = `${x}px`;
                 htmlElement.style.top = `${y}px`;
             } else {
                 const newHtmlElement = document.createElement("div");
                 newHtmlElement.classList.add('homePageWorkLink');
-                newHtmlElement.style.width = `${elementDimmension}px`;
-                newHtmlElement.style.height = `${elementDimmension}px`;
+                newHtmlElement.style.width = `${elementDimension}px`;
+                newHtmlElement.style.height = `${elementDimension}px`;
                 newHtmlElement.style.left = `${x}px`;
                 newHtmlElement.style.top = `${y}px`;
                 const wrapper = document.createElement('div');
@@ -465,34 +487,63 @@ window.addEventListener("load", marquee(".contactPageMarquee", 0.5));
                 projectsWrapper.appendChild(newHtmlElement);
             }
 
-            allProjectsPositions.push({ x, y });
+            allProjectsPositions.push({ x, y , elementDimension});
+        } else {
+            if (htmlElement) {
+                htmlElement.style.display = 'none';
+            }
         }
     }
 
     /**
-     * Check does project elements are overlap themselfs
+     * Check does project elements are overlap themselves
      */
-    function isOverlap(x, y, elementDimmension) {
-        const img = { x: elementDimmension, y: elementDimmension };
+    function isFitToSpace(x, y, dimension) {
+        const allProjectsLength = allProjectsPositions.length;
+        const margin = 10;
 
-        for (const projectPosition of allProjectsPositions) {
-            if (x > projectPosition.x - img.x && x < projectPosition.x + img.x && y > projectPosition.y - img.y && y < projectPosition.y + img.y) {
-                return true;
+        for(let i = 0; i < allProjectsLength; i++) {
+            const reservedArea = {
+                A: allProjectsPositions[i].x - margin,
+                B: allProjectsPositions[i].x + allProjectsPositions[i].elementDimension + margin,
+                C: allProjectsPositions[i].y - margin,
+                D: allProjectsPositions[i].y + allProjectsPositions[i].elementDimension + margin,
+            };
+            const element = {
+                A: x - margin,
+                B: x + dimension + margin,
+                C: y - margin,
+                D: y + dimension + margin,
+            };
+
+            let elementStart = false;
+            let elementEnd = false;
+
+            if ((element.A >= reservedArea.A && element.A <= reservedArea.B) || (element.B >= reservedArea.A && element.B <= reservedArea.B)) {
+                elementStart = true;
+            }
+
+            if ((element.C >= reservedArea.C && element.C <= reservedArea.D) || (element.D >= reservedArea.C && element.D <= reservedArea.D)) {
+                elementEnd = true;
+            }
+
+            if (elementStart || elementEnd) {
+                return false;
             }
         }
 
-        return false;
+        return true;
     }
 
     const allProjectsElements = document.querySelectorAll('.homePageWorkLink') || [];
 
     // Real projects
     for (let i = 0; i < allProjectsElements.length; i++) {
-        placeProject(allProjectsElements[i]);
+        placeProject(allProjectsElements[i], true);
     }
 
     // Extra additional circles
-    for (let i = 0; i < 30; i++) {
+    for (let i = 0; i < 300; i++) {
         placeProject();
     }
 })();

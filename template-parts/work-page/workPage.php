@@ -21,7 +21,7 @@
             <p class="changingText">Commercial website</p>
             <p class="linkToWebsiteText">
                 SEE
-                <i class="fa-regular fa-eye"></i>
+                <i class="fa-solid fa-eye"></i>
             </p>
         </a>
     </div>
