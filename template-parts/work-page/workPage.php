@@ -18,7 +18,7 @@
 
     <div class="changingTextWrapper">
         <a href="https://natalia328.github.io/jankowski-konstrukcje/" class="linkToWebsite">
-            <p class="changingText">Commercial website</p>
+            <h2 class="changingText"><?php the_field('workPage_title'); ?></h2>
             <p class="linkToWebsiteText">
                 SEE
                 <i class="fa-solid fa-eye"></i>
@@ -53,7 +53,6 @@
     </div>
 
 </section>
-<footer class="footer">
-    <p> Natalia Świerczek portfolio
-    <p>
-</footer>
+<section class="footer">
+    <h3 class="footerText"><?php the_field('footer'); ?></h3>
+</section>

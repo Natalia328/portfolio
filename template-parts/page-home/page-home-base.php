@@ -7,30 +7,6 @@
  * Copyright Natalia Świerczek Portfolio © All Rights Reserved
  */
 ?>
-<section class="introPage">
-    <div class= "introTitleWrapper">
-    <div class="welcomeTitle"><?php the_field('welcomeTitle'); ?></div>
-    </div>
-    <div class="intro">
-            <div class="toTransition first"></div>
-            <div class="toTransition second"></div>
-            <div class="toTransition third"></div>
-            <div class="toTransition fourth"></div>
-    </div>
-</section>
-
-
-<nav class="navigation">
-    <?php
-    wp_nav_menu(
-        array(
-            "theme_location" => "header-menu",
-        )
-    ); ?>
-    <button class="burger">
-        <p class="menuBtn"><i class="fa-solid fa-eye"></i></p>
-    </button>
-</nav>
 
 <section id="homePageOpening" class="homePage homePageOpening">
 
@@ -50,18 +26,52 @@
     </div>
     <div class="openingTextWrapper">
         <div class="mainTitle">
-            <h1 class="mainTitleInfo"><?php the_field('homePageOpening_mainTitleName'); ?></h1>
-            <h1 class="mainTitleInfo"><?php the_field('homePageOpening_mainTitleLastName'); ?></h1>
+            <h1 class="mainTitleInfo">
+                <span><?php the_field('homePageOpening_mainTitleName'); ?></span>
+                <span><?php the_field('homePageOpening_mainTitleLastName'); ?></span>
+            </h1>
         </div>
         <div class="shortInfo">
-            <p class = "shortInfoText"><?php the_field('homePageOpening_extraDescription1'); ?></p>
+            <p class="shortInfoText"><?php the_field('homePageOpening_extraDescription1'); ?></p>
             <p class="line">
-            <p class = "shortInfoText"><?php the_field('homePageOpening_extraDescription2'); ?></p>
+            <p class="shortInfoText"><?php the_field('homePageOpening_extraDescription2'); ?></p>
         </div>
     </div>
 </section>
 
-<section id="homePageAboutMe" class="homePageAboutMe lightSection">
+
+<div class="introPage">
+    <div class="introTitleWrapper">
+        <div class="welcomeTitle"><?php the_field('welcomeTitle'); ?></div>
+    </div>
+    <div class="intro">
+        <div class="toTransition first"></div>
+        <div class="toTransition second"></div>
+        <div class="toTransition third"></div>
+        <div class="toTransition fourth"></div>
+    </div>
+</div>
+
+
+
+
+<nav class="navigation">
+    <h2 class="menuHeader">Menu</h2>
+    <?php
+    wp_nav_menu(
+        array(
+            "theme_location" => "header-menu",
+        )
+    ); ?>
+    <button class="burger">
+        <p class="menuBtn"><i class="fa-solid fa-eye"></i></p>
+    </button>
+</nav>
+
+
+
+<div id="homePageAboutMe" class="homePageAboutMe lightSection">
+
     <?php $aboutMeMainFields = get_field('homePageAboutMe_main');
 
     if (count($aboutMeMainFields) > 0) : # Main repeater-field 
@@ -89,9 +99,9 @@
             <?php the_field('homePageAboutMe_description'); ?>
         </div>
     </div>
-</section>
+</div>
 
-<!-- <section id="homePageWork" class="homePage homePageOpening homePageWork">
+<section id="homePageWork" class="homePage homePageOpening homePageWork">
     <h2 class="headerTitle"><?php the_field('homePageWork_mainTitle'); ?></h2>
     <div id="homePageWorkWrapper" class="homePageWorkWrapper">
         <?php $allProjects = get_field('projectPages');
@@ -106,7 +116,7 @@
             </a>
         <?php endforeach ?>
     </div>
-</section> -->
+</section>
 
 <section id="homePageContact" class="homePage homePageContact">
 
@@ -117,10 +127,12 @@
         <a class="contactPageLink contactPageMail" href="mailto:<?php the_field('homePageContact_mail'); ?>"> <?php the_field('homePageContact_mail'); ?></a>
     </div>
     <div class="linkWrapper">
-        <a class="contactPageLink contactPageLinkedIn" href="<?php the_field('homePageContact_linkedinURL'); ?>" target="_blank"><?php the_field('homePageContact_linkedin'); ?></a>
-
-        <a class="contactPageLink contactPageGithub" href="<?php the_field('homePageContact_githubURL'); ?>" target="_blank"><?php the_field('homePageContact_github'); ?></a>
-
+        <h3>
+            <a class="contactPageLink contactPageLinkedIn" href="<?php the_field('homePageContact_linkedinURL'); ?>" target="_blank"><?php the_field('homePageContact_linkedin'); ?></a>
+        </h3>
+        <h3>
+            <a class="contactPageLink contactPageGithub" href="<?php the_field('homePageContact_githubURL'); ?>" target="_blank"><?php the_field('homePageContact_github'); ?></a>
+        </h3>
     </div>
 
 
