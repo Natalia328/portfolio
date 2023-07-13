@@ -1,4 +1,4 @@
-<section id="workPage" class="workPageSection">
+<div id="workPage" class="workPageSection">
     <div class="homeBtnNav">
         <a class="homeBtn" href="..\index.php">BACK</a>
         <div class="workCircleWrapper">
@@ -52,7 +52,7 @@
 
     </div>
 
-</section>
-<section class="footer">
+</div>
+<div class="footer">
     <h3 class="footerText"><?php the_field('footer'); ?></h3>
-</section>
+</div>

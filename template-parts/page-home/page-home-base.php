@@ -53,8 +53,8 @@
     <div class="openingTextWrapper">
         <div class="mainTitle">
             <h1 class="mainTitleInfo">
-                <span><?php the_field('homePageOpening_mainTitleName'); ?></span>
-                <span><?php the_field('homePageOpening_mainTitleLastName'); ?></span>
+                <span class="mainTitleName"><?php the_field('homePageOpening_mainTitleName'); ?></span>
+                <span class="mainTitleName"><?php the_field('homePageOpening_mainTitleLastName'); ?></span>
             </h1>
         </div>
         <div class="shortInfo">
