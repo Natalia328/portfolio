@@ -8,6 +8,32 @@
  */
 ?>
 
+
+<div class="introPage">
+    <div class="introTitleWrapper">
+        <h2 class="welcomeTitle"><?php the_field('welcomeTitle'); ?></h2>
+    </div>
+    <div class="intro">
+        <div class="toTransition first"></div>
+        <div class="toTransition second"></div>
+        <div class="toTransition third"></div>
+        <div class="toTransition fourth"></div>
+    </div>
+</div>
+
+
+<div class="navigation">
+    <?php
+    wp_nav_menu(
+        array(
+            "theme_location" => "header-menu",
+        )
+    ); ?>
+    <button class="burger">
+        <p class="menuBtn"><i class="fa-solid fa-eye"></i></p>
+    </button>
+</div>
+
 <section id="homePageOpening" class="homePage homePageOpening">
 
     <div class="openingBackground">
@@ -38,37 +64,6 @@
         </div>
     </div>
 </section>
-
-
-<div class="introPage">
-    <div class="introTitleWrapper">
-        <div class="welcomeTitle"><?php the_field('welcomeTitle'); ?></div>
-    </div>
-    <div class="intro">
-        <div class="toTransition first"></div>
-        <div class="toTransition second"></div>
-        <div class="toTransition third"></div>
-        <div class="toTransition fourth"></div>
-    </div>
-</div>
-
-
-
-
-<nav class="navigation">
-    <h2 class="menuHeader">Menu</h2>
-    <?php
-    wp_nav_menu(
-        array(
-            "theme_location" => "header-menu",
-        )
-    ); ?>
-    <button class="burger">
-        <p class="menuBtn"><i class="fa-solid fa-eye"></i></p>
-    </button>
-</nav>
-
-
 
 <div id="homePageAboutMe" class="homePageAboutMe lightSection">
 

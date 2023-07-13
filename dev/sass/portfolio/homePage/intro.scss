@@ -57,10 +57,11 @@
   }
 }
 
-@media (min-width: 576px) {
+
+@media (min-width: 576px){
   .introPage {
     .welcomeTitle {
-      font-size: 10rem;
+      font-size: 9rem;
       letter-spacing: -14px;
     }
   }
@@ -69,7 +70,7 @@
 @media (min-width: 768px) {
   .introPage {
     .welcomeTitle {
-      font-size: 14rem;
+      font-size: 12rem;
       letter-spacing: -22px;
     }
   }

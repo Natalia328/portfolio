@@ -2,9 +2,7 @@
 //
 // Authors: Natalia Świerczek (swierczek.n@gmail.com)
 // Copyright Natalia Świerczek Portfolio © All Rights Reserved
-(function () {
 
-})();
 
 // -----------------
 // INTRO
