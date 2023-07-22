@@ -96,7 +96,7 @@
     </div>
 </div>
 
-<section id="homePageWork" class="homePage homePageOpening homePageWork">
+<!-- <section id="homePageWork" class="homePage homePageOpening homePageWork">
     <h2 class="headerTitle"><?php the_field('homePageWork_mainTitle'); ?></h2>
     <div id="homePageWorkWrapper" class="homePageWorkWrapper">
         <?php $allProjects = get_field('projectPages');
@@ -111,7 +111,7 @@
             </a>
         <?php endforeach ?>
     </div>
-</section>
+</section> -->
 
 <section id="homePageContact" class="homePage homePageContact">
 
