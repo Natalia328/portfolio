@@ -17,7 +17,7 @@
     .homeBtn {
       margin-left: 1em;
       font-size: 3rem;
-      font-weight: 400;
+      font-weight: 700;
       text-decoration: none;
       color: $mainLightColor;
       transition: all 0.3s;
@@ -188,14 +188,17 @@
     align-items: center;
     justify-content: center;
     position: fixed;
-    bottom: 0;
+    bottom: 10vh;
     left: 0;
     width: 100vw;
     font-size: 3em;
-    height: 35vh;
     letter-spacing: -8px;
     background-color: $darkColor;
     z-index: 1;
+    h2 {
+      font-size: 1em;
+      font-weight: 200;
+    }
   }
   .linkToWebsite {
     color: $mainLightColor;
@@ -262,20 +265,21 @@
   position: fixed;
   bottom: 0;
   width: 100vw;
-  height: 5vh;
-  padding: 0.4em;
-  font-weight: 400;
+  padding: 1.4em;
   border-top: 2px solid $lightColor;
   color: $lightColor;
   z-index: 103;
+  h3 {
+    font-weight: 200;
+  }
 }
 
 @media (min-width: 576px) {
   .footer {
-    p {
+    h3 {
+      font-weight: 400;
       font-size: 2rem;
       margin-bottom: 0;
-      height: 8vh;
     }
   }
   .workPageSection {
@@ -299,6 +303,14 @@
         font-size: 3rem;
       }
     }
+    .changingTextWrapper {
+      h2 {
+        font-weight: 400;
+      }
+    }
+    .linkToWebsite {
+      font-weight: 400;
+    }
   }
 }
 
@@ -311,5 +323,37 @@
       height: 50vh;
       max-height: 50vw;
     }
+    .changingTextWrapper {
+      h2 {
+        font-weight: 700;
+      }
+    }
   }
 }
+
+@media (orientation: landscape){
+  .workPageSection {
+    .changingTextWrapper {
+      bottom: 14vh;
+    }
+    .homeBtnNav {
+      padding: 4em 1em 0;
+    }
+    .link { 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100vw;
+      height: 80vh;
+      transform: rotate(0deg) translate3d(0, 0, 0);
+
+      &__arrow {
+        display: none;
+      }
+      &__line {
+        display: none;
+      }
+
+  }
+  
+    }}

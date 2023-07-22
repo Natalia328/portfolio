@@ -8,7 +8,7 @@
   .headerTitleContact {
     font-size: 7rem;
     letter-spacing: -10px;
-    padding: 0.3em 1.8em 0.3em 0.3em;
+    padding: 0.4em 1.8em 0.3em 0.3em;
     color: $lightColor;
   }
   .contactPageMarquee {
@@ -54,9 +54,7 @@
 
 @media (min-width: 576px) {
   .homePageContact {
-    .headerTitleContact {
-      font-size: 10rem;
-    }
+    padding: 0.4em 1.8em 0.3em 0.3em;
     .contactPageMail.contactPageLink {
       font-size: 12rem;
     }
@@ -69,7 +67,7 @@
 @media (min-width: 768px) {
   .homePageContact {
     .headerTitleContact {
-      font-size: 10rem;
+      font-size: 9rem;
       padding-top: 0.5em;
     }
     .contactPageMail {
