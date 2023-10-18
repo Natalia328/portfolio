@@ -9,15 +9,15 @@
     position: fixed;
     top: 0;
     width: 100vw;
-    height: 20vh;
-    padding: 1em;
+    // height: 20vh;
+    padding: 2em 1em 1em 1em;
     background-color: $darkColor;
     z-index: 101;
 
     .homeBtn {
       margin-left: 1em;
-      font-size: 3rem;
-      font-weight: 700;
+      font-size: 3.5rem;
+      font-weight: 600;
       text-decoration: none;
       color: $mainLightColor;
       transition: all 0.3s;
@@ -67,7 +67,7 @@
         height: 2px;
         border-radius: 2px;
         overflow: hidden;
-        background: $lightColor;
+        background: $mediumLightColor;
         z-index: 2;
 
         &:nth-child(1) {
@@ -98,7 +98,7 @@
       margin-right: 30px;
       width: 130px;
       height: 2px;
-      background: $lightColor;
+      background: $mediumLightColor;
       overflow: hidden;
       z-index: 1;
 
@@ -114,49 +114,11 @@
     }
 
     &__text {
-      color: $lightColor;
+      color: $mediumLightColor;
       font-size: 2rem;
       animation: heartbeat 1.5s ease-in-out infinite both;
     }
 
-    &:hover {
-      #{$self} {
-        &__line {
-          &:after {
-            animation: animation-line 1.5s forwards;
-          }
-        }
-
-        &__arrow {
-          span {
-            &:after {
-              animation: animation-arrow 1.5s forwards;
-              animation-delay: 1s;
-            }
-          }
-        }
-      }
-    }
-  }
-
-  @keyframes animation-line {
-    0% {
-      left: 80px;
-    }
-
-    100% {
-      left: 0;
-    }
-  }
-
-  @keyframes animation-arrow {
-    0% {
-      width: 0;
-    }
-
-    100% {
-      width: 100%;
-    }
   }
 
   @keyframes heartbeat {
@@ -191,26 +153,27 @@
     bottom: 10vh;
     left: 0;
     width: 100vw;
+    padding-top: 0.5em;
     font-size: 3em;
-    letter-spacing: -8px;
+    letter-spacing: -5px;
     background-color: $darkColor;
     z-index: 1;
     h2 {
       font-size: 1em;
-      font-weight: 200;
+      font-weight: 400;
     }
   }
   .linkToWebsite {
-    color: $mainLightColor;
+    color: $mediumLightColor;
     text-decoration: none;
     font-weight: 200;
-    padding: 0 1em;
   }
 
   .linkToWebsiteText {
     font-size: 0.5em;
     letter-spacing: -2px;
     padding-bottom: 1em;
+    font-weight: 400;
     i {
       padding-left: 0.3em;
     }
@@ -266,11 +229,12 @@
   bottom: 0;
   width: 100vw;
   padding: 1.4em;
-  border-top: 2px solid $lightColor;
-  color: $lightColor;
+  border-top: 2px solid $mediumLightColor;
+  color: $mediumLightColor;
+  background-color: $darkColor;
   z-index: 103;
   h3 {
-    font-weight: 200;
+    font-weight: 400;
   }
 }
 
@@ -331,29 +295,29 @@
   }
 }
 
-@media (orientation: landscape){
-  .workPageSection {
-    .changingTextWrapper {
-      bottom: 14vh;
-    }
-    .homeBtnNav {
-      padding: 4em 1em 0;
-    }
-    .link { 
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100vw;
-      height: 80vh;
-      transform: rotate(0deg) translate3d(0, 0, 0);
+// @media (orientation: landscape){
+//   .workPageSection {
+//     .changingTextWrapper {
+//       bottom: 14vh;
+//     }
+//     .homeBtnNav {
+//       padding: 4em 1em 0;
+//     }
+//     .link { 
+//       display: flex;
+//       align-items: center;
+//       justify-content: center;
+//       width: 100vw;
+//       height: 80vh;
+//       transform: rotate(0deg) translate3d(0, 0, 0);
 
-      &__arrow {
-        display: none;
-      }
-      &__line {
-        display: none;
-      }
+//       &__arrow {
+//         display: none;
+//       }
+//       &__line {
+//         display: none;
+//       }
 
-  }
+//   }
   
-    }}
+//     }}

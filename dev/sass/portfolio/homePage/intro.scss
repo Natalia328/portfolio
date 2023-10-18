@@ -72,16 +72,8 @@
   .introPage {
     .welcomeTitle {
       font-size: 12rem;
-      letter-spacing: -22px;
+      letter-spacing: -16px;
     }
   }
 
-}
-
-@media (min-width: 992px) {
-  .introPage {
-    .welcomeTitle {
-      letter-spacing: -27px;
-    }
-  }
 }

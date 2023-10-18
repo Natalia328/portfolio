@@ -17,7 +17,7 @@
     </div>
 
     <div class="changingTextWrapper">
-        <a href="https://natalia328.github.io/jankowski-konstrukcje/" class="linkToWebsite">
+        <a href="https://natalia328.github.io/jankowski-konstrukcje/" target="_blank" class="linkToWebsite">
             <h2 class="changingText"><?php the_field('workPage_title'); ?></h2>
             <p class="linkToWebsiteText">
                 SEE
@@ -27,8 +27,6 @@
     </div>
 
     <div class="imgWrapper">
-
-        <!-- ---Put it to the loop?--- -->
 
         <?php $projectImage = get_field('projectImage'); ?>
         <div class="projectElement projectElementFirst" <?php if ($projectImage) : ?>style="background-image: url('<?php echo $projectImage; ?>');" <?php endif; ?>>
