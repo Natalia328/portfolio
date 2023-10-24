@@ -212,6 +212,13 @@
   }
   .projectElementFirst {
     background-position-x: 12%;
+    background-image: url("/wp-content/themes/nsportfolio/assets/images/workPage/1.png");
+  }
+  .projectElementSecond {
+    background-image: url("/wp-content/themes/nsportfolio/assets/images/workPage/2.png");
+  }
+  .projectElementThird {
+    background-image: url("/wp-content/themes/nsportfolio/assets/images/workPage/3.png");
   }
   .projectElementSecond,
   .projectElementThird {
@@ -220,6 +227,19 @@
   .projectElementFourth {
     background-position-x: 41%;
     margin-bottom: 50vh;
+    background-image: url("/wp-content/themes/nsportfolio/assets/images/workPage/4.png");
+  }
+  .webAppImgFirst{
+    background-image: url("/wp-content/themes/nsportfolio/assets/images/webApp/1.png");
+  }
+  .webAppImgSecond{
+    background-image: url("/wp-content/themes/nsportfolio/assets/images/webApp/2.png");
+  }
+  .webAppImgThird{
+    background-image: url("/wp-content/themes/nsportfolio/assets/images/webApp/3.png");
+  }
+  .webAppImgFourth{
+    background-image: url("/wp-content/themes/nsportfolio/assets/images/webApp/4.png");
   }
 }
 

@@ -28,23 +28,16 @@
 
     <div class="imgWrapper">
 
-        <?php $projectImage = get_field('projectImage'); ?>
-        <div class="projectElement projectElementFirst" <?php if ($projectImage) : ?>style="background-image: url('<?php echo $projectImage; ?>');" <?php endif; ?>>
+        <div class="projectElement projectElementFirst">
             <div class="hero-img"></div>
         </div>
-
-        <?php $projectImage2 = get_field('projectImage2'); ?>
-        <div class="projectElement projectElementSecond" <?php if ($projectImage2) : ?>style="background-image: url('<?php echo $projectImage2; ?>');" <?php endif; ?>>
+        <div class="projectElement projectElementSecond">
             <div class="hero-img"></div>
         </div>
-
-        <?php $projectImage3 = get_field('projectImage3'); ?>
-        <div class="projectElement projectElementThird" <?php if ($projectImage3) : ?>style="background-image: url('<?php echo $projectImage3; ?>');" <?php endif; ?>>
+        <div class="projectElement projectElementThird">
             <div class="hero-img"></div>
         </div>
-
-        <?php $projectImage4 = get_field('projectImage4'); ?>
-        <div class="projectElement projectElementFourth" <?php if ($projectImage4) : ?>style="background-image: url('<?php echo $projectImage4; ?>');" <?php endif; ?>>
+        <div class="projectElement projectElementFourth">
             <div class="hero-img"></div>
         </div>
 

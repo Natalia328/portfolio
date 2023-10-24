@@ -4,7 +4,8 @@
 
 const allProjectsImg = document.querySelectorAll('.projectElement') || [];
 const changingText = document.querySelector('.changingText');
-const textArray = ["Commercial Website","Html", "CSS", "JavaScript"];
+const textArrayCommercialWebsite = ["Commercial Website","Html", "CSS", "JavaScript"];
+const textArrayWebApp = ["Web App","JSF / Java", "Hibernate / MySQL", "HTML / CSS"];
 
 const handleImg = () => {
     const currentSection = window.scrollY + 200;
@@ -13,7 +14,13 @@ const handleImg = () => {
             changingText.style.display = "block";
             allProjectsImg[i].style.transform = "translate(0%, 0px)";
             allProjectsImg[i].style.opacity = "1";
-            changingText.textContent = textArray[i];
+
+            if(location.pathname=="/work-page/") {
+                changingText.textContent = textArrayCommercialWebsite[i];
+            } else if (location.pathname=="/web-app/"){
+                changingText.textContent = textArrayWebApp[i];
+            }
+            
         } else {
             if(i%2==0) {
                 allProjectsImg[i].style.transform = "translate(200%, -100px)";

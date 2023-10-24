@@ -17,8 +17,8 @@
     </div>
 
     <div class="changingTextWrapper">
-        <a href="https://google.pl" target="_blank" class="linkToWebsite">
-            <h2 class="changingText"><?php the_field('workPage_title'); ?></h2>
+        <a href="https://github.com/Natalia328/warsztaty" target="_blank" class="linkToWebsite">
+            <h2 class="changingText">Web App</h2>
             <p class="linkToWebsiteText">
                 SEE
                 <i class="fa-solid fa-eye"></i>
@@ -28,26 +28,18 @@
 
     <div class="imgWrapper">
 
-        <?php $projectImage = get_field('projectImage'); ?>
-        <div class="projectElement projectElementFirst" <?php if ($projectImage) : ?>style="background-image: url('<?php echo $projectImage; ?>');" <?php endif; ?>>
+        <div class="projectElement projectElementFirst webAppImgFirst">
             <div class="hero-img"></div>
         </div>
-
-        <?php $projectImage2 = get_field('projectImage2'); ?>
-        <div class="projectElement projectElementSecond" <?php if ($projectImage2) : ?>style="background-image: url('<?php echo $projectImage2; ?>');" <?php endif; ?>>
+        <div class="projectElement projectElementSecond webAppImgSecond">
             <div class="hero-img"></div>
         </div>
-
-        <?php $projectImage3 = get_field('projectImage3'); ?>
-        <div class="projectElement projectElementThird" <?php if ($projectImage3) : ?>style="background-image: url('<?php echo $projectImage3; ?>');" <?php endif; ?>>
+        <div class="projectElement projectElementThird webAppImgThird">
             <div class="hero-img"></div>
         </div>
-
-        <?php $projectImage4 = get_field('projectImage4'); ?>
-        <div class="projectElement projectElementFourth" <?php if ($projectImage4) : ?>style="background-image: url('<?php echo $projectImage4; ?>');" <?php endif; ?>>
+        <div class="projectElement projectElementFourth webAppImgFourth">
             <div class="hero-img"></div>
         </div>
-
     </div>
 
 </div>

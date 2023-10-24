@@ -553,4 +553,3 @@ window.addEventListener("load", marquee(".contactPageMarquee", 0.5));
         placeProject();
     }
 })();
-

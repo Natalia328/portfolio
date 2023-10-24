@@ -98,9 +98,20 @@
 
 <section id="homePageWork" class="homePage homePageOpening homePageWork">
     <h2 class="headerTitle"><?php the_field('homePageWork_mainTitle'); ?></h2>
+
     <div id="homePageWorkWrapper" class="homePageWorkWrapper">
+
+
+
+
+
         <?php $allProjects = get_field('projectPages');
+        
         foreach ($allProjects as $index => $project) : ?>
+
+
+
+        
             <a class="homePageWorkLink project project-<?php echo $index + 1; ?>" href="<?php echo $project['projectData']['url']; ?>" target="<?php echo $project['projectData']['target']; ?>">
                 <div class="marginWrapper">
                     <h3 class="projectLink">
@@ -112,6 +123,7 @@
         <?php endforeach ?>
     </div>
 </section>
+
 
 <section id="homePageContact" class="homePage homePageContact">
 
