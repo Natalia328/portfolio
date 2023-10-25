@@ -27,5 +27,3 @@
 <body>
 
     <main>
-
-    wp-content\themes\nsportfolio\assets\js\subPage.min.js

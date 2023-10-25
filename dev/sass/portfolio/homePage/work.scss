@@ -43,6 +43,15 @@
         }
       }
     }
+    .project-1 {
+      top: 0;
+      left: 10%;
+    }
+    .project-2 {
+      top: 35%;
+      left: 35%;
+  }
+
     .circle {
       position: absolute;
       left: 0;
@@ -66,7 +75,14 @@
 
 
 @media (min-width: 576px) {
- 
+  #homePageWork {
+    .homePageWorkWrapper {
+      .project-2 {
+        top: 45%;
+        left: 40%;
+    }
+  }
+  }
 }
 
 @media (min-width: 768px) {
@@ -75,7 +91,12 @@
       font-size: 9rem;
       padding-top: 0.5em;
     }
-    
+    .homePageWorkWrapper {
+      .project-2 {
+        top: 45%;
+        left: 45%;
+    }
+  }
   }
 }
 
@@ -84,7 +105,12 @@
     .headerTitle {
       font-size: 11rem;
     }
-    
+    .homePageWorkWrapper {
+      .project-2 {
+        top: 45%;
+        left: 55%;
+    }
+  }
   }
 }
 

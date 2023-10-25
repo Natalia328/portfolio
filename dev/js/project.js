@@ -106,60 +106,29 @@ let y;
 
 function generateRange() {
     let drawn = getRandom(1, 2);
-    if (drawn === 1) {
-        x = getRandom(12, 17);
-        y = getRandom(30, 40);
-    } else {
-        x = getRandom(30, 40);
-        y = getRandom(12, 17);
+    if (window.innerHeight > window.innerWidth) {    
+    
+        if (drawn === 1) {
+            
+            x = getRandom(window.innerWidth*(1/42), window.innerWidth*(1/30));
+            y = getRandom(window.innerWidth*(1/30), window.innerWidth*(1/28));
+        } else {
+            x = getRandom(window.innerWidth*(1/30), window.innerWidth*(1/28));
+            y = getRandom(window.innerWidth*(1/42), window.innerWidth*(1/30));
+        }
+    }else {
+            if (drawn === 1) {
+            
+                x = getRandom(window.innerHeight*(1/42), window.innerHeight*(1/30));
+                y = getRandom(window.innerHeight*(1/30), window.innerHeight*(1/28));
+            } else {
+                x = getRandom(window.innerHeight*(1/30), window.innerHeight*(1/28));
+                y = getRandom(window.innerHeight*(1/42), window.innerHeight*(1/30));
+            }
+        }
     }
-}
 
 setInterval(animeWorkCircles, 10000);
-setInterval(animeEmptyCircles, 2500);
-
-function animeEmptyCircles() {
-    const c = [];
-    for (let i = 0; i < 7; i++) {
-        c[i] = getRandom(2, 7);
-
-    }
-
-    anime({
-        targets: '.homePageWorkEmptyCircle',
-        duration: 1000,
-        easing: 'easeInOutQuad',
-        loop: true
-    }); anime({
-        targets: '.homePageWorkEmptyCircle.circle1',
-        width: [`0`, `${c[0]}rem`],
-        height: [`0`, `${c[0]}rem`],
-    }); anime({
-        targets: '.homePageWorkEmptyCircle.circle2',
-        width: [`0`, `${c[1]}rem`],
-        height: [`0`, `${c[1]}rem`],
-    }); anime({
-        targets: '.homePageWorkEmptyCircle.circle3',
-        width: [`0`, `${c[2]}rem`],
-        height: [`0`, `${c[2]}rem`],
-    }); anime({
-        targets: '.homePageWorkEmptyCircle.circle4',
-        width: [`0`, `${c[3]}rem`],
-        height: [`0`, `${c[3]}rem`],
-    }); anime({
-        targets: '.homePageWorkEmptyCircle.circle5',
-        width: [`0`, `${c[4]}rem`],
-        height: [`0`, `${c[4]}rem`],
-    }); anime({
-        targets: '.homePageWorkEmptyCircle.circle6',
-        width: [`0`, `${c[5]}rem`],
-        height: [`0`, `${c[5]}rem`],
-    }); anime({
-        targets: '.homePageWorkEmptyCircle.circle7',
-        width: [`0`, `${c[6]}rem`],
-        height: [`0`, `${c[6]}rem`],
-    });
-}
 
 function animeWorkCircles() {
     generateRange();
@@ -271,13 +240,9 @@ window.addEventListener('scroll', handleObserver)
 
 const contactTitleEffect = () => {
     if (contactSection.getBoundingClientRect().top < window.innerHeight * 0.6) {
-        // contactTitle.classList.add("contactTitleEffect");
         contactSection.classList.add("reverseColors");
-        // contactLinks.classList.add("reverseColors");
     } else {
-        // contactTitle.classList.remove("contactTitleEffect");
         contactSection.classList.remove("reverseColors");
-        // contactLinks.classList.remove("reverseColors");
     }
 };
 
@@ -415,141 +380,3 @@ function marquee(selector, speed) {
 //1 class selector for marquee
 //2 marquee speed 0.2
 window.addEventListener("load", marquee(".contactPageMarquee", 0.5));
-
-
-
-(function () {
-    console.log('START');
-
-    const { random: random, floor: floor } = Math;
-    const projectsWrapper = document.querySelector('#homePageWorkWrapper');
-    const allProjectsPositions = [];
-
-    let maximumWidth = projectsWrapper.clientWidth;
-    let maximumHeight = projectsWrapper.clientHeight;
-
-    const projectsCount = 6; // TODO: Get this value dynamically from projects count
-    const minimumProjectWidth = (maximumWidth / projectsCount) > 150 ? (maximumWidth / projectsCount) : 150;
-    const maximumProjectWidth = (maximumWidth / projectsCount) + minimumProjectWidth;
-
-    console.log('MAX_WIDTH:', maximumWidth);
-    console.log('MAX_HEIGHT:', maximumHeight);
-    console.log('PROJECT:', minimumProjectWidth, maximumProjectWidth);
-
-    let maximalWidthPosition = maximumWidth - maximumProjectWidth; // TODO: Maybe remove this variable completely
-    let maximalHeightPosition = maximumHeight - maximumProjectWidth; // TODO: Maybe remove this variable completely
-
-    function placeProject(htmlElement = null, force = false) {
-        const isBigElement = htmlElement ? htmlElement.classList.contains('project') : false;
-        let elementDimension = 0;
-        let stopCondition = false;
-        let iteration = 0;
-        let x = 0;
-        let y = 0;
-
-        do {
-            iteration++;
-
-            if (isBigElement) {
-                elementDimension = floor(random() * (maximumWidth / projectsCount) + minimumProjectWidth);
-            } else {
-                elementDimension = floor(random() * (maximumWidth / 9) + (maximumWidth / 10)); // TODO: Tune this element to
-            }
-
-            x = floor(random() * maximalWidthPosition);
-            y = floor(random() * maximalHeightPosition);
-
-            console.log('__ELEMENT:', elementDimension, isBigElement ? 'BIG' : '');
-            console.log('____POS_X:', x);
-            console.log('____POS_Y:', y);
-            console.log('__TEST', isFitToSpace(x, y, elementDimension), iteration);
-
-            if (force) {
-                stopCondition = isFitToSpace(x, y, elementDimension);
-            } else {
-                stopCondition = iteration < 3;
-            }
-
-        } while (!stopCondition);
-
-        if (elementDimension && isFitToSpace(x, y, elementDimension)) {
-            console.log('DODAJE --- XXX');
-
-            if (htmlElement) {
-                htmlElement.style.width = `${elementDimension}px`;
-                htmlElement.style.height = `${elementDimension}px`;
-                htmlElement.style.left = `${x}px`;
-                htmlElement.style.top = `${y}px`;
-            } else {
-                const newHtmlElement = document.createElement("div");
-                newHtmlElement.classList.add('homePageWorkLink');
-                newHtmlElement.style.width = `${elementDimension}px`;
-                newHtmlElement.style.height = `${elementDimension}px`;
-                newHtmlElement.style.left = `${x}px`;
-                newHtmlElement.style.top = `${y}px`;
-                const wrapper = document.createElement('div');
-                wrapper.classList.add('marginWrapper');
-                newHtmlElement.appendChild(wrapper);
-                projectsWrapper.appendChild(newHtmlElement);
-            }
-
-            allProjectsPositions.push({ x, y , elementDimension});
-        } else {
-            if (htmlElement) {
-                htmlElement.style.display = 'none';
-            }
-        }
-    }
-
-    /**
-     * Check does project elements are overlap themselves
-     */
-    function isFitToSpace(x, y, dimension) {
-        const allProjectsLength = allProjectsPositions.length;
-        const margin = 10;
-
-        for(let i = 0; i < allProjectsLength; i++) {
-            const reservedArea = {
-                A: allProjectsPositions[i].x - margin,
-                B: allProjectsPositions[i].x + allProjectsPositions[i].elementDimension + margin,
-                C: allProjectsPositions[i].y - margin,
-                D: allProjectsPositions[i].y + allProjectsPositions[i].elementDimension + margin,
-            };
-            const element = {
-                A: x - margin,
-                B: x + dimension + margin,
-                C: y - margin,
-                D: y + dimension + margin,
-            };
-
-            let elementStart = false;
-            let elementEnd = false;
-
-            if ((element.A >= reservedArea.A && element.A <= reservedArea.B) || (element.B >= reservedArea.A && element.B <= reservedArea.B)) {
-                elementStart = true;
-            }
-
-            if ((element.C >= reservedArea.C && element.C <= reservedArea.D) || (element.D >= reservedArea.C && element.D <= reservedArea.D)) {
-                elementEnd = true;
-            }
-
-            if (elementStart || elementEnd) {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    const allProjectsElements = document.querySelectorAll('.homePageWorkLink') || [];
-
-    // Real projects
-    for (let i = 0; i < allProjectsElements.length; i++) {
-        placeProject(allProjectsElements[i], true);
-    }
-
-    // Extra additional circles
-    for (let i = 0; i < 300; i++) {
-        placeProject();
-    }
-})();

@@ -6,6 +6,7 @@
  * Authors: Natalia Świerczek (swierczek.n@gmail.com)
  * Copyright Natalia Świerczek Portfolio © All Rights Reserved
  */
+
 ?>
 
 
@@ -96,33 +97,35 @@
     </div>
 </div>
 
+
+
 <section id="homePageWork" class="homePage homePageOpening homePageWork">
     <h2 class="headerTitle"><?php the_field('homePageWork_mainTitle'); ?></h2>
 
     <div id="homePageWorkWrapper" class="homePageWorkWrapper">
 
-
-
-
-
-        <?php $allProjects = get_field('projectPages');
-        
-        foreach ($allProjects as $index => $project) : ?>
-
-
-
-        
-            <a class="homePageWorkLink project project-<?php echo $index + 1; ?>" href="<?php echo $project['projectData']['url']; ?>" target="<?php echo $project['projectData']['target']; ?>">
+            <a class="homePageWorkLink project project-1" href="https://nataliaswierczek.pl/work-page/">
                 <div class="marginWrapper">
                     <h3 class="projectLink">
-                        <?php echo $project['projectData']['title']; ?>
+                        COMMERCIAL WEBSITE
                     </h3>
                     <span class="circle circle-container"><span class="circle circle-dark-dashed"></span></span>
                 </div>
             </a>
-        <?php endforeach ?>
+
+            <a class="homePageWorkLink project project-2" href="https://nataliaswierczek.pl/web-app/">
+                <div class="marginWrapper">
+                    <h3 class="projectLink">
+                        WEB APP
+                    </h3>
+                    <span class="circle circle-container"><span class="circle circle-dark-dashed"></span></span>
+                </div>
+            </a>
+
     </div>
 </section>
+
+
 
 
 <section id="homePageContact" class="homePage homePageContact">
