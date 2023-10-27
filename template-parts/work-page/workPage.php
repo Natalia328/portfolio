@@ -47,4 +47,3 @@
 <div class="footer">
     <h3 class="footerText"><?php the_field('footer'); ?></h3>
 </div>
-
