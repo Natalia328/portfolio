@@ -104,24 +104,20 @@
 
     <div id="homePageWorkWrapper" class="homePageWorkWrapper">
 
-            <a class="homePageWorkLink project project-1" href="https://nataliaswierczek.pl/work-page/">
+        <?php $allProjects = get_field('projectPages');
+        
+        foreach ($allProjects as $index => $project) : ?>
+
+       
+            <a class="homePageWorkLink project project-<?php echo $index + 1; ?>" href="<?php echo $project['projectData']['url']; ?>" target="<?php echo $project['projectData']['target']; ?>">
                 <div class="marginWrapper">
                     <h3 class="projectLink">
-                        COMMERCIAL WEBSITE
+                        <?php echo $project['projectData']['title']; ?>
                     </h3>
                     <span class="circle circle-container"><span class="circle circle-dark-dashed"></span></span>
                 </div>
             </a>
-
-            <a class="homePageWorkLink project project-2" href="https://nataliaswierczek.pl/web-app/">
-                <div class="marginWrapper">
-                    <h3 class="projectLink">
-                        WEB APP
-                    </h3>
-                    <span class="circle circle-container"><span class="circle circle-dark-dashed"></span></span>
-                </div>
-            </a>
-
+        <?php endforeach ?>
     </div>
 </section>
 

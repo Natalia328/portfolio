@@ -49,6 +49,9 @@
         letter-spacing: 0;
       }
     }
+    .menu-item:last-child {
+      padding-bottom: 4rem
+    }
 
     .menu-item:hover {
       transform: translateX(10vw);
